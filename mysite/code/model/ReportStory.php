@@ -3,7 +3,7 @@
 class ReportStory extends BlogPost {
 
 	private static $db = array(
-		
+		'AuthorEmails' => 'Text'
 	);
 
 	private static $belongs_many_many = array(
@@ -19,6 +19,10 @@ class ReportStory extends BlogPost {
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
 		$f->removeByName('PublishDate');
+		$f->removeByName('Authors');
+
+
+		$authorEmailField = TextareaField::create('AuthorEmails', 'Author email addresses (comma separated)')->setRows(3);
 		$member = Member::currentUser();
 
 		$unitField = ListboxField::create('Units', 'Contributing Division Unit(s)', DivisionUnit::get()->map()->toArray())->setMultiple(true);
@@ -27,6 +31,7 @@ class ReportStory extends BlogPost {
 			$unitField->setDisabled(true);
 		}
 		$f->addFieldToTab("blog-admin-sidebar", $unitField);
+		$f->addFieldToTab("blog-admin-sidebar", $authorEmailField);
 
 
 
@@ -43,21 +48,18 @@ class ReportStory extends BlogPost {
 	}
 
 	public function populateDefaults() {
-		//example: set attributes before calling parent::populateDefaults();
-	    // if($parent = $this->Parent()) {
-	    //     $this->FullTitle = $parent->Title . ': ' . $this->Title;
-	    // } 
+		//set attributes before calling parent::populateDefaults();
 
-	    $member = Member::currentUser();
+	    // $member = Member::currentUser();
 
-	    if($member){
-		    $memberUnits = $member->Units();
+	    // if($member){
+		   //  $memberUnits = $member->Units();
 
-		    foreach($memberUnits as $unit){
-		    	$this->Units()->add($unit);
-		    }
+		   //  foreach($memberUnits as $unit){
+		   //  	$this->Units()->add($unit);
+		   //  }
 
-	    }
+	    // }
 
 	    parent::populateDefaults();
 	}
@@ -66,5 +68,21 @@ class ReportStory extends BlogPost {
 
 	}
 
+public function onBeforeWrite() {
+    // check on first write action, aka "database row creation" (ID-property is not set)
+    if(!$this->isInDb()) {
+
+    }
+
+    // check on every write action:
+    $authorEmails = $this->AuthorEmails;
+
+    $authorEmailsArray = explode(',',$authorEmails);
+    //print_r($authorEmailsArray);
+
+    // CAUTION: You are required to call the parent-function, otherwise
+    // SilverStripe will not execute the request.
+    parent::onBeforeWrite();
+  }
 
 }

@@ -8,8 +8,15 @@
 		"silverstripe/reports": "3.5.*@stable",
 		"silverstripe/siteconfig": "3.5.*@stable",
 		"silverstripe-themes/simple": "3.1.*",
-		"silverstripe/blog" : "2.*@stable"
+		"silverstripe/blog" : "2.*@stable",
+		"silverstripe/activedirectory": "3.*"
 	},
+   "repositories":[  
+      {
+         "type": "vcs",
+         "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-activedirectory"
+      }
+   ],
 	"require-dev": {
 		"phpunit/PHPUnit": "~3.7@stable"
 	},
