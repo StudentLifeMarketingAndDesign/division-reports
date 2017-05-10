@@ -9,7 +9,9 @@
 		"silverstripe/siteconfig": "3.5.*@stable",
 		"silverstripe-themes/simple": "3.1.*",
 		"silverstripe/blog" : "2.*@stable",
-		"silverstripe/activedirectory": "3.*"
+		"silverstripe/activedirectory": "3.*",
+		"studiobonito/silverstripe-typekit" : "*"
+
 	},
    "repositories":[  
       {

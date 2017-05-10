@@ -20,3 +20,7 @@ _ss_environment.php
 activedirectory/
 multivaluefield/
 queuedjobs/
+.tmp
+silverstripe-typekit/
+node_modules
+npm-debug.log

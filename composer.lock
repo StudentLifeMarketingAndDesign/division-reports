@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6f14d5c5db468fe941833bc52af1460c",
-    "content-hash": "5b41689478ee7a7fbb782149b447e253",
+    "hash": "3e04d139fc0ca380343aa812b597f58d",
+    "content-hash": "000d09ec7c962abbe0598f42e6e02f2c",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -851,6 +851,44 @@
                 "tag"
             ],
             "time": "2016-08-22 09:56:00"
+        },
+        {
+            "name": "studiobonito/silverstripe-typekit",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/studiobonito/silverstripe-typekit.git",
+                "reference": "de3c0d75fc773f851455683adfce6254ca7cef80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/studiobonito/silverstripe-typekit/zipball/de3c0d75fc773f851455683adfce6254ca7cef80",
+                "reference": "de3c0d75fc773f851455683adfce6254ca7cef80",
+                "shasum": ""
+            },
+            "type": "silverstripe-module",
+            "autoload": {
+                "psr-4": {
+                    "StudioBonito\\SilverStripe\\TypeKit\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Tom Densham",
+                    "email": "tom.densham@studiobonito.co.uk"
+                }
+            ],
+            "description": "Provide TypeKit integration for SilverStripe CMS.",
+            "keywords": [
+                "silverstripe",
+                "typekit",
+                "typography"
+            ],
+            "time": "2014-07-31 10:20:30"
         },
         {
             "name": "zendframework/zend-authentication",
