@@ -7,6 +7,11 @@ class Page extends SiteTree {
 	private static $has_one = array(
 	);
 
+	public function AllUnits(){
+
+		return DivisionUnit::get()->filter(array('ShowInMenus' => 1));
+	}
+
 }
 class Page_Controller extends ContentController {
 
