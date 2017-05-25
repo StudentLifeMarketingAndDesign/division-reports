@@ -99,7 +99,8 @@ gulp.task('styles', () => {
     .pipe($.if('*.css', $.cssnano()))
     .pipe($.size({title: 'styles'}))
     .pipe($.sourcemaps.write('./'))
-    .pipe(gulp.dest('./themes/division-reports/dist/css'));
+    .pipe(gulp.dest('./themes/division-reports/dist/css'))
+    .pipe(browserSync.reload({ stream: true }));
 });
 
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
@@ -158,10 +159,10 @@ gulp.task('clean', () => del(['.tmp', './themes/division-reports/dist/*', '!dist
 // Watch files for changes & reload
 gulp.task('watch', ['styles', 'html'], () => {
   // gulp.watch(['./themes/division-reports/**/*.html'], reload);
-  gulp.watch(['./themes/division-reports/src/templates/**/*.ss'], ['html']);
-  gulp.watch(['./themes/division-reports/src/styles/**/*.{scss,css}'], ['styles']);
-  gulp.watch(['./themes/division-reports/src/javascript/**/*.js'], ['lint', 'scripts']);
-  gulp.watch(['./themes/division-reports/src/images/**/*']);
+  gulp.watch(['./themes/division-reports/src/templates/**/*.ss'], ['html', browserSync.reload]);
+  gulp.watch(['./themes/division-reports/src/styles/**/*.{scss,css}'], ['styles', browserSync.reload]);
+  gulp.watch(['./themes/division-reports/src/scripts/**/*.js'], ['lint', 'scripts', browserSync.reload]);
+  gulp.watch(['./themes/division-reports/src/images/**/*'], [ browserSync.reload]);
 });
 
 
