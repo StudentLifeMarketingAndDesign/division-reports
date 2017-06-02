@@ -7,14 +7,14 @@ class ReportStory extends BlogPost {
 	);
 
 	private static $many_many = array(
-		'Units' => 'ReportUnit'
+		'Sections' => 'ReportSection'
 	);
 
 	private static $singular_name = 'Story';
 
 	private static $plural_name = 'Stories';
 
-	private static $summary_fields = array('Title', 'ContributingUnits');
+	private static $summary_fields = array('Title', 'ContributingSections');
 
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
@@ -25,12 +25,12 @@ class ReportStory extends BlogPost {
 		$authorEmailField = TextareaField::create('AuthorEmails', 'Author email addresses (comma separated)')->setRows(3);
 		$member = Member::currentUser();
 
-		$unitField = ListboxField::create('Units', 'Contributing Division Unit(s)', ReportUnit::get()->map()->toArray())->setMultiple(true);
+		$sectionField = ListboxField::create('Sections', 'Departments / Section(s)', ReportSection::get()->map()->toArray())->setMultiple(true);
 		if (!Permission::checkMember($member, 'ADMIN')) {
 
-			$unitField->setDisabled(true);
+			$sectionField->setDisabled(true);
 		}
-		$f->addFieldToTab("blog-admin-sidebar", $unitField);
+		$f->addFieldToTab("Root.Main", $sectionField, 'Content');
 		$f->addFieldToTab("blog-admin-sidebar", $authorEmailField);
 
 
@@ -38,11 +38,11 @@ class ReportStory extends BlogPost {
 		return $f;
 	}
 
-	public function getContributingUnits(){
-		$units = $this->Units();
+	public function getContributingSections(){
+		$sections = $this->Sections();
 		$list = '';
-		foreach($units as $unit){
-			$list .= $unit->Title.' ';
+		foreach($sections as $section){
+			$list .= $section->Title.' ';
 		}
 		return $list;
 	}
@@ -53,10 +53,10 @@ class ReportStory extends BlogPost {
 	    // $member = Member::currentUser();
 
 	    // if($member){
-		   //  $memberUnits = $member->Units();
+		   //  $memberSections = $member->Sections();
 
-		   //  foreach($memberUnits as $unit){
-		   //  	$this->Units()->add($unit);
+		   //  foreach($memberSections as $section){
+		   //  	$this->Sections()->add($section);
 		   //  }
 
 	    // }

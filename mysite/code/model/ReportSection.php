@@ -13,7 +13,7 @@
  * @property int $BlogID
  */
 
-class ReportUnit extends DataObject implements CategorisationObject
+class ReportSection extends DataObject implements CategorisationObject
 {
 
     private static $db = array(
@@ -37,14 +37,14 @@ class ReportUnit extends DataObject implements CategorisationObject
 		'ShowInMenus' => true
 	);
 
-    public function JobListing()
-    {
-        $jobListings = parent::JobListings();
+    // public function Stories()
+    // {
+    //     $stories = parent::();
 
-        $this->extend("updateGetJobListings", $jobListings);
+    //     $this->extend("updateGetJobListings", $jobListings);
 
-        return $jobListings;
-    }
+    //     return $jobListings;
+    // }
 
     /**
      * {@inheritdoc}
@@ -53,6 +53,7 @@ class ReportUnit extends DataObject implements CategorisationObject
     {
         $fields = new FieldList(
             TextField::create('Title', _t('JobListingDepartment.Title', 'Title')),
+            TextField::create('URLSegment', 'URL Segment'),
             CheckboxField::create('ShowInMenus', 'Show in menus')
         );
         $this->extend('updateCMSFields', $fields);
@@ -66,7 +67,7 @@ class ReportUnit extends DataObject implements CategorisationObject
      */
     public function getLink()
     {
-        return Controller::join_links($this->Blog()->Link(), 'unit', $this->URLSegment);
+        return Controller::join_links($this->Blog()->Link(), 'section', $this->URLSegment);
     }
 
     /**

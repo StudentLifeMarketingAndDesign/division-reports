@@ -1,0 +1,1 @@
+<% with $CurrentSection %> <h1>$Title Stories:</h1> <% loop $Stories %> <h2><a href="$Link">$Title</a></h2> <% end_loop %> <% end_with %>

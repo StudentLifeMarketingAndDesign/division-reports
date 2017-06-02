@@ -8,7 +8,7 @@ class Report extends Blog {
 	);
 
 	private static $has_many = array(
-		'Units' => 'ReportUnit'
+		'Sections' => 'ReportSection'
 	);
     private static $extensions = array(
         'StoryFilter',
@@ -24,12 +24,12 @@ class Report extends Blog {
 		$f = parent::getCMSFields();
 		$f->removeByName('Content');
 
-		$unitGridFieldConfig = GridFieldConfig_RelationEditor::create();
-		$unitGridField = new GridField('Units', 'Units in this report', $this->Units());
+		$sectionGridFieldConfig = GridFieldConfig_RelationEditor::create();
+		$sectionGridField = new GridField('Sections', 'Units/Sections in this report', $this->Sections());
 
-		$unitGridField->setConfig($unitGridFieldConfig);
+		$sectionGridField->setConfig($sectionGridFieldConfig);
 		
-		$f->addFieldToTab('Root.Main', $unitGridField);
+		$f->addFieldToTab('Root.Sections', $sectionGridField);
 
 		return $f;
 	}
@@ -37,7 +37,6 @@ class Report extends Blog {
 	public function getLumberjackTitle(){
 		return 'Stories';
 	}
-
 
 }
 
@@ -60,22 +59,18 @@ class Report_Controller extends Blog_Controller {
 	 */
 	
 	private static $allowed_actions = array(
-        'unit',
+        'section',
     );
     private static $url_handlers = array(
-        'unit/$Unit!/$Rss' => 'unit',
+        'section/$Section!/$Rss' => 'section',
     );
-    public function unit(){
-        $unit = $this->getCurrentUnit();
+    public function section(){
 
-        if ($unit) {
-            $this->Stories = $unit->Stories();
+        $section = $this->getCurrentSection();
 
-            if($this->isRSS()) {
-            	return $this->rssFeed($this->stories, $unit->getLink());
-            } else {
-            	return $this->render();
-            }
+
+        if ($section) {
+            return $this->renderWith(array('Report_section', 'Page'));
         }
 
         $this->httpError(404, 'Not Found');
@@ -83,16 +78,16 @@ class Report_Controller extends Blog_Controller {
         return null;
     }
 
-    public function getCurrentUnit()
+    public function getCurrentSection()
     {
         /**
          * @var Blog $dataRecord
          */
         $dataRecord = $this->dataRecord;
-        $unit = $this->request->param('Unit');
-        if ($unit) {
-            return $dataRecord->Units()
-                ->filter('URLSegment', array($unit, rawurlencode($unit)))
+        $section = $this->request->param('Section');
+        if ($section) {
+            return $dataRecord->Sections()
+                ->filter('URLSegment', array($section, rawurlencode($section)))
                 ->first();
         }
         return null;

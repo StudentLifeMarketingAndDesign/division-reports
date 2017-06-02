@@ -22,6 +22,14 @@
 
 		<div class="">$Content</div>
 
+		<h2>Sections</h2>
+
+		<ul>
+		<% loop $Sections %>
+			<li><a href="$Link">$Title</a></li>
+		<% end_loop %>
+		</ul>
+
 		<% if $PaginatedList.Exists %>
 			<% loop $PaginatedList %>
 				<% include PostSummary %>
