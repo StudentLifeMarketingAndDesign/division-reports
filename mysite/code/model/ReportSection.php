@@ -56,7 +56,26 @@ class ReportSection extends DataObject implements CategorisationObject
             TextField::create('URLSegment', 'URL Segment'),
             CheckboxField::create('ShowInMenus', 'Show in menus')
         );
-        $this->extend('updateCMSFields', $fields);
+
+        $areas = $this->blockManager->getAreasForPageType($this->owner->ClassName);
+
+            // Blocks related directly to this Page
+            $gridConfig = GridFieldConfig_BlockManager::create(true, true, true, true)
+                ->addExisting($this->class)
+                //->addBulkEditing()
+                ->addComponent(new GridFieldOrderableRows())
+                ;
+
+            // TODO it seems this sort is not being applied...
+            $gridSource = $this->Blocks();
+                // ->sort(array(
+                //  "FIELD(SiteTree_Blocks.BlockArea, '" . implode("','", array_keys($areas)) . "')" => '',
+                //  'SiteTree_Blocks.Sort' => 'ASC',
+                //  'Name' => 'ASC'
+                // ));
+
+        $fields->push(GridField::create('Blocks', _t('Block.PLURALNAME', 'Blocks'), $gridSource, $gridConfig));
+        //$this->extend('updateCMSFields', $fields);
         return $fields;
     }
 
@@ -70,6 +89,9 @@ class ReportSection extends DataObject implements CategorisationObject
         return Controller::join_links($this->Blog()->Link(), 'section', $this->URLSegment);
     }
 
+    public function Link(){
+        return $this->getLink();
+    }
     /**
      * Inherits from the parent blog or can be overwritten using a DataExtension.
      *

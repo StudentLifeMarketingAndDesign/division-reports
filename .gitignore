@@ -24,3 +24,7 @@ queuedjobs/
 silverstripe-typekit/
 node_modules
 npm-debug.log
+betterbuttons/
+blocks/
+gridfieldextensions/
+.DS_Store
