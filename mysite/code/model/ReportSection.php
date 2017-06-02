@@ -53,28 +53,28 @@ class ReportSection extends DataObject implements CategorisationObject
     {
         $fields = new FieldList(
             TextField::create('Title', _t('JobListingDepartment.Title', 'Title')),
-            TextField::create('URLSegment', 'URL Segment'),
+            //TextField::create('URLSegment', 'URL Segment'),
             CheckboxField::create('ShowInMenus', 'Show in menus')
         );
 
-        $areas = $this->blockManager->getAreasForPageType($this->owner->ClassName);
-
+        if($this->ID){
             // Blocks related directly to this Page
             $gridConfig = GridFieldConfig_BlockManager::create(true, true, true, true)
                 ->addExisting($this->class)
                 //->addBulkEditing()
                 ->addComponent(new GridFieldOrderableRows())
                 ;
-
-            // TODO it seems this sort is not being applied...
             $gridSource = $this->Blocks();
-                // ->sort(array(
-                //  "FIELD(SiteTree_Blocks.BlockArea, '" . implode("','", array_keys($areas)) . "')" => '',
-                //  'SiteTree_Blocks.Sort' => 'ASC',
-                //  'Name' => 'ASC'
-                // ));
+
 
         $fields->push(GridField::create('Blocks', _t('Block.PLURALNAME', 'Blocks'), $gridSource, $gridConfig));
+
+        }else{
+            $fields->push(ReadonlyField::create('You must save this section before you can add blocks'));
+        }
+        $areas = $this->blockManager->getAreasForPageType($this->owner->ClassName);
+
+
         //$this->extend('updateCMSFields', $fields);
         return $fields;
     }
