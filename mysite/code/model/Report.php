@@ -6,6 +6,10 @@ class Report extends Blog {
 
 
 	);
+
+	private static $has_many = array(
+		'Units' => 'ReportUnit'
+	);
     private static $extensions = array(
         'StoryFilter',
     );	
@@ -20,6 +24,12 @@ class Report extends Blog {
 		$f = parent::getCMSFields();
 		$f->removeByName('Content');
 
+		$unitGridFieldConfig = GridFieldConfig_RelationEditor::create();
+		$unitGridField = new GridField('Units', 'Units in this report', $this->Units());
+
+		$unitGridField->setConfig($unitGridFieldConfig);
+		
+		$f->addFieldToTab('Root.Main', $unitGridField);
 
 		return $f;
 	}
@@ -48,18 +58,57 @@ class Report_Controller extends Blog_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array (
-		'unit'
-	);
+	
+	private static $allowed_actions = array(
+        'unit',
+    );
+    private static $url_handlers = array(
+        'unit/$Unit!/$Rss' => 'unit',
+    );
+    public function unit(){
+        $unit = $this->getCurrentUnit();
 
-	public function unit(){
-		return '';
-	}
+        if ($unit) {
+            $this->Stories = $unit->Stories();
 
-	public function init() {
-		parent::init();
-		// You can include any CSS or JS required by your project here.
-		// See: http://doc.silverstripe.org/framework/en/reference/requirements
-	}
+            if($this->isRSS()) {
+            	return $this->rssFeed($this->stories, $unit->getLink());
+            } else {
+            	return $this->render();
+            }
+        }
+
+        $this->httpError(404, 'Not Found');
+
+        return null;
+    }
+
+    public function getCurrentUnit()
+    {
+        /**
+         * @var Blog $dataRecord
+         */
+        $dataRecord = $this->dataRecord;
+        $unit = $this->request->param('Unit');
+        if ($unit) {
+            return $dataRecord->Units()
+                ->filter('URLSegment', array($unit, rawurlencode($unit)))
+                ->first();
+        }
+        return null;
+    }
+
+    /** 
+     * Returns true if the $Rss sub-action for categories/tags has been set to "rss"
+     */
+    private function isRSS() 
+    {
+        $rss = $this->request->param('Rss');
+        if(is_string($rss) && strcasecmp($rss, "rss") == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }

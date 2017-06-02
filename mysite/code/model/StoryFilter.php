@@ -15,43 +15,39 @@ class StoryFilter extends BlogFilter
      */
     public function updateCMSFields(FieldList $fields)
     {
-        $fields->removeByName('ChildPages');
-        $excluded = $this->owner->getExcludedSiteTreeClassNames();
+        // $fields->removeByName('ChildPages');
+        // $excluded = $this->owner->getExcludedSiteTreeClassNames();
 
-        $member = Member::currentUser();
-        $memberUnits = $member->Units();
+        // $member = Member::currentUser();
+        // $memberUnits = $member->Units();
 
-        $pages = new ArrayList();
-        $gridFieldTitle = 'Stories from ';
+        // $pages = new ArrayList();
+        // $gridFieldTitle = 'Stories from ';
 
-        if (!Permission::checkMember($member, 'ADMIN')){
-            foreach($memberUnits as $unit){
-                $gridFieldTitle .= $unit->Title;
-                if($unit === end($memberUnits)){
-                    $gridFieldTitle .= ', ';
-                }
-                $unitStories = $unit->Stories()->filter(array('ParentID' => $this->owner->ID));
-                $pages->merge($unitStories);
-                //Debug::show($unitStories);
-            }
-        }else{
-            $gridFieldTitle .= 'all units';
-            $pages = ReportStory::get()->filter(array('ParentID' => $this->owner->ID));
-        }
+        // if (!Permission::checkMember($member, 'ADMIN')){
+        //     foreach($memberUnits as $unit){
+        //         $gridFieldTitle .= $unit->Title;
+        //         if($unit === end($memberUnits)){
+        //             $gridFieldTitle .= ', ';
+        //         }
+        //         $unitStories = $unit->Stories()->filter(array('ParentID' => $this->owner->ID));
+        //         $pages->merge($unitStories);
+        //     }
+        // }else{
+        //     $gridFieldTitle .= 'all units';
+        //     $pages = ReportStory::get()->filter(array('ParentID' => $this->owner->ID));
+        // }
 
+        // $gridField = new BlogFilter_GridField(
+        //     'ChildPages',
+        //     $gridFieldTitle,
+        //     $pages,
+        //     $this->getLumberjackGridFieldConfig()
+        // );
 
-       // $pages = ReportStory::get();
+        // $tab = new Tab('ChildPages', $this->getLumberjackTitle(), $gridField);
 
-        $gridField = new BlogFilter_GridField(
-            'ChildPages',
-            $gridFieldTitle,
-            $pages,
-            $this->getLumberjackGridFieldConfig()
-        );
-
-        $tab = new Tab('ChildPages', $this->getLumberjackTitle(), $gridField);
-
-        $fields->insertBefore($tab, 'Main');
+        // $fields->insertBefore($tab, 'Main');
       
     }
 }

@@ -6,8 +6,8 @@ class ReportStory extends BlogPost {
 		'AuthorEmails' => 'Text'
 	);
 
-	private static $belongs_many_many = array(
-		'Units' => 'DivisionUnit'
+	private static $many_many = array(
+		'Units' => 'ReportUnit'
 	);
 
 	private static $singular_name = 'Story';
@@ -25,7 +25,7 @@ class ReportStory extends BlogPost {
 		$authorEmailField = TextareaField::create('AuthorEmails', 'Author email addresses (comma separated)')->setRows(3);
 		$member = Member::currentUser();
 
-		$unitField = ListboxField::create('Units', 'Contributing Division Unit(s)', DivisionUnit::get()->map()->toArray())->setMultiple(true);
+		$unitField = ListboxField::create('Units', 'Contributing Division Unit(s)', ReportUnit::get()->map()->toArray())->setMultiple(true);
 		if (!Permission::checkMember($member, 'ADMIN')) {
 
 			$unitField->setDisabled(true);
