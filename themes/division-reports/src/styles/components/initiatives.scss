@@ -1,0 +1,76 @@
+.initiatives {
+	background: #fafafa url(../images/whitediamond.jpg) center top;
+	border-top: 1px solid #ddd;
+	overflow: hidden;
+	padding: 2em 0 2.5em;
+}
+.initiatives h2 {
+	color: #706F6D;
+   letter-spacing: 1.55px;
+	margin: 0 0 1.75em 0;
+	font-size: 24px;
+	text-transform: uppercase;
+}
+.initiatives h2:after {
+	display: block;
+	width: 40px;
+	height: 2px;
+	background-color: #ddd;
+	content: "";
+	margin-top: 16px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.initiative-block {
+	color: #444;
+	display: block;
+	background: #fff;
+	box-shadow: 4px 4px 0 rgba(0,0,0,.05);
+	transform: translate3d(0,0,0);
+	backface-visibility: hidden;
+	transition: all .3s cubic-bezier(.57,.09,.6,.98);
+}
+.initiative-block:hover,
+.initiative-block:focus {
+	color: $link;
+	transform: translate3d(0,-2px,0);
+}
+
+.initiative-body {
+	padding: 12px 15px 15px;
+}
+.initiative-img {
+	height: 225px;
+	overflow: hidden;
+	position: relative;
+	&:after {
+		content:'';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: $link;
+		opacity: 0;
+		transition: opacity .3s ease-in-out;
+	}
+}
+.initiative-img .scale {
+	height: 225px;
+	background-repeat: no-repeat;
+	// transform: scale(1);
+	transition: all 1s cubic-bezier(.57,.09,.6,.98);
+}
+.initiative-block:hover .initiative-img .scale,
+.initiative-block:focus .initiative-img .scale {
+	// transform: scale(1.03);
+}
+.initiative-block:hover .initiative-img:after,
+.initiative-block:focus .initiative-img:after {
+	opacity: .12;
+}
+
+
+
+
+

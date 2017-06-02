@@ -1,0 +1,50 @@
+.breadcrumb {
+	border-bottom: 4px solid #eee;
+	font-weight: normal;
+	list-style:none;
+	margin: 0 -2em;
+	padding: 20px 2em 0;
+	@media (max-width: 600px) {
+		display: none;
+	}
+}
+.breadcrumb ol {
+	list-style: none;
+	margin: 0 0 -4px 0;
+	& li {
+		display: inline-block;
+		list-style: none;
+		margin: 0;
+		position: relative;
+		text-transform: uppercase;
+	}
+}
+
+/* adds arrow after each breadcrumb */
+.breadcrumb li:after {
+	color: #999;
+	content: "\25B8";
+	display: inline-block;
+	padding: 0 15px 0 15px;
+}
+.breadcrumb li:last-child:after {
+	content: "";
+}
+.breadcrumb li a, .breadcrumb li strong {
+	color: #666;
+	font-size: 14px;
+	display: inline-block;
+	border-bottom: 4px solid #eee;
+	padding-bottom: 20px;
+	transition: .2s ease-in-out;
+}
+.breadcrumb li strong {
+	border-bottom-color: $link;
+}
+.breadcrumb li a:hover,
+.breadcrumb li a:focus,
+.breadcrumb li a:active {
+	color: $link;
+	border-bottom-color: $link;
+	text-decoration: none;
+}

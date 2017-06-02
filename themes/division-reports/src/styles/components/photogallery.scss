@@ -1,0 +1,109 @@
+.photogallery {
+	background: #222;
+	color: #fff;
+	text-align: center;
+}
+.photogallery-header {
+	padding: 1.5em 0;
+	color: #fff;
+	& h4 {
+		color: #888;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		margin: 0;
+		border-bottom: 1px solid #888;
+		padding-bottom: 5px;
+		font-size: 14px;
+		font-family: $body-font;
+		display: inline-block;
+	}
+	& h3 {
+		color: #fff;
+		margin: 0;
+		margin-top: 20px;
+		font-size: 26px;
+	}
+}
+.photogallery-flickity {
+	@media (min-width: $break-small) {
+		padding-bottom: 1em;
+	}
+}
+
+/* changes size of images
+----------------------------------------------------*/
+.photogallery-flickity .gallery-cell {
+	width: 100%;
+	@media (min-width: $break-small) {
+		width: 66%;
+	}
+	@media (min-width: $break-large) {
+		width: 900px;
+	}
+}
+
+/* scales images and adds transition */
+.photogallery-flickity .gallery-cell .scale {
+	-webkit-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+	opacity: .30;
+	transform: scale(0.88);
+}
+.photogallery-flickity .gallery-cell.is-selected .scale  {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.photogallery-flickity .gallery-cell img {
+	display: block;
+	width: 100%;
+}
+.photogallery-flickity .gallery-cell.is-selected {
+	z-index: 50;
+}
+
+/* flickity prev next buttons
+----------------------------------------------------*/
+.photogallery-flickity .flickity-prev-next-button {
+	border-radius: 0;
+	background: $link;
+}
+.photogallery-flickity .flickity-prev-next-button .arrow {
+		fill: #fff;
+}
+.photogallery-flickity .flickity-prev-next-button.next {
+		right: 0;
+}
+.photogallery-flickity .flickity-prev-next-button.previous {
+		left: 0;
+}
+
+/* image caption
+----------------------------------------------------*/
+.photogallery-caption {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: rgba(0,0,0,.7);
+	color: #fff;
+	margin: 0;
+	padding: 10px;
+	font-size: 15px;
+	text-align: center;
+	opacity: 0;
+	transition: opacity 0.5s,transform 0.5s ease-in-out;
+	-webkit-transform: translateY(100%);
+	-moz-transform: translateY(100%);
+	-ms-transform: translateY(100%);
+	-o-transform: translateY(100%);
+	transform: translateY(100%);
+}
+.photogallery-flickity .gallery-cell.is-selected .photogallery-caption {
+	opacity: 1;
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+	transform: translateY(0);
+}

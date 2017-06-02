@@ -21,7 +21,7 @@
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="$SiteConfig.Title">
-    
+
     <!-- Add to homescreen for Safari on iOS -->
 <!--     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -42,6 +42,7 @@
   </head>
   <body class="{$ClassName} action--{$Action}">
     <a class="skip-link" href="#main-content__container">Skip to Main Content</a>
+    <% include DivisionBar %>
     $Layout
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
