@@ -77,7 +77,7 @@ public function onBeforeWrite() {
     // check on every write action:
     $authorEmails = $this->AuthorEmails;
 
-    $authorEmailsArray = explode(',',$authorEmails);
+    $authorEmailsArray = explode(',', trim($authorEmails));
     //print_r($authorEmailsArray);
     foreach ($authorEmailsArray as $email){
     	if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
