@@ -42,7 +42,7 @@
   </head>
   <body class="{$ClassName} action--{$Action}">
     <a class="skip-link" href="#main-content__container">Skip to Main Content</a>
-    <% include DivisionBar %>
+    <% include Uiowa %>
     $Layout
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

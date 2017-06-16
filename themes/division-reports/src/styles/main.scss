@@ -15,24 +15,24 @@
 @import "elements/tables";
 @import "elements/skip-link";
 
-
 /* Division Bar
 -------------------------------------------*/
-@import "components/division-bar";
+@import "uiowa-bar";
 
 /* Plugins
 -------------------------------------------*/
 @import "plugins/shifter";
 @import "plugins/navigation";
 
-
 /* Layout
 -------------------------------------------*/
 @import "components/childpages";
+
 // @import "site/photogallery";
 @import "components/calendar";
 @import "components/news";
 @import "components/staff";
+
 // @import "site/relatednews";
 @import "components/initiatives";
 @import "components/searchresults";
@@ -52,4 +52,3 @@
 /* Print
 -------------------------------------------*/
 @import "base/print";
-

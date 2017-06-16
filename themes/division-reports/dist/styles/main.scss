@@ -2,12 +2,14 @@
 -------------------------------------------*/
 @import "settings/settings";
 
-/* Base Settings
+/* Base
 -------------------------------------------*/
 @import "base/normalize";
 @import "base/typography";
 @import "base/global";
 
+<<<<<<< Updated upstream
+=======
 /* Element Imports
 -------------------------------------------*/
 @import "elements/grid-bootstrap";
@@ -15,41 +17,70 @@
 @import "elements/tables";
 @import "elements/skip-link";
 
-
 /* Division Bar
 -------------------------------------------*/
-@import "components/division-bar";
+@import "uiowa-bar";
 
+>>>>>>> Stashed changes
 /* Plugins
 -------------------------------------------*/
-@import "plugins/shifter";
-@import "plugins/navigation";
+// @import "plugins/shifter";
+// @import "plugins/navigation";
 
-
+<<<<<<< Updated upstream
+/* Components
+=======
 /* Layout
+>>>>>>> Stashed changes
 -------------------------------------------*/
+@import "components/grid-bootstrap";
+@import "components/button-bootstrap";
+@import "components/tables";
+@import "components/skip-link";
 @import "components/childpages";
+<<<<<<< Updated upstream
+=======
+
 // @import "site/photogallery";
 @import "components/calendar";
 @import "components/news";
 @import "components/staff";
+
 // @import "site/relatednews";
 @import "components/initiatives";
+>>>>>>> Stashed changes
 @import "components/searchresults";
-@import "components/homepage";
-@import "components/header";
-@import "components/footer";
-@import "components/sidenav";
+// @import "components/relatednews";
 @import "components/mainnav";
 @import "components/mobilenav";
 @import "components/breadcrumbs";
 @import "components/pagination";
+@import "components/division-bar";
+
+/* Blocks
+-------------------------------------------*/
+@import "components/content-blocks/content-blocks";
+@import "components/content-blocks/featuredpage";
+@import "components/content-blocks/flickr-slideshow";
+@import "components/content-blocks/news";
+@import "components/content-blocks/slideshow";
+@import "components/content-blocks/staff-members";
+@import "components/content-blocks/text-block";
+@import "components/content-blocks/upcoming-events";
+@import "components/content-blocks/video";
+
+/* Layout
+-------------------------------------------*/
+@import "layout/news";
+@import "layout/homepage";
+@import "layout/header";
+@import "layout/footer";
+
 
 /* Site specific styles
 -------------------------------------------*/
-@import "components/default";
+@import "layout/default";
 
 /* Print
 -------------------------------------------*/
 @import "base/print";
-

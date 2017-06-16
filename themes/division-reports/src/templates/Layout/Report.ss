@@ -1,3 +1,11 @@
+<%-- nav sections: --%>
+<ul>
+
+		<% loop $Sections %>
+
+		<% end_loop %>
+
+</ul>
 <div class="">
 
 	<article>
