@@ -2,53 +2,53 @@
 -------------------------------------------*/
 @import "settings/settings";
 
-/* Base
+/* Base Settings
 -------------------------------------------*/
 @import "base/normalize";
 @import "base/typography";
 @import "base/global";
 
+/* Element Imports
+-------------------------------------------*/
+@import "elements/grid-bootstrap";
+@import "elements/button-bootstrap";
+@import "elements/tables";
+@import "elements/skip-link";
+
+/* Division Bar
+-------------------------------------------*/
+@import "uiowa-bar";
+
 /* Plugins
 -------------------------------------------*/
-// @import "plugins/shifter";
-// @import "plugins/navigation";
-
-/* Components
--------------------------------------------*/
-@import "components/grid-bootstrap";
-@import "components/button-bootstrap";
-@import "components/tables";
-@import "components/skip-link";
-@import "components/searchresults";
-// @import "components/relatednews";
-@import "components/mainnav";
-@import "components/mobilenav";
-@import "components/pagination";
-@import "components/division-bar";
-
-/* Blocks
--------------------------------------------*/
-@import "components/content-blocks/content-blocks";
-@import "components/content-blocks/featuredpage";
-@import "components/content-blocks/flickr-slideshow";
-@import "components/content-blocks/news";
-@import "components/content-blocks/slideshow";
-@import "components/content-blocks/text-block";
-@import "components/content-blocks/video";
+@import "plugins/shifter";
+@import "plugins/navigation";
 
 /* Layout
 -------------------------------------------*/
-@import "layout/news";
-@import "layout/homepage";
-@import "layout/header";
-@import "layout/footer";
+@import "components/childpages";
 
+// @import "site/photogallery";
+@import "components/calendar";
+@import "components/news";
+@import "components/staff";
+
+// @import "site/relatednews";
+@import "components/initiatives";
+@import "components/searchresults";
+@import "components/homepage";
+@import "components/header";
+@import "components/footer";
+@import "components/sidenav";
+@import "components/mainnav";
+@import "components/mobilenav";
+@import "components/breadcrumbs";
+@import "components/pagination";
 
 /* Site specific styles
 -------------------------------------------*/
-@import "layout/default";
+@import "components/default";
 
 /* Print
 -------------------------------------------*/
 @import "base/print";
-

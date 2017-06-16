@@ -18,7 +18,8 @@ class ReportSection extends DataObject implements CategorisationObject
 
     private static $db = array(
         'Title' => 'Varchar(255)',
-        'ShowInMenus' => 'Boolean'
+        'ShowInMenus' => 'Boolean',
+        'Sort' => 'Int'
     );
 
     private static $has_one = array(

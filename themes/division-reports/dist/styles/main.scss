@@ -8,18 +8,47 @@
 @import "base/typography";
 @import "base/global";
 
+<<<<<<< Updated upstream
+=======
+/* Element Imports
+-------------------------------------------*/
+@import "elements/grid-bootstrap";
+@import "elements/button-bootstrap";
+@import "elements/tables";
+@import "elements/skip-link";
+
+/* Division Bar
+-------------------------------------------*/
+@import "uiowa-bar";
+
+>>>>>>> Stashed changes
 /* Plugins
 -------------------------------------------*/
 // @import "plugins/shifter";
 // @import "plugins/navigation";
 
+<<<<<<< Updated upstream
 /* Components
+=======
+/* Layout
+>>>>>>> Stashed changes
 -------------------------------------------*/
 @import "components/grid-bootstrap";
 @import "components/button-bootstrap";
 @import "components/tables";
 @import "components/skip-link";
 @import "components/childpages";
+<<<<<<< Updated upstream
+=======
+
+// @import "site/photogallery";
+@import "components/calendar";
+@import "components/news";
+@import "components/staff";
+
+// @import "site/relatednews";
+@import "components/initiatives";
+>>>>>>> Stashed changes
 @import "components/searchresults";
 // @import "components/relatednews";
 @import "components/mainnav";
@@ -55,4 +84,3 @@
 /* Print
 -------------------------------------------*/
 @import "base/print";
-

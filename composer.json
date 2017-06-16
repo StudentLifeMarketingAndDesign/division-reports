@@ -12,13 +12,18 @@
 		"silverstripe/activedirectory": "3.*",
 		"studiobonito/silverstripe-typekit" : "*",
 		"sheadawson/silverstripe-blocks": "1.1.1",
-		"silverstripe-australia/gridfieldextensions":"1.4.*"
+		"silverstripe-australia/gridfieldextensions":"1.4.*",
+		"md/uiowa-bar": "*"
 
 	},
    "repositories":[  
       {
          "type": "vcs",
          "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-activedirectory"
+      },
+      {
+         "type": "vcs",
+         "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-uiowa-bar"
       }
    ],
 	"require-dev": {
