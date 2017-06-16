@@ -1,6 +1,6 @@
 .block_area_aftercontentconstrained,
 .block_area_beforecontentconstrained {
-	@include breakpoint(medium) {
+	@media (min-width: $break-medium) {
 		padding-right: rem-calc(20);
 	}
 }
@@ -11,7 +11,7 @@
 	/* Text Block */
 	& .textblock {
 		padding: rem-calc(30 0);
-		@include breakpoint(large) {
+		@media (min-width: $break-large) {
 			padding: rem-calc(60 0);
 		}
 	}
