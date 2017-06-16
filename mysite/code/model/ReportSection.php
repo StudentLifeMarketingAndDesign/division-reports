@@ -53,7 +53,7 @@ class ReportSection extends DataObject implements CategorisationObject
     {
         $fields = new FieldList(
             TextField::create('Title', _t('JobListingDepartment.Title', 'Title')),
-            //TextField::create('URLSegment', 'URL Segment'),
+            TextField::create('URLSegment', 'URL Segment'),
             CheckboxField::create('ShowInMenus', 'Show in menus')
         );
 
