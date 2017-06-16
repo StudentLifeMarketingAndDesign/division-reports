@@ -40,3 +40,9 @@ Layout
 		padding-right: 2em;
 	}
 }
+
+.border-container{
+	@media screen and (min-width: $break-small) {
+		border: 10px solid $yellow;
+	}
+}

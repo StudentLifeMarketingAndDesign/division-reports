@@ -92,7 +92,7 @@ gulp.task('styles', () => {
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       precision: 10,
-      includePaths: ['silverstripe-uiowa-bar/scss']
+      includePaths: ['uiowa-bar/scss']
     }).on('error', $.sass.logError))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp/styles'))

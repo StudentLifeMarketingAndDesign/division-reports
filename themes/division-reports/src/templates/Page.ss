@@ -42,9 +42,11 @@
   </head>
   <body class="{$ClassName} action--{$Action}">
     <a class="skip-link" href="#main-content__container">Skip to Main Content</a>
-    <% include Uiowa %>
-    $Layout
-
+    <% include UiowaBar %>
+    <div class="border-container">
+      <% include Navigation %>
+      $Layout
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="{$ThemeDir}/dist/scripts/main.js"></script>
     <% if $SiteConfig.GoogleAnalyticsID %>
