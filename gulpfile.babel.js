@@ -160,10 +160,10 @@ gulp.task('clean', () => del(['.tmp', './themes/division-reports/dist/*', '!dist
 // Watch files for changes & reload
 gulp.task('watch', ['styles', 'html'], () => {
   // gulp.watch(['./themes/division-reports/**/*.html'], reload);
-  gulp.watch(['./themes/division-reports/src/templates/**/*.ss'], ['html', browserSync.reload]);
-  gulp.watch(['./themes/division-reports/src/styles/**/*.{scss,css}'], ['styles', browserSync.reload]);
-  gulp.watch(['./themes/division-reports/src/scripts/**/*.js'], ['lint', 'scripts', browserSync.reload]);
-  gulp.watch(['./themes/division-reports/src/images/**/*'], [ browserSync.reload]);
+  gulp.watch(['themes/division-reports/src/templates/**/*.ss'], ['html', browserSync.reload]);
+  gulp.watch(['themes/division-reports/src/styles/**/*.{scss,css}'], ['styles', browserSync.reload]);
+  gulp.watch(['themes/division-reports/src/scripts/**/*.js'], ['lint', 'scripts', browserSync.reload]);
+  gulp.watch(['themes/division-reports/src/images/**/*'], [ browserSync.reload]);
 });
 
 
