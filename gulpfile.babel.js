@@ -113,14 +113,13 @@ gulp.task('scripts', () =>
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
       './themes/division-reports/src/scripts/lib/*.js',
-      './themes/division-reports/src/scripts/main.js',
+      './themes/division-reports/src/scripts/lib/**/*.js',
+      './themes/division-reports/src/scripts/app.js',
       // Other scripts
     ])
-      .pipe($.newer('.tmp/scripts'))
       .pipe($.sourcemaps.init())
       .pipe($.babel())
       .pipe($.sourcemaps.write())
-      .pipe(gulp.dest('.tmp/scripts'))
       .pipe($.concat('main.min.js'))
       .pipe($.uglify({preserveComments: 'some'}))
       // Output files

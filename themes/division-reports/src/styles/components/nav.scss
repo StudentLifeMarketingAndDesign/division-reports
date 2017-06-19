@@ -1,8 +1,104 @@
 .nav{
 	box-shadow: 0px 2px 5px -3px rgba(0,0,0,0.68);
-	padding: 30px 0;
+	padding: 28px 0;
 }
 
 .nav__dsl-logo{
-	width: 333px;
+	max-width: 100%;
+}
+
+.nav__report-title{
+	font-family: "proxima-nova";
+	color: #333;
+}
+.nav__item{
+	font-family: $heading-font;
+	font-size: 21px;
+}
+.nav__explore{
+	width: 95px;
+	position: relative;
+
+
+	@media screen and (min-width: $break-small) {
+		float: right;
+		padding: 13px 0;
+	}
+}
+.nav__menu-icon {
+	/* this span is the central line of the menu icon */
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	bottom: auto;
+	left: auto;
+	right: 0;
+	-webkit-transform: translateX(0) translateY(-50%);
+	-moz-transform: translateX(0) translateY(-50%);
+	-ms-transform: translateX(0) translateY(-50%);
+	-o-transform: translateX(0) translateY(-50%);
+	transform: translateX(0) translateY(-50%);
+	width: 18px;
+	height: 2px;
+	// background-color: #000;
+	-webkit-transition: background-color 0.3s;
+	-moz-transition: background-color 0.3s;
+	transition: background-color 0.3s;
+	background-color: #222;
+
+	&:before{
+		top: -5px;
+	}
+
+	&:after{
+		top: 5px;
+	}
+	@media screen and (min-width: $break-small) { 
+		left: auto;
+		right: 0;
+	}
+	/* these are the upper and lower lines in the menu icon */
+	@media screen and (min-width: $break-medium) {
+
+		-webkit-transform: translateX(0) translateY(-50%);
+		-moz-transform: translateX(0) translateY(-50%);
+		-ms-transform: translateX(0) translateY(-50%);
+		-o-transform: translateX(0) translateY(-50%);
+		transform: translateX(0) translateY(-50%);
+	}
+	&--menu-is-active{
+		background-color: #fff;
+		&:before, &:after{
+			background-color: #fff;
+		}
+		background: none;
+		&:before{
+		top: 0;
+		-webkit-transform: rotate(135deg);
+		-moz-transform: rotate(135deg);
+		-ms-transform: rotate(135deg);
+		-o-transform: rotate(135deg);
+		transform: rotate(135deg);
+		}
+		&:after{
+		top: 0;
+		-webkit-transform: rotate(225deg);
+		-moz-transform: rotate(225deg);
+		-ms-transform: rotate(225deg);
+		-o-transform: rotate(225deg);
+		transform: rotate(225deg);
+		}
+	}
+	&:before, &:after{
+		background-color: #222;
+		content: '';
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		// background-color: #000;
+		right: 0;
+		-webkit-transition: -webkit-transform .3s, top .3s, background-color 0.3s;
+		-moz-transition: -moz-transform .3s, top .3s, background-color 0.3s;
+		transition: transform .3s, top .3s, background-color 0.3s;
+	}
 }

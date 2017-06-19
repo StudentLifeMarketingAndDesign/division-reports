@@ -1,3 +1,4 @@
+
 <%-- nav sections: --%>
 <ul>
 
@@ -6,46 +7,124 @@
 		<% end_loop %>
 
 </ul>
-<div class="">
 
-	<article>
-		<h1>
-			<% if $ArchiveYear %>
-				<%t Blog.Archive 'Archive' %>:
-				<% if $ArchiveDay %>
-					$ArchiveDate.Nice
-				<% else_if $ArchiveMonth %>
-					$ArchiveDate.format('F, Y')
-				<% else %>
-					$ArchiveDate.format('Y')
-				<% end_if %>
-			<% else_if $CurrentTag %>
-				<%t Blog.Tag 'Tag' %>: $CurrentTag.Title
-			<% else_if $CurrentCategory %>
-				<%t Blog.Category 'Category' %>: $CurrentCategory.Title
-			<% else %>
-				$Title
-			<% end_if %>
-		</h1>
+		<article>
+			<div class="container">
+				<header class="header text-center">
+					<div class="row">
+						<div class="col-lg-10 offset-lg-1">
+							<h1>
+							<% if $ArchiveYear %>
+								<%t Blog.Archive 'Archive' %>:
+								<% if $ArchiveDay %>
+									$ArchiveDate.Nice
+								<% else_if $ArchiveMonth %>
+									$ArchiveDate.format('F, Y')
+								<% else %>
+									$ArchiveDate.format('Y')
+								<% end_if %>
+							<% else_if $CurrentTag %>
+								<%t Blog.Tag 'Tag' %>: $CurrentTag.Title
+							<% else_if $CurrentCategory %>
+								<%t Blog.Category 'Category' %>: $CurrentCategory.Title
+							<% else %>
+								Featured Stories
+							<% end_if %>
+							</h1>		
 
-		<div class="">$Content</div>
+							<div class="header__intro summary">
+								<%-- $Content --%>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed est vel nunc iaculis tempus quis quis urna. Curabitur scelerisque hendrerit mauris, id pellentesque metus maximus vitae.</p>
+							</div>
+						</div>
+					</div>
+				</header>
+			</div>
 
-		<h2>Sections</h2>
+			<% with $Featured %>
+			<div class="story-tile__container">
+				<div class="container-fluid">
+					<div class="row no-gutters">
 
-		<ul>
-		<% loop $Sections %>
-			<li><a href="$Link">$Title</a></li>
-		<% end_loop %>
-		</ul>
+						<div class="col-lg-6">
 
-		<% if $PaginatedList.Exists %>
-			<% loop $PaginatedList %>
-				<% include PostSummary %>
+							<a href="$Link" style="background-color: red" class="story-tile story-tile--large">
+								$Story1.Title
+							</a>
+
+
+
+						</div>
+
+
+						<div class="col-lg-6">
+
+							<div class="row">
+								<div class="col-lg-12">
+									<a href="$Link" style="background-color: blue;" class="story-tile story-tile--small">
+										$Story2.Title
+									</a>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-lg-12">
+									<a href="$Link" style="background-color: green;" class="story-tile story-tile--small">
+										$Story3.Title
+									</a>
+								</div>
+							</div>
+
+
+						</div>		
+
+
+					</div>
+				</div>
+			</div>
+			<% end_with %>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<h3 class="text-center">Filter stories by department, topic, or search</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4">
+
+						<input type="text" name="dept-filter" placeholder="Department" class="story-filter story-filter__dept">
+
+					</div>
+					<div class="col-lg-4">
+
+						<input type="text" name="tag-filter" placeholder="Topic" class="story-filter story-filter__tag">
+
+					</div>
+					<div class="col-lg-4">
+						<input type="search" name="dept-filter" placeholder="Search" class="story-filter story-filter__search">
+					</div>
+				</div>
+			</div>
+
+			
+
+			<h2>Sections</h2>
+
+			<ul>
+			<% loop $Sections %>
+				<li><a href="$Link">$Title</a></li>
 			<% end_loop %>
-		<% else %>
-			<p><%t Blog.NoPosts 'There are no posts' %></p>
-		<% end_if %>
-	</article>
+			</ul>
+
+			<% if $PaginatedList.Exists %>
+				<% loop $PaginatedList %>
+					<% include PostSummary %>
+				<% end_loop %>
+			<% else %>
+				<p><%t Blog.NoPosts 'There are no posts' %></p>
+			<% end_if %>
+		</article>
 
 	$Form
 	$CommentsForm
@@ -53,5 +132,3 @@
 	<% with $PaginatedList %>
 		<% include Pagination %>
 	<% end_with %>
-</div>
-

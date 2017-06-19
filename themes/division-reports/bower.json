@@ -1,0 +1,21 @@
+{
+  "name": "division-reports",
+  "homepage": "https://github.com/StudentLifeMarketingAndDesign/division-reports",
+  "authors": [
+    "Dustin Quam <quamsta@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "formstone": "^1.3.3"
+  }
+}

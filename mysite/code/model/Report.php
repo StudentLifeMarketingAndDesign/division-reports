@@ -38,6 +38,21 @@ class Report extends Blog {
 		return 'Stories';
 	}
 
+    public function Featured(){
+
+        $data = new DataObject();
+
+        $stories = ReportStory::get()->sort('RAND()')->filter(array('IsFeatured' => 1));
+
+        $storiesArray = $stories->toArray();
+
+        $data->Story1 = $storiesArray[0];
+        $data->Story2 = $storiesArray[1];
+        $data->Story3 = $storiesArray[2];
+      
+        return $data;
+
+    }
 }
 
 class Report_Controller extends Blog_Controller {

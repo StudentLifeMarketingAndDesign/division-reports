@@ -1,1 +1,1 @@
-$Content $Form
+<div class="container">$Content $Form</div>

@@ -3,7 +3,8 @@
 class ReportStory extends BlogPost {
 
 	private static $db = array(
-		'AuthorEmails' => 'Text'
+		'AuthorEmails' => 'Text',
+		'IsFeatured' => 'Boolean'
 	);
 
 	private static $many_many = array(
@@ -21,7 +22,7 @@ class ReportStory extends BlogPost {
 		$f->removeByName('PublishDate');
 		// $f->removeByName('Authors');
 
-
+		$f->addFieldToTab('Root.Main',CheckboxField::create('IsFeatured', 'Can be featured on report homepage?'), 'Content');
 		$authorEmailField = TextareaField::create('AuthorEmails', 'Author email addresses (comma separated)')->setRows(3);
 		$member = Member::currentUser();
 

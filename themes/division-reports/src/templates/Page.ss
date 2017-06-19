@@ -48,7 +48,7 @@
       $Layout
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="{$ThemeDir}/dist/scripts/main.js"></script>
+    <script src="{$ThemeDir}/dist/scripts/main.min.js"></script>
     <% if $SiteConfig.GoogleAnalyticsID %>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

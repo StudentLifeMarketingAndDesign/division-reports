@@ -40,9 +40,30 @@ Layout
 		padding-right: 2em;
 	}
 }
+.container-fluid{
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-right:auto;
+	margin-left:auto;
+	@media (min-width: $break-large) {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
 
+
+}
 .border-container{
+	// border: 2px solid $yellow;
 	@media screen and (min-width: $break-small) {
+		border: 5px solid $yellow;
+	}
+	@media screen and (min-width: $break-medium) {
 		border: 10px solid $yellow;
 	}
+}
+
+.summary{
+	font-size: 17px;
+	font-style: italic;
+	color: #777;
 }
