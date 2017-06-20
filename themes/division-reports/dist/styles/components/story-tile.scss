@@ -1,0 +1,14 @@
+.story-tile{
+	display: block;
+	&__container{
+		margin: 75px 0; 
+	}
+
+	&--small{
+		height: 315px;
+	}
+
+	&--large{
+		height: 630px;
+	}
+}

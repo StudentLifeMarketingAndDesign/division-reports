@@ -42,13 +42,16 @@ class Report extends Blog {
 
         $data = new DataObject();
 
-        $stories = ReportStory::get()->sort('RAND()')->filter(array('IsFeatured' => 1));
+        $stories = ReportStory::get()->sort('RAND()')->filter(array('IsFeatured' => 1))->limit(3);
 
         $storiesArray = $stories->toArray();
 
-        $data->Story1 = $storiesArray[0];
-        $data->Story2 = $storiesArray[1];
-        $data->Story3 = $storiesArray[2];
+        if(sizeof($storiesArray) == 3){
+            $data->Story1 = $storiesArray[0];
+            $data->Story2 = $storiesArray[1];
+            $data->Story3 = $storiesArray[2];           
+        }
+
       
         return $data;
 

@@ -1,12 +1,4 @@
 
-<%-- nav sections: --%>
-<ul>
-
-		<% loop $Sections %>
-
-		<% end_loop %>
-
-</ul>
 
 		<article>
 			<div class="container">
@@ -93,16 +85,24 @@
 				<div class="row">
 					<div class="col-lg-4">
 
-						<input type="text" name="dept-filter" placeholder="Department" class="story-filter story-filter__dept">
+						<select name="section-filter" placeholder="Department" class="form-control story-filter__input story-filter__dept">
+						<% loop $Sections %>
+							<option value="$ID">$Title</option>
+						<% end_loop %>
+						</select>
 
 					</div>
 					<div class="col-lg-4">
-
-						<input type="text" name="tag-filter" placeholder="Topic" class="story-filter story-filter__tag">
+						
+						<select name="topic-filter" placeholder="Department" class="form-control story-filter__input story-filter__dept">
+						<% loop $Tags %>
+							<option value="$ID">$Title</option>
+						<% end_loop %>
+						</select>
 
 					</div>
 					<div class="col-lg-4">
-						<input type="search" name="dept-filter" placeholder="Search" class="story-filter story-filter__search">
+						<input type="search" name="dept-filter" placeholder="Search" class="form-control story-filter__input story-filter__search">
 					</div>
 				</div>
 			</div>

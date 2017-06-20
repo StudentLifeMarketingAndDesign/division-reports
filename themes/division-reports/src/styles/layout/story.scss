@@ -1,0 +1,80 @@
+.section-tag{
+	background: $yellow;
+	color: $black;
+	font-family: $heading-font;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-size: 11px;
+	display: inline-block;
+	padding: 3px 10px;
+	font-weight: 500;
+
+	&:hover{
+		background: #222;
+		color: $yellow;
+	}
+}
+.story-single__img{
+	width: 100%;
+	display: block;
+}
+.story-single__header{
+	margin: 60px 0;
+}
+.story-single__title{
+	margin-top: 20px;
+	margin-bottom: 0;
+}
+.story-single__image-caption{
+	font-size: 14px;
+	margin-top: 30px;
+	margin-bottom: 65px;
+}
+.story-single__photo-credit{
+	font-size: 12px;
+}
+.story-single__body{
+
+	@media screen and (min-width: $break-xlarge) {
+		width: 580px;
+		margin-left: 64px;
+		margin-right: 64px;
+	}
+}
+.story-single__text{
+	color: #181818;
+	p:first-child:first-letter {
+	  color: #222;
+	  float: left;
+	  font-size: 63px;
+	  font-weight: bold;
+	  line-height: 55px;
+	  padding-top: 4px;
+	  padding-right: 8px;
+	  padding-left: 3px;
+	}
+}
+.story-share{
+
+}
+.story-share__heading{
+	padding-top: 20px;
+	font-size: 21px;
+}
+.story-meta{
+	@media screen and (min-width: $break-large) {
+		margin-top: 125px;
+	}
+}
+.story-meta__author-img{
+	display: block;
+	border-radius: 200px;
+	margin: auto;
+	width: 100px;
+}
+.story-meta__author-name{
+	font-family: $heading-font;
+	font-weight: 600;
+	font-size: 21px;
+	margin: 20px 0;
+}
