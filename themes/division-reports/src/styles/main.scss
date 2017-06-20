@@ -22,9 +22,9 @@
 
 /* Plugins
 -------------------------------------------*/
-@import "plugins/shifter";
+//@import "plugins/shifter";
 @import "plugins/navigation";
-
+@import "plugins/flickity";
 /* Layout
 -------------------------------------------*/
 // @import "components/childpages";
@@ -38,13 +38,14 @@
 // @import "components/initiatives";
 @import "components/searchresults";
 // @import "components/homepage";
-// @import "components/header";
+
 // @import "components/footer";
 // @import "components/sidenav";
 // @import "components/mainnav";
 @import "components/nav";
 @import "components/story-filter";
 @import "components/story-tile";
+@import "components/info-slides";
 // @import "components/mobilenav";
 // @import "components/breadcrumbs";
 @import "components/pagination";
@@ -52,8 +53,8 @@
 /* Site specific styles
 -------------------------------------------*/
 @import "layout/story";
- @import "layout/default";
-
+@import "layout/default";
+@import "layout/header";
 /* Print
 -------------------------------------------*/
 @import "base/print";

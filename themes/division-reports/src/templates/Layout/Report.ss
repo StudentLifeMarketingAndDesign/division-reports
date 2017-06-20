@@ -34,46 +34,39 @@
 			</div>
 
 			<% with $Featured %>
-			<div class="story-tile__container">
-				<div class="container-fluid">
-					<div class="row no-gutters">
-
-						<div class="col-lg-6">
-
-							<a href="$Link" style="background-color: red" class="story-tile story-tile--large">
-								$Story1.Title
-							</a>
-
-
-
+				<div class="story-tile__container">
+					<div class="container-fluid">
+						<div class="row no-gutters">
+							<div class="col-lg-6">
+								<% with $Story1 %>
+									<a href="$Link" style="background-color: red" class="story-tile story-tile--large">
+										$Title
+									</a>
+								<% end_with %>
+							</div>
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-12">
+										<% with $Story2 %>
+											<a href="$Link" style="background-color: green" class="story-tile story-tile--small">
+												$Title
+											</a>
+										<% end_with %>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-12">
+										<% with $Story3 %>
+											<a href="$Link" style="background-color: blue" class="story-tile story-tile--small">
+												$Title
+											</a>
+										<% end_with %>
+									</div>
+								</div>
+							</div>		
 						</div>
-
-
-						<div class="col-lg-6">
-
-							<div class="row">
-								<div class="col-lg-12">
-									<a href="$Link" style="background-color: blue;" class="story-tile story-tile--small">
-										$Story2.Title
-									</a>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-lg-12">
-									<a href="$Link" style="background-color: green;" class="story-tile story-tile--small">
-										$Story3.Title
-									</a>
-								</div>
-							</div>
-
-
-						</div>		
-
-
 					</div>
 				</div>
-			</div>
 			<% end_with %>
 
 			<div class="container">
@@ -84,30 +77,26 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-4">
-
-						<select name="section-filter" placeholder="Department" class="form-control story-filter__input story-filter__dept">
+						<select name="section-filter" class="form-control story-filter__input story-filter__dept">
+							<option value="" disabled selected hidden>Department</option>
 						<% loop $Sections %>
 							<option value="$ID">$Title</option>
 						<% end_loop %>
 						</select>
-
 					</div>
 					<div class="col-lg-4">
-						
-						<select name="topic-filter" placeholder="Department" class="form-control story-filter__input story-filter__dept">
+						<select name="topic-filter" class="form-control story-filter__input story-filter__dept">
+							<option value="" disabled selected hidden>Topic</option>
 						<% loop $Tags %>
 							<option value="$ID">$Title</option>
 						<% end_loop %>
 						</select>
-
 					</div>
 					<div class="col-lg-4">
 						<input type="search" name="dept-filter" placeholder="Search" class="form-control story-filter__input story-filter__search">
 					</div>
 				</div>
 			</div>
-
-			
 
 			<h2>Sections</h2>
 

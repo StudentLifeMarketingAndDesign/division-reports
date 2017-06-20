@@ -1,2 +1,19 @@
 .header{
+
+	&__container--overlay{
+		position: absolute;
+		top: 0;
+		z-index: 999;
+  		width: 100%;
+  		left: 0;
+  		right: 0; 
+  		margin: auto;
+	}
+	&__text--dark-bg{
+		color: #fff;
+	}	
+	&__intro--dark-bg{
+		color: #eee;
+	}
+
 }

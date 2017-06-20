@@ -30,3 +30,6 @@ gridfieldextensions/
 .DS_Store
 uiowa-bar
 .phpintel
+codeeditorfield/
+display_logic/
+focuspoint/

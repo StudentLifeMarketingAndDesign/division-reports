@@ -22,9 +22,9 @@
 
 /* Plugins
 -------------------------------------------*/
-@import "plugins/shifter";
+//@import "plugins/shifter";
 @import "plugins/navigation";
-
+@import "plugins/flickity";
 /* Layout
 -------------------------------------------*/
 // @import "components/childpages";
@@ -45,6 +45,7 @@
 @import "components/nav";
 @import "components/story-filter";
 @import "components/story-tile";
+@import "components/info-slides";
 // @import "components/mobilenav";
 // @import "components/breadcrumbs";
 @import "components/pagination";

@@ -26,6 +26,10 @@ class ReportSection extends DataObject implements CategorisationObject
         'Blog' => 'Report',
     );
 
+    private static $many_many = array(
+        'InfoSlides' => 'InfoSlide'
+    );
+
     private static $belongs_many_many = array(
         'Stories' => 'ReportStory',
     );
@@ -52,10 +56,15 @@ class ReportSection extends DataObject implements CategorisationObject
      */
     public function getCMSFields()
     {
+
+        $infoSlideFieldConfig = GridFieldConfig_RelationEditor::create();
+        $infoSlideGridField = new GridField('InfoSlides', 'InfoSlides', $this->owner->InfoSlides(), $infoSlideFieldConfig);
+
         $fields = new FieldList(
             TextField::create('Title', _t('JobListingDepartment.Title', 'Title')),
             TextField::create('URLSegment', 'URL Segment'),
-            CheckboxField::create('ShowInMenus', 'Show in menus')
+            CheckboxField::create('ShowInMenus', 'Show in menus'),
+            $infoSlideGridField
         );
 
         if($this->ID){

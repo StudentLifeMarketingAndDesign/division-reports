@@ -16,3 +16,37 @@ $("nav").on("open.navigation", function() {
 }).on("close.navigation", function() {
     $(".nav__menu-icon").removeClass("nav__menu-icon--menu-is-active");
 });
+
+var $carousel = $('.carousel').flickity({
+	imagesLoaded: true,
+	percentPosition: false,
+	selectedAttraction: 0.015,
+	friction: 0.3,
+	prevNextButtons: false,
+	draggable: true,
+	autoPlay: true,
+	autoPlay: 8000,
+	pauseAutoPlayOnHover: false,
+	bgLazyLoad: true,
+	pageDots: true
+});
+
+var $imgs = $carousel.find('.carousel-cell .cell-bg');
+// get transform property
+var docStyle = document.documentElement.style;
+var transformProp = typeof docStyle.transform == 'string' ?
+  'transform' : 'WebkitTransform';
+// get Flickity instance
+var flkty = $carousel.data('flickity');
+
+$carousel.on( 'scroll.flickity', function() {
+  flkty.slides.forEach( function( slide, i ) {
+    var img = $imgs[i];
+    var x = ( slide.target + flkty.x ) * -1/3;
+    img.style[ transformProp ] = 'translateX(' + x  + 'px)';
+  });
+});
+
+$('.carousel-nav-cell').click(function() {
+	flkty.stopPlayer();
+});

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "469e2e8ca69f763e4cf11f6891582612",
+    "content-hash": "c5bfea28c0749775dd1bd984fe2de3a1",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -204,6 +204,45 @@
             "time": "2015-01-10T01:09:28+00:00"
         },
         {
+            "name": "jonom/focuspoint",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jonom/silverstripe-focuspoint.git",
+                "reference": "716a44b2d7f72d190121fa1e15da1f0b17ec147c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jonom/silverstripe-focuspoint/zipball/716a44b2d7f72d190121fa1e15da1f0b17ec147c",
+                "reference": "716a44b2d7f72d190121fa1e15da1f0b17ec147c",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "^3.3"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathon Menz",
+                    "homepage": "http://jonathonmenz.com"
+                }
+            ],
+            "description": "Smarter automatic image cropping for SilverStripe",
+            "keywords": [
+                "crop",
+                "cropping",
+                "focus",
+                "focuspoint",
+                "image",
+                "silverstripe"
+            ],
+            "time": "2017-03-22T23:16:19+00:00"
+        },
+        {
             "name": "md/uiowa-bar",
             "version": "dev-master",
             "source": {
@@ -234,6 +273,49 @@
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-uiowa-bar/issues"
             },
             "time": "2017-06-16 15:43:04"
+        },
+        {
+            "name": "nathancox/codeeditorfield",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nathancox/silverstripe-codeeditorfield.git",
+                "reference": "343f58f39e97c7d2996711d26f2eeac5c58e76c3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nathancox/silverstripe-codeeditorfield/zipball/343f58f39e97c7d2996711d26f2eeac5c58e76c3",
+                "reference": "343f58f39e97c7d2996711d26f2eeac5c58e76c3",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "screenshots": [
+                    "http://static.flyingmonkey.co.nz/github/silverstripe-codeeditorfield/codeeditorfield-1.png"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nathan Cox",
+                    "email": "me@nathan.net.nz"
+                }
+            ],
+            "description": "A field for editing code in the SilverStripe CMS using Ace Editor (http://ace.c9.io/)",
+            "homepage": "https://github.com/nathancox/silverstripe-codeeditorfield",
+            "keywords": [
+                "cms",
+                "form",
+                "formfield",
+                "silverstripe"
+            ],
+            "time": "2017-06-16T02:41:03+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -1055,6 +1137,53 @@
                 "silverstripe"
             ],
             "time": "2017-01-20T08:51:05+00:00"
+        },
+        {
+            "name": "unclecheese/display-logic",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unclecheese/silverstripe-display-logic.git",
+                "reference": "b3552c42abcb64c85dbdf9b47cbb49b92b2ebdc4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-display-logic/zipball/b3552c42abcb64c85dbdf9b47cbb49b92b2ebdc4",
+                "reference": "b3552c42abcb64c85dbdf9b47cbb49b92b2ebdc4",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "^3.1"
+            },
+            "replace": {
+                "silverstripe/display-logic": "*"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "display_logic",
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Uncle Cheese",
+                    "email": "unclecheese@leftandmain.com"
+                }
+            ],
+            "description": "Allows assignment of conditions for display and hide of specific form fields based on client side behavior.",
+            "keywords": [
+                "Forms",
+                "cms",
+                "display",
+                "logic",
+                "silverstripe"
+            ],
+            "time": "2017-01-06T09:46:49+00:00"
         },
         {
             "name": "zendframework/zend-authentication",
