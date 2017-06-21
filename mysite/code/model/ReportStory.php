@@ -41,7 +41,7 @@ class ReportStory extends BlogPost {
 		}
 		$f->addFieldToTab("Root.Main", $sectionField, 'Content');
 		$f->addFieldToTab("Root.Main", TextField::create('FeaturedImageCaption', 'Featured Image Caption'));
-		$f->addFieldToTab("Root.Main", TextField::create('Photo Credit', 'Photo Credit'));
+		$f->addFieldToTab("Root.Main", TextField::create('PhotoCredit', 'Photo Credit'));
 		$f->addFieldToTab("blog-admin-sidebar", $authorEmailField);
 
 
