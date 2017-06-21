@@ -62,7 +62,7 @@ class ReportSection extends DataObject implements CategorisationObject
 
         $fields = new FieldList(
             TextField::create('Title', _t('JobListingDepartment.Title', 'Title')),
-            TextField::create('URLSegment', 'URL Segment'),
+            LiteralField::create('URLSegmentLabel', '<a href="'.$this->Link().'">'.$this->Link().'</a>'),
             CheckboxField::create('ShowInMenus', 'Show in menus'),
             $infoSlideGridField
         );
