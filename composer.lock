@@ -248,12 +248,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-uiowa-bar.git",
-                "reference": "351fd0a00175d525ea5cd8fca03bdb29485d5c7c"
+                "reference": "9ca0b450ffbf32e002b441fbb876e72005129eac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/silverstripe-uiowa-bar/zipball/351fd0a00175d525ea5cd8fca03bdb29485d5c7c",
-                "reference": "351fd0a00175d525ea5cd8fca03bdb29485d5c7c",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/silverstripe-uiowa-bar/zipball/9ca0b450ffbf32e002b441fbb876e72005129eac",
+                "reference": "9ca0b450ffbf32e002b441fbb876e72005129eac",
                 "shasum": ""
             },
             "require": {
@@ -272,7 +272,7 @@
                 "source": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-uiowa-bar/tree/master",
                 "issues": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-uiowa-bar/issues"
             },
-            "time": "2017-06-16 15:43:04"
+            "time": "2017-06-21 15:05:10"
         },
         {
             "name": "nathancox/codeeditorfield",
