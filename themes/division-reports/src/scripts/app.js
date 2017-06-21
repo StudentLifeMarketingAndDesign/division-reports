@@ -99,7 +99,7 @@ var myCircle = Circles.create({
 var myCircle2 = Circles.create({
   id:                  'circles-2',
   radius:              100,
-  value:               84,
+  value:               81,
   maxValue:            100,
   width:               10,
   text:                function(value){return value + '%';},

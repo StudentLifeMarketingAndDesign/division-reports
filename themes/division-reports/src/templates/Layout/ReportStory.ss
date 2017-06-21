@@ -12,8 +12,9 @@
 			</div>
 		</div>
 	</header>
-	<img src="http://via.placeholder.com/1200x720" class="story-single__img">
-
+	<% if $FeaturedImage %>
+		<img src="$FeaturedImage.FocusFillMax(1920,1080).URL" class="story-single__img" width="1920" height="1080">
+	<% end_if %>
 	<div class="container story-single__body-container">
 		<div class="row">
 			

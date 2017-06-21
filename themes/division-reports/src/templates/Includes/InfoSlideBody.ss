@@ -11,13 +11,13 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					<div class="row">
+					<div class="row row-eq-height">
 						<div class="col info-slide__section">
 							<p><span class="stat__num counter" id="stat1" data-count="2314"></span> <span class="stat__label">Appointments</span></p>
 							<p class="stat__caption">Including 321 primary care, 455 psychiatry, 228 in gynecology and 743 in nursing.</p>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row row-eq-height">
 						<div class="col info-slide__section info-slide__section--border-top">
 							<p><span class="stat__num counter" id="stat2" data-count="2314"></span> <span class="stat__label">Visits</span></p>
 							<p class="stat__caption">Including 321 primary care, 455 psychiatry, 228 in gynecology and 743 in nursing.</p>
@@ -25,12 +25,12 @@
 					</div>
 				</div>
 				<div class="col">
-					<div class="row">
-						<div class="col info-slide__section info-slide__section--border-left">
+					<div class="row row-eq-height">
+						<div class="col info-slide__section info-slide__section--border-left info-slide__section--with-padding">
 							<div class="circle" id="circles-1"></div>
 							<p>84% of patients who report being satisfied with their visit overall</p>
 						</div>
-						<div class="col info-slide__section info-slide__section--border-left">
+						<div class="col info-slide__section info-slide__section--border-left info-slide__section--with-padding">
 							<div class="circle" id="circles-2"></div>
 							<p>81% of patients who report being satisfied with their visit overall</p>
 						</div>
