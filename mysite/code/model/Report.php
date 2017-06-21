@@ -42,14 +42,20 @@ class Report extends Blog {
 
         $data = new DataObject();
 
-        $stories = ReportStory::get()->sort('RAND()')->filter(array('IsFeatured' => 1))->limit(3);
+        $stories = ReportStory::get()->sort('RAND()')->filter(array('IsFeatured' => 1, 'ParentID' => $this->ID))->limit(3);
 
         $storiesArray = $stories->toArray();
 
-        if(sizeof($storiesArray) == 3){
+        if(sizeof($storiesArray) > 0){
             $data->Story1 = $storiesArray[0];
-            $data->Story2 = $storiesArray[1];
-            $data->Story3 = $storiesArray[2];           
+
+            if(isset($storiesArray[1])){
+                $data->Story2 = $storiesArray[1];
+            }
+
+            if(isset($storiesArray[2])){
+                $data->Story3 = $storiesArray[2];
+            }        
         }
 
       

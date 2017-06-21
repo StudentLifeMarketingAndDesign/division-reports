@@ -21,8 +21,12 @@ class ReportStory extends BlogPost {
 		$f = parent::getCMSFields();
 		$f->removeByName('PublishDate');
 		// $f->removeByName('Authors');
+		$f->removeByName('CustomSummary');
+		$f->removeByName('AuthorNames');
+
 
 		$f->addFieldToTab('Root.Main',CheckboxField::create('IsFeatured', 'Can be featured on report homepage?'), 'Content');
+		$f->addFieldToTab('Root.Main', HTMLEditorField::create('Summary')->setRows(3), 'Content');
 		$authorEmailField = TextareaField::create('AuthorEmails', 'Author email addresses (comma separated)')->setRows(3);
 		$member = Member::currentUser();
 

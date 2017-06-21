@@ -34,8 +34,11 @@
 				<div class="row no-gutters">
 					<div class="col-lg-6">
 						<% with $Story1 %>
-							<a href="$Link" style="background-color: red" class="story-tile story-tile--large">
-								$Title
+							<a href="$Link" style="background-color: red; background-image: url($FeaturedImage.FocusFillMax(1280,720).URL" class="story-tile story-tile--large">
+								<div class="story-tile__header">
+									<span class="section-tag" href="$Sections.First.Link">$Sections.First.Title</span>
+									<h2 class="story-tile__title">$Title</h2>
+								</div>
 							</a>
 						<% end_with %>
 					</div>
@@ -44,7 +47,7 @@
 							<div class="col-lg-12">
 								<% with $Story2 %>
 									<a href="$Link" style="background-color: green" class="story-tile story-tile--small">
-										$Title
+										<h2>$Title</h2>
 									</a>
 								<% end_with %>
 							</div>
