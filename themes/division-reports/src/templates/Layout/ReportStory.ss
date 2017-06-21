@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-lg-10 offset-lg-2">
 				<div class="story-single__header">
-					<a class="section-tag" href="$Link">University Counseling Service</a>
+					<a class="section-tag" href="$Sections.First.Link">$Sections.First.Title</a>
 					<h1 class="header__title story-single-heading__title">$Title</h1>
 					<div class="header__intro summary">
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed est vel nunc iaculis tempus quis quis urna. Curabitur scelerisque hendrerit mauris, id pellentesque metus maximus vitae.</p>

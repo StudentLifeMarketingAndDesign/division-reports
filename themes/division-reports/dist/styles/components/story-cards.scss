@@ -1,0 +1,38 @@
+.story-card-large{
+	h3{
+		margin-top: 25px;
+	}
+	&__link{
+		color: #222;
+		display: block;
+		border: 2px solid #222; 
+		padding: 15px;
+		margin: 20px 0;
+	}
+	&__content{
+		color: #838383;
+		font-style: italic;
+		font-size: 13px;
+		br{
+			display: none;
+		}
+	}
+
+}
+
+.read-more{
+	font-family: $heading-font;
+	font-weight: 600;
+	letter-spacing: 2px;
+	border: 1px solid #282828;
+	padding: 10px;
+	text-transform: uppercase;
+	font-size: 13px;
+	margin: 10px 0;
+	display: inline-block;
+	text-align: center;
+	transition: all 0.3s linear;
+	.story-card-large__link:hover & {
+		background: $yellow;
+	}
+}

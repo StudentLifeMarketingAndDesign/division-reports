@@ -11,7 +11,7 @@
 					<% if $MediaType == "Image" %>
 						<div class="cell-bg" data-flickity-bg-lazyload="$BackgroundImage.CroppedFocusedImage(1500,900).URL">
 							<div class="cell-screen"></div>
-							<div class="inner">
+							<div class="inner inner--is-overlay">
 								<% include InfoSlideBody %>
 							</div>
 						</div>
@@ -20,7 +20,7 @@
 							<div class="fullwidth-video">
 								<video playsinline autoplay muted loop autoplay src="$BackgroundVideo.URL" id="vid-bg" class="ani-vid-fadein" style="opacity: 1;"></video>
 							</div>
-							<div class="inner">
+							<div class="inner inner--is-overlay">
 								<% include InfoSlideBody %>
 							</div>
 						</div>
@@ -37,18 +37,14 @@
 	</header>
 
 <% end_if %>
-
-
-$BlockArea(BeforeContent)
-	<h1>$Title Stories:</h1>
-	<% loop $Stories %>
-		<h2><a href="$Link">$Title</a></h2>
-	<% end_loop %>
-$BlockArea(AfterContent)
+ 	<div class="container">
+		<% if $Stories %>
+			<% loop $Stories %>
+				<% include StoryCardLarge %>
+			<% end_loop %>
+		<% else %>
+			<p><%t Blog.NoPosts 'There are no posts' %></p>
+		<% end_if %>
+ 	</div>
 <% end_with %>
-
-<h2>Other sections:</h2>
-<% loop $Sections %>
-	<h3><a href="$Link">$Title</a></h3>
-<% end_loop %>
 

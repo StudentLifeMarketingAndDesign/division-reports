@@ -1,3 +1,7 @@
+//*********************
+//******** Nav ********
+//*********************
+
 $("nav").navigation({
 	customClass    : "",
 	gravity        : "left",
@@ -16,6 +20,10 @@ $("nav").on("open.navigation", function() {
 }).on("close.navigation", function() {
     $(".nav__menu-icon").removeClass("nav__menu-icon--menu-is-active");
 });
+
+//**********************
+//****** Carousel ******
+//**********************
 
 var $carousel = $('.carousel').flickity({
 	imagesLoaded: true,
@@ -50,3 +58,24 @@ $carousel.on( 'scroll.flickity', function() {
 $('.carousel-nav-cell').click(function() {
 	flkty.stopPlayer();
 });
+
+//**********************
+//****** Count up ******
+//**********************
+
+var countOptions = {
+  useEasing : true, 
+  useGrouping : true, 
+  separator : ',', 
+  decimal : '.', 
+};
+var demo = new CountUp("stat1", 0, 3746, 0, 2.5, countOptions);
+var demo2 = new CountUp("stat2", 0, 562, 0, 2.5, countOptions);
+demo.start();
+demo2.start();
+
+
+//*********************
+//****** Circles ******
+//*********************
+

@@ -1,4 +1,4 @@
-<div class="container header__container--overlay">
+<div class="container header__container header__container--overlay">
 	<header class="header text-center">
 		<div class="row no-gutters">
 			<div class="col-lg-10 offset-lg-1">

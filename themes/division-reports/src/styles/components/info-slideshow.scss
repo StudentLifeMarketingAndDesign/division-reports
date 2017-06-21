@@ -134,93 +134,24 @@
 //   z-index: 0
 // }
 
-/* Tagline */
 .carousel .inner {
   position: relative;
   color: #fff;
   position: absolute;
-  bottom: 90px;
+  top:0;
   left: 0;
   right: 0;
   z-index: 20;
-  // @include grid-row;
-  & span {
-    color: #fff;
-    font-family: $heading-font;
-    font-size: rem-calc(13);
-    display: inline-block;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 1px rgba(0,0,0,.2);
-    @media screen and (min-width: $break-large) {
-      padding-left: 60px;
-    }
+  
+  &--is-overlay{
+    top: 30%;
   }
-  & h2 {
-    font-size: rem-calc(30);
-    margin: 20px 0 5px;
-    line-height: 1.2;
-    text-shadow: 1px 1px 1px rgba(0,0,0,.2);
-    position: relative;
-    @media screen and (min-width: $break-medium) {
-      font-size: rem-calc(60);
-    }
-    @media screen and (min-width: $break-large) {
-      padding-left: 60px;
-      &:before {
-        content: '';
-        width: 40px;
-        height: 86%;
-        background: #ffcd00;
-        position: absolute;
-        top: 5%;
-        left: 0;
-      }
-    }
-  }
-  & p {
-    font-weight: 600;
-    font-style: italic;
-    margin: 0;
-    @media screen and (min-width: $break-large) {
-      padding-left: 60px;
-    }
-  }
-  & .cell-btn {
-    background: transparent;
-    color: #fff;
-    display: inline-block;
-    border: 1px solid #fff;
-    padding: 10px 15px;
-    font-size: rem-calc(12);
-    line-height: 1;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-top: 25px;
-    &:hover, &:focus {
-      background: $yellow;
-      color: #333;
-    }
-    @media screen and (min-width: $break-large) {
-      margin-left: 60px;
-    }
-  }
-  @media screen and (min-width: $break-large) {
-    bottom: 25%;
-  }
+
 }
 .carousel .inner .cell-text {
   width: 100%;
   padding-left: 2%;
   padding-right: 2%;
-  @media screen and (min-width: $break-large) {
-    width: 60%;
-  }
-  @media only screen and (max-height: 800px) and (min-width: 1024px) {
-    width: 96%;
-  }
 }
 
 

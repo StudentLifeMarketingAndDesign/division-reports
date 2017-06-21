@@ -7,7 +7,7 @@ class InfoSlide extends DataObject
 
        'Title' => 'Varchar(155)',
        'MediaType' => "Enum('Image,Video')",
-
+       'LayoutType' => 'Varchar(155)',
        'Quote' => 'Text',
        'QuoteCaption' => 'Text',
 
@@ -23,7 +23,7 @@ class InfoSlide extends DataObject
        'Stat3Label' => 'Text',
        'Stat3IsCircle' => 'Boolean',
 
-       'ArbitraryStatHTML' => 'HTMLText',
+       'ArbitraryStatsHTML' => 'HTMLText',
 
        'ButtonTitle' => 'Varchar(155)',
        'ButtonLink' => 'Varchar(155)'
@@ -42,7 +42,7 @@ class InfoSlide extends DataObject
     );
 
     private static $layout_types = array(
-        'ArbitraryStats' => 'Arbitrary Stats HTML Editor',
+        'ArbitraryStatsHTML' => 'Arbitrary Stats HTML Editor',
         'SingleQuote' => 'Single Quote',
         'SingleStat' => 'Single Statistic & Label',
         'TwoStats' => 'Two Statistics & Labels',
@@ -97,13 +97,13 @@ class InfoSlide extends DataObject
         $f->push($singleQuoteFields);
 
 
-        $codeField = CodeEditorField::create('ArbitraryStatHTML');
+        $codeField = CodeEditorField::create('ArbitraryStatsHTML');
         $codeField->addExtraClass('stacked');
         $codeField->setRows(30);
 
         $arbitraryHtmlFields = DisplayLogicWrapper::create(
             $codeField
-        )->displayIf('LayoutType')->isEqualTo('ArbitraryStats')->end();
+        )->displayIf('LayoutType')->isEqualTo('ArbitraryStatsHTML')->end();
 
         $f->push($arbitraryHtmlFields);
 

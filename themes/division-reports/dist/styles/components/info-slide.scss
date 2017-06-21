@@ -1,0 +1,53 @@
+.info-slide{}
+
+.info-slide__body{
+	color: #fff;
+}
+
+.info-slide__heading{
+	font-family: $body-font;
+	font-size: 19px;
+	color: #eee;
+	font-weight: normal;
+}
+
+.info-slide__section{
+	border-color: rgba(#fff, 0.3);
+	
+
+	&--margin-bottom{
+		margin-bottom: 40px;
+	}
+	&--border-right{
+		border-right: 1px solid;
+	}
+	&--border-bottom{
+		border-bottom: 1px solid;
+	}
+	&--border-left{
+		border-left: 1px solid;
+	}
+	&--border-top{
+		border-top: 1px solid;
+	}
+
+}
+
+.stat__num{
+	color: $yellow;
+	font-size: 80px;
+	display: inline-block;
+	font-weight: 900;
+	//Needs a fixed width so the flipping/animating/counting numbers don't change the element's width:
+	width: 220px;
+}
+
+.stat__label{
+	font-family: $heading-font;
+	color: #fff;
+	font-size: 36px;
+}
+
+.stat__caption{
+	color: #eee;
+}

@@ -1,2 +1,31 @@
 .header{
+	&__container{
+		margin-top: 80px;
+		margin-bottom: 80px;
+	}
+
+	&__intro{
+		margin-bottom: 0;
+	}
+	&__intro--dark-bg{
+		color: #eee;
+	}	
+	&__page-title{
+		margin-top: 0;
+	}
+	&__container--overlay{
+		position: absolute;
+		top: 0;
+		z-index: 999;
+  		width: 100%;
+  		left: 0;
+  		right: 0; 
+  		margin-left: auto;
+  		margin-right: auto;
+	}
+	&__text--dark-bg{
+		color: #fff;
+	}	
+
+
 }
