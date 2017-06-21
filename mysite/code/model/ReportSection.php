@@ -42,7 +42,7 @@ class ReportSection extends DataObject implements CategorisationObject
 		'ShowInMenus' => true
 	);
 
-    private static $default_sort = 'Title ASC'
+    private static $default_sort = 'Title ASC';
 
     // public function Stories()
     // {
