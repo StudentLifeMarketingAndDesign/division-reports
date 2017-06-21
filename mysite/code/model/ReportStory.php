@@ -4,7 +4,9 @@ class ReportStory extends BlogPost {
 
 	private static $db = array(
 		'AuthorEmails' => 'Text',
-		'IsFeatured' => 'Boolean'
+		'IsFeatured' => 'Boolean',
+		'FeaturedImageCaption' => 'Text',
+		'PhotoCredit' => 'Text'
 	);
 
 	private static $many_many = array(
@@ -23,6 +25,8 @@ class ReportStory extends BlogPost {
 		// $f->removeByName('Authors');
 		$f->removeByName('CustomSummary');
 		$f->removeByName('AuthorNames');
+		$f->removeByName('Authors');
+		$f->removeByName('Metadata');
 
 
 		$f->addFieldToTab('Root.Main',CheckboxField::create('IsFeatured', 'Can be featured on report homepage?'), 'Content');
@@ -36,6 +40,8 @@ class ReportStory extends BlogPost {
 			$sectionField->setDisabled(true);
 		}
 		$f->addFieldToTab("Root.Main", $sectionField, 'Content');
+		$f->addFieldToTab("Root.Main", TextField::create('FeaturedImageCaption', 'Featured Image Caption'));
+		$f->addFieldToTab("Root.Main", TextField::create('Photo Credit', 'Photo Credit'));
 		$f->addFieldToTab("blog-admin-sidebar", $authorEmailField);
 
 
@@ -81,10 +87,13 @@ public function onBeforeWrite() {
 
     // check on every write action:
     $authorEmails = $this->AuthorEmails;
-
-    $authorEmailsArray = explode(',', trim($authorEmails));
+    $authorEmailsArray = explode(',', $authorEmails);
     //print_r($authorEmailsArray);
+
+    $this->Authors()->removeAll();
+
     foreach ($authorEmailsArray as $email){
+    	$email = trim($email);
     	if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
   			// echo("$email is a valid email address");
   			if (Member::get()->filter(array('Email' => $email))->First()){
@@ -104,6 +113,9 @@ public function onBeforeWrite() {
 				}
   			}
 		}
+
+		
+
 		// else { echo("$email is not a valid email address"); }
     }
     // CAUTION: You are required to call the parent-function, otherwise

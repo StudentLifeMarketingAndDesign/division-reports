@@ -34,9 +34,11 @@
 				<div class="row no-gutters">
 					<div class="col-lg-6">
 						<% with $Story1 %>
-							<a href="$Link" style="background-color: red; background-image: url($FeaturedImage.FocusFillMax(1280,720).URL" class="story-tile story-tile--large">
+							<a href="$Link" style="background-image: url($FeaturedImage.FocusFillMax(1280,720).URL" class="story-tile story-tile--large">
 								<div class="story-tile__header">
-									<span class="section-tag" href="$Sections.First.Link">$Sections.First.Title</span>
+									<% if $Sections %>
+										<span class="section-tag" href="$Sections.First.Link">$Sections.First.Title</span>
+									<% end_if %>
 									<h2 class="story-tile__title">$Title</h2>
 								</div>
 							</a>
@@ -46,8 +48,13 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<% with $Story2 %>
-									<a href="$Link" style="background-color: green" class="story-tile story-tile--small">
-										<h2>$Title</h2>
+									<a href="$Link" style="background-image: url($FeaturedImage.FocusFillMax(1280,720).URL" class="story-tile story-tile--small">
+										<div class="story-tile__header">
+											<% if $Sections %>
+												<span class="section-tag" href="$Sections.First.Link">$Sections.First.Title</span>
+											<% end_if %>
+											<h2 class="story-tile__title">$Title</h2>
+										</div>
 									</a>
 								<% end_with %>
 							</div>
@@ -55,8 +62,13 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<% with $Story3 %>
-									<a href="$Link" style="background-color: blue" class="story-tile story-tile--small">
-										$Title
+									<a href="$Link" style="background-image: url($FeaturedImage.FocusFillMax(1280,720).URL" class="story-tile story-tile--small">
+										<div class="story-tile__header">
+											<% if $Sections %>
+												<span class="section-tag" href="$Sections.First.Link">$Sections.First.Title</span>
+											<% end_if %>
+											<h2 class="story-tile__title">$Title</h2>
+										</div>
 									</a>
 								<% end_with %>
 							</div>

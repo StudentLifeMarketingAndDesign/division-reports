@@ -7,7 +7,9 @@
 				<% end_if %>
 			</div>
 			<div class="col-md-7">
-				<span class="section-tag" href="$Sections.First.Link">$Sections.First.Title</span>
+				<% if $Sections %>
+					<span class="section-tag" href="$Sections.First.Link">$Sections.First.Title</span>
+				<% end_if %>
 				<h3>$Title</h3>
 				<div class="story-card-large__content">
 					$Content.NoHTML.LimitCharacters(100)

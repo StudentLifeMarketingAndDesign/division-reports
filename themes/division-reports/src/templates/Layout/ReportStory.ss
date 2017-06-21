@@ -3,11 +3,15 @@
 		<div class="row">
 			<div class="col-lg-10 offset-lg-2">
 				<div class="story-single__header">
+					<% if $Sections %>
 					<a class="section-tag" href="$Sections.First.Link">$Sections.First.Title</a>
+					<% end_if %>
 					<h1 class="header__title story-single-heading__title">$Title</h1>
-					<div class="header__intro summary">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed est vel nunc iaculis tempus quis quis urna. Curabitur scelerisque hendrerit mauris, id pellentesque metus maximus vitae.</p>
-					</div>
+					<% if $Summary %>
+						<div class="header__intro summary">
+							$Summary
+						</div>
+					<% end_if %>
 				</div>
 			</div>
 		</div>
@@ -17,22 +21,24 @@
 	<% end_if %>
 	<div class="container story-single__body-container">
 		<div class="row">
-			
-
 			<div class="col-lg-8 push-lg-2">
-
 				<div class="story-single__body">
-					<p class="story-single__image-caption">Image caption. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus mollis interdum.</p>
+					<% if $FeaturedImageCaption %>
+						<p class="story-single__image-caption">$FeaturedImageCaption</p>
+					<% end_if %>
 					<div class="story-single__text">
 						$Content
 					</div>
 				</div>
-
 			</div>
 			<div class="col-lg-2 pull-lg-8">
 				<div class="story-meta">
-					<img src="http://via.placeholder.com/200x200" class="story-meta__author-img" />
-					<p class="story-meta__author-name text-center">Brandon Ewoldt</p>
+					<% loop $Credits %>
+					<a href="$URL" class="story-meta__author-link">
+						<img src="http://via.placeholder.com/200x200" class="story-meta__author-img" />
+						<p class="story-meta__author-name text-center">$FirstName $Surname</p>
+					</a>
+					<% end_loop %>
 					<div class="story-meta__section">
 						<h2 class="story-meta__section-title">Section</h2>
 						<p class="story-meta__tags"><% loop $Sections %><a href="$Link" class="tag">$Title<% if not $Last %> <% end_if %><% end_loop %></a></p>
@@ -45,21 +51,13 @@
 				</div>
 			</div>
 			<div class="col-lg-2">
-				<p class="story-single__photo-credit story-single__image-caption">Photo credit: Lisa Hannigan</p>
+				<% if $PhotoCredit %>
+				<p class="story-single__photo-credit story-single__image-caption">$PhotoCredit</p>
+				<% end_if %>
 				<div class="story-share">
 					<h2 class="story-share__heading">Share this article</h2>
 				</div>
-
 			</div>
 		</div>
-
 	</div>
-
 </article>
-
-
-
-
-
-
-

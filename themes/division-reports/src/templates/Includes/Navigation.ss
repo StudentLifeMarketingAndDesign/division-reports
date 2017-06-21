@@ -2,8 +2,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6 col-md-4">
-				<a href="$BaseUrl"><% include DslLogoSvg %></a><br />
-				<span class="nav__report-title">Annual Report 2017</span>
+				<a href="$BaseUrl"><% include DslLogoSvg %>
+				<br />
+				<span class="nav__report-title">$LatestIssue.Title</span>
+				</a>
 			</div>
 			<div class="col-sm-3 offset-sm-3 col-md-2 offset-md-6">
 				<div class="nav__explore">
