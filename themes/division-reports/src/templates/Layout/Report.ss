@@ -30,51 +30,49 @@
 
 	<% with $Featured %>
 		<div class="story-tile__container">
-			<div class="container-fluid">
-				<div class="row no-gutters">
-					<div class="col-lg-6">
-						<% with $Story1 %>
-							<a href="$Link" style="background-image: url($FeaturedImage.FocusFillMax(1280,720).URL" class="story-tile story-tile--large">
-								<div class="story-tile__header">
-									<% if $Sections %>
-										<span class="section-tag" href="$Sections.First.Link">$Sections.First.Title</span>
-									<% end_if %>
-									<h2 class="story-tile__title">$Title</h2>
-								</div>
-							</a>
-						<% end_with %>
-					</div>
-					<div class="col-lg-6">
-						<div class="row">
-							<div class="col-lg-12">
-								<% with $Story2 %>
-									<a href="$Link" style="background-image: url($FeaturedImage.FocusFillMax(1280,720).URL" class="story-tile story-tile--small">
-										<div class="story-tile__header">
-											<% if $Sections %>
-												<span class="section-tag" href="$Sections.First.Link">$Sections.First.Title</span>
-											<% end_if %>
-											<h2 class="story-tile__title">$Title</h2>
-										</div>
-									</a>
-								<% end_with %>
+			<div class="row no-gutters">
+				<div class="col-lg-6">
+					<% with $Story1 %>
+						<a href="$Link" style="background-image: url($FeaturedImage.FocusFillMax(1280,720).URL" class="story-tile story-tile--large">
+							<div class="story-tile__header story-tile__header--large">
+								<% if $Sections %>
+									<span class="section-tag" href="$Sections.First.Link">$Sections.First.Title</span>
+								<% end_if %>
+								<h2 class="story-tile__title">$Title</h2>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-12">
-								<% with $Story3 %>
-									<a href="$Link" style="background-image: url($FeaturedImage.FocusFillMax(1280,720).URL" class="story-tile story-tile--small">
-										<div class="story-tile__header">
-											<% if $Sections %>
-												<span class="section-tag" href="$Sections.First.Link">$Sections.First.Title</span>
-											<% end_if %>
-											<h2 class="story-tile__title">$Title</h2>
-										</div>
-									</a>
-								<% end_with %>
-							</div>
-						</div>
-					</div>		
+						</a>
+					<% end_with %>
 				</div>
+				<div class="col-lg-6">
+					<div class="row">
+						<div class="col-lg-12">
+							<% with $Story2 %>
+								<a href="$Link" style="background-image: url($FeaturedImage.FocusFillMax(1280,720).URL" class="story-tile story-tile--small">
+									<div class="story-tile__header">
+										<% if $Sections %>
+											<span class="section-tag" href="$Sections.First.Link">$Sections.First.Title</span>
+										<% end_if %>
+										<h2 class="story-tile__title story-tile__title--small">$Title</h2>
+									</div>
+								</a>
+							<% end_with %>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<% with $Story3 %>
+								<a href="$Link" style="background-image: url($FeaturedImage.FocusFillMax(1280,720).URL" class="story-tile story-tile--small">
+									<div class="story-tile__header">
+										<% if $Sections %>
+											<span class="section-tag" href="$Sections.First.Link">$Sections.First.Title</span>
+										<% end_if %>
+										<h2 class="story-tile__title story-tile__title--small">$Title</h2>
+									</div>
+								</a>
+							<% end_with %>
+						</div>
+					</div>
+				</div>		
 			</div>
 		</div>
 	<% end_with %>

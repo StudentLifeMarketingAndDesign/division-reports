@@ -1,7 +1,8 @@
 <div class="cell-text">
 	<% if $LayoutType == "ArbitraryStatsHTML" %>
+		$ArbitraryStatsHTML
+	<% else %>
 		<div class="container info-slide__body">
-
 			<div class="info-slide__section info-slide__section--border-bottom info-slide__section--margin-bottom">
 				<div class="row">
 					<div class="col">
@@ -10,7 +11,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col">
+				<div class="col info-slide__section info-slide__section--padding-right">
 					<div class="row row-eq-height">
 						<div class="col info-slide__section">
 							<p><span class="stat__num counter" id="stat1" data-count="2314"></span> <span class="stat__label">Appointments</span></p>
@@ -37,8 +38,9 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>	
 	<% end_if %>
+	
 	<% if $ButtonLink %>
 		<a href="$ButtonLink" target="_blank" class="cell-btn">$ButtonText</a>
 	<% end_if %>

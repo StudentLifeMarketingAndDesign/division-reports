@@ -7,11 +7,20 @@
 	background-color: #333;
 	&__header{
 		position: absolute;
-		bottom: 0;
-
+		bottom: 10px;
+		&--large{
+			bottom: 15px;
+		}
+		
 	}
 	&__title{
 		color: white;
+		margin-top: 20px;
+		font-size: 33px;
+
+		&--small{
+			font-size: 26px;
+		}
 	}
 	&__container{
 		margin-bottom: 75px; 

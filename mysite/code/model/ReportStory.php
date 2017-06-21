@@ -27,7 +27,7 @@ class ReportStory extends BlogPost {
 		$f->removeByName('AuthorNames');
 		$f->removeByName('Authors');
 		$f->removeByName('Metadata');
-
+		$f->renameField('Tags', 'Topics');
 
 		$f->addFieldToTab('Root.Main',CheckboxField::create('IsFeatured', 'Can be featured on report homepage?'), 'Content');
 		$f->addFieldToTab('Root.Main', HTMLEditorField::create('Summary')->setRows(3), 'Content');

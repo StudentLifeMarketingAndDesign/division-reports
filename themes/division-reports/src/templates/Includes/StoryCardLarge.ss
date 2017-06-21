@@ -10,9 +10,13 @@
 				<% if $Sections %>
 					<span class="section-tag" href="$Sections.First.Link">$Sections.First.Title</span>
 				<% end_if %>
-				<h3>$Title</h3>
+				<h3 class="story-card-large__heading">$Title</h3>
 				<div class="story-card-large__content">
-					$Content.NoHTML.LimitCharacters(100)
+					<% if $Summary %>
+						$Summary.NoHTML.LimitCharacters(100)
+					<% else %>
+						$Content.NoHTML.LimitCharacters(100)
+					<% end_if %>
 				</div>
 				<p><span class="read-more">Read more &rarr;</span></p>
 			</div>

@@ -35,7 +35,9 @@
 				<div class="story-meta">
 					<% loop $Credits %>
 					<a href="$URL" class="story-meta__author-link">
-						<img src="http://via.placeholder.com/200x200" class="story-meta__author-img" />
+						<% if $BlogProfileImage %>
+							<img src="$BlogProfileImage.FocusFill(200,200).URL" class="story-meta__author-img" />
+						<% end_if %>
 						<p class="story-meta__author-name text-center">$FirstName $Surname</p>
 					</a>
 					<% end_loop %>

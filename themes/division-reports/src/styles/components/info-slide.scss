@@ -13,12 +13,17 @@
 
 .info-slide__section{
 	border-color: rgba(#fff, 0.3);
-	
 
 	&--with-padding{
 		padding: 40px;
 	}
 
+	&--padding-right{
+		padding-right: 40px;
+	}
+	&--padding-left{
+		padding-left: 40px;
+	}
 	&--margin-bottom{
 		margin-bottom: 40px;
 	}
