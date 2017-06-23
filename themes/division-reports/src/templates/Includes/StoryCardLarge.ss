@@ -1,25 +1,35 @@
-<div class="story-card-large">
-	<a class="story-card-large__link" href="$Link">
-		<div class="row">
-			<div class="col-md-5">
-				<% if $FeaturedImage %>
-					<img class="story-card-large__image" src="$FeaturedImage.URL" alt="" role="presentation" />
-				<% end_if %>
-			</div>
-			<div class="col-md-7">
+<article class="story-card-large">
+	<% if $Categories.exists %>
+		<% loop $Categories.Limit(1) %>
+			<span class="story-card-large__category $Title">$Title</span>
+		<% end_loop %>
+	<% end_if %>
+	<div class="row">
+		<div class="col-md-4">
+			<% if $FeaturedImage %>
+				<a href="$Link">
+					<img class="story-card-large__image" src="$FeaturedImage.CroppedFocusedImage(506,340).URL" <% if $FeaturedImageCaption %>alt="$FeaturedImageCaption" <% else %>alt="$Title"<% end_if %> />
+				</a>
+			<% end_if %>
+		</div>
+		<div class="col-md-7">
+			<div class="story-card-large__content">
 				<% if $Sections %>
-					<span class="section-tag" href="$Sections.First.Link">$Sections.First.Title</span>
+					<a class="section-tag" href="$Sections.First.Link">$Sections.First.Title</a>
 				<% end_if %>
-				<h3 class="story-card-large__heading">$Title</h3>
-				<div class="story-card-large__content">
+				<h3 class="story-card-large__heading"><a href="$Link">$Title</a></h3>
+				<div class="story-card-large__summary">
 					<% if $Summary %>
-						$Summary.NoHTML.LimitCharacters(100)
+						<p>$Summary.NoHTML.LimitCharacters(160)</p>
 					<% else %>
-						$Content.NoHTML.LimitCharacters(100)
+						<p>$Content.NoHTML.LimitCharacters(160)</p>
 					<% end_if %>
 				</div>
-				<p><span class="read-more">Read more &rarr;</span></p>
+				<%-- <a href="$Link" class="read-more">Read more &rarr;</a> --%>
+				<a href="#" class="read-more line-btn">
+					<span class="line-btn--inner">Read more &rarr;</span>
+				</a>
 			</div>
 		</div>
-	</a>
-</div>
+	</div>
+</article>

@@ -1,38 +1,152 @@
 .story-card-large{
+	background: #fff;
+	border: 2px solid #222;
+	padding: 0;
+	margin: 20px 0;
+	position: relative;
 	&__heading{
-		margin-top: 20px;
+		margin-top: 10px;
+		& a {
+			color: #222;
+			&:hover, &:focus {
+				text-decoration: underline;
+			}
+		}
 	}
-	&__link{
-		color: #222;
+	&__image {
 		display: block;
-		border: 2px solid #222; 
-		padding: 15px;
-		margin: 20px 0;
 	}
-	&__content{
-		color: #838383;
+	&__content {
+		padding: 25px;
+		@media (min-width: $break-medium) {
+			padding: 0;
+		}
+	}
+	&__summary{
+		color: #777;
 		font-style: italic;
-		font-size: 13px;
+		font-size: 16px;
 		br{
 			display: none;
 		}
 	}
-
+	@media (min-width: $break-medium) {
+		padding: 25px;
+	}
+}
+.story-card-large__category {
+	width: 60px;
+	height: 60px;
+	background-color: rgba(255,255,255,.8);
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	z-index: 1;
+	text-indent: -999em;
+	background-image: url(../images/story-categories.png);
+	background-repeat: no-repeat;
+	background-position: center -10px;
+	&.Video {
+		background-position: center -90px;
+	}
+	&.Gallery {
+		background-position: center -170px;
+	}
+	@media (min-width: $break-medium) {
+		width: 80px;
+		height: 80px;
+		&.Video {
+			background-position: center -80px;
+		}
+		&.Gallery {
+			background-position: center -160px;
+		}
+	}
 }
 
 .read-more{
+	color: #222;
 	font-family: $heading-font;
 	font-weight: 600;
 	letter-spacing: 2px;
-	border: 1px solid #282828;
-	padding: 10px;
+	padding: 11px 12px 9px 0;
+	line-height: 1;
 	text-transform: uppercase;
 	font-size: 13px;
 	margin: 10px 0;
-	display: inline-block;
-	text-align: center;
-	transition: all 0.3s linear;
-	.story-card-large__link:hover & {
-		background: $yellow;
+	transition: all 0.3s ease-in;
+	&:hover, &:focus {
+		color: #222;
+		padding-left: 12px;
 	}
 }
+
+
+
+
+// ------------------------------------------------------
+
+
+$line-width: 2px;
+$border-color: #222;
+
+.line-btn {
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	text-decoration: none;
+	&:before,
+	&:after,
+	.line-btn--inner:before,
+	.line-btn--inner:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 0;
+		background-color: $border-color;
+		transition: 0.3s ease-in;
+	}
+}
+.line-btn {
+	&:before, &:after {
+		width: 0;
+		height: $line-width;
+	}
+	&:after {
+		top: auto;
+		right: 0;
+		bottom: 0;
+		left: auto;
+	}
+	.line-btn--inner:before {
+		right: 0;
+		left: auto;
+		width: $line-width;
+		height: 0;
+	}
+	.line-btn--inner:after {
+		top: auto;
+		bottom: 0;
+		width: $line-width;
+		height: 0;
+	}
+
+	/* hover */
+	&:hover, &:focus {
+		&:before, &:after {
+			width: 100%;
+		}
+		.line-btn--inner:before, .line-btn--inner:after {
+			height: 100%;
+		}
+	}
+}
+
+
+
+
+
+
+

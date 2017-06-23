@@ -79,6 +79,13 @@ html {
   }
 }
 
+@media (min-width: 1300px) {
+  .container {
+    width: 1240px;
+    max-width: 100%;
+  }
+}
+
 .container-fluid {
   position: relative;
   margin-left: auto;
