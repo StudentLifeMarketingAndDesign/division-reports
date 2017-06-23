@@ -7,7 +7,7 @@
 	<div class="row">
 		<div class="col-md-4">
 			<% if $FeaturedImage %>
-				<a href="$Link">
+				<a href="$Link" class="test">
 					<img class="story-card-large__image" src="$FeaturedImage.CroppedFocusedImage(506,340).URL" <% if $FeaturedImageCaption %>alt="$FeaturedImageCaption" <% else %>alt="$Title"<% end_if %> />
 				</a>
 			<% end_if %>

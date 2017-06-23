@@ -81,6 +81,37 @@
 	}
 }
 
+.test {
+	display: block;
+	position: relative;
+	&:after {
+		content:'';
+		overflow: hidden;
+		text-indent: -9999rem;
+		font-size: 0;
+		line-height: 0;
+		background: #ffcd00;
+		background: -moz-linear-gradient(-45deg, #ffcd00 0%, #222222 100%);
+		background: -webkit-linear-gradient(-45deg, #ffcd00 0%,#222222 100%);
+		background: linear-gradient(135deg, #ffcd00 0%,#222222 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcd00', endColorstr='#222222',GradientType=1 );
+		-webkit-transition: opacity,.25s,ease-out;
+		-moz-transition: opacity,.25s,ease-out;
+		-o-transition: opacity,.25s,ease-out;
+		transition: opacity .25s ease-out;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		opacity: .3;
+	}
+	&:hover, &:focus {
+		&:after {
+			opacity: 0;
+		}
+	}
+}
 
 
 
