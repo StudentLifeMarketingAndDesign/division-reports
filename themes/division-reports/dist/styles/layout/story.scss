@@ -3,12 +3,13 @@
 	color: $black;
 	font-family: $heading-font;
 	text-transform: uppercase;
-	letter-spacing: 3px;
+	letter-spacing: .25em;
+	line-height: 1;
 	font-size: 11px;
 	display: inline-block;
-	padding: 3px 10px;
+	padding: 5px 7px 2px;
 	font-weight: 500;
-
+	vertical-align: top;
 	&:hover{
 		background: #222;
 		color: $yellow;
@@ -17,9 +18,15 @@
 .story-single__img{
 	width: 100%;
 	display: block;
+	max-width: 1400px;
+	margin: 0 auto;
 }
 .story-single__header{
 	margin: 60px 0;
+}
+.story-single-heading__title {
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 .story-single__title{
 	margin-top: 20px;

@@ -28,18 +28,18 @@ body {
 /* ---------------------------------------------------------------
 Layout
 --------------------------------------------------------------- */
-.container {
-	max-width: $break-xlarge;
-	margin-right: auto;
-	margin-left: auto;
-	padding-left: 1em;
-	padding-right: 1em;
-	position: relative;
-	@media (min-width: $break-large) {
-		padding-left: 2em;
-		padding-right: 2em;
-	}
-}
+// .container {
+// 	max-width: $break-xlarge;
+// 	margin-right: auto;
+// 	margin-left: auto;
+// 	padding-left: 1em;
+// 	padding-right: 1em;
+// 	position: relative;
+// 	@media (min-width: $break-large) {
+// 		padding-left: 2em;
+// 		padding-right: 2em;
+// 	}
+// }
 .container-fluid{
 	padding-left: 10px;
 	padding-right: 10px;

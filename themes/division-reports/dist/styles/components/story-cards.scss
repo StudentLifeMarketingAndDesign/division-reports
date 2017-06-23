@@ -1,38 +1,73 @@
 .story-card-large{
-	h3{
-		margin-top: 25px;
+	background: #fff;
+	border: 2px solid #222;
+	padding: 0;
+	margin: 20px 0;
+	position: relative;
+	&__heading{
+		margin-top: 10px;
+		& a {
+			color: #222;
+		}
 	}
-	&__link{
-		color: #222;
+	&__image {
 		display: block;
-		border: 2px solid #222; 
-		padding: 15px;
-		margin: 20px 0;
 	}
-	&__content{
-		color: #838383;
+	&__content {
+		padding: 25px;
+		@media (min-width: $break-medium) {
+			padding: 0;
+		}
+	}
+	&__summary{
+		color: #777;
 		font-style: italic;
-		font-size: 13px;
+		font-size: 16px;
 		br{
 			display: none;
 		}
 	}
-
+	&__category {
+		width: 80px;
+		height: 80px;
+		background-color: rgba(255,255,255,.5);
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		z-index: 1;
+		text-indent: -999em;
+		padding: 10px;
+		background-image: url(../images/story-categories.png);
+		background-repeat: no-repeat;
+		background-position: center top;
+		&.Gallery {
+			background-position: center -160px;
+		}
+		&.Video {
+			background-position: center -80px;
+		}
+	}
+	@media (min-width: $break-medium) {
+		padding: 25px;
+	}
 }
 
 .read-more{
+	color: #222;
 	font-family: $heading-font;
 	font-weight: 600;
 	letter-spacing: 2px;
 	border: 1px solid #282828;
-	padding: 10px;
+	padding: 11px 10px 9px;
+	line-height: 1;
 	text-transform: uppercase;
 	font-size: 13px;
 	margin: 10px 0;
 	display: inline-block;
 	text-align: center;
 	transition: all 0.3s linear;
-	.story-card-large__link:hover & {
+	&:hover, &:focus {
 		background: $yellow;
+		color: #222;
 	}
 }
