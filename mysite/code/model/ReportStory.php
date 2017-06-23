@@ -28,6 +28,7 @@ class ReportStory extends BlogPost {
 		$f->removeByName('Authors');
 		$f->removeByName('Metadata');
 		$f->renameField('Tags', 'Topics');
+		$f->renameField('FeaturedImage', 'Cover Image');
 
 		$f->addFieldToTab('Root.Main',CheckboxField::create('IsFeatured', 'Can be featured on report homepage?'), 'Content');
 		$f->addFieldToTab('Root.Main', HTMLEditorField::create('Summary')->setRows(3), 'Content');
@@ -40,7 +41,7 @@ class ReportStory extends BlogPost {
 			$sectionField->setDisabled(true);
 		}
 		$f->addFieldToTab("Root.Main", $sectionField, 'Content');
-		$f->addFieldToTab("Root.Main", TextField::create('FeaturedImageCaption', 'Featured Image Caption'));
+		$f->addFieldToTab("Root.Main", TextField::create('FeaturedImageCaption', 'Cover Image Caption'));
 		$f->addFieldToTab("Root.Main", TextField::create('PhotoCredit', 'Photo Credit'));
 		$f->addFieldToTab("blog-admin-sidebar", $authorEmailField);
 
@@ -114,7 +115,7 @@ public function onBeforeWrite() {
   			}
 		}
 
-		
+
 
 		// else { echo("$email is not a valid email address"); }
     }
@@ -127,7 +128,7 @@ public function onBeforeWrite() {
 			set_time_limit(30);
 
 			$ldapserver = 'iowa.uiowa.edu';
-			$ldapuser      =  AD_SERVICEID_USER;  
+			$ldapuser      =  AD_SERVICEID_USER;
 			$ldappass     = AD_SERVICEID_PASS;
 			$ldaptree    = "DC=iowa, DC=uiowa, DC=edu";
 
@@ -143,7 +144,7 @@ public function onBeforeWrite() {
 
 			    	//do stuff
 						$result = ldap_search($ldapconn,$ldaptree, "mail=".$email, array("mail","sn", "givenName", "objectGUID", "memberOf")) or die ("Error in search query: ".ldap_error($ldapconn));
-						
+
 			        	$data = ldap_get_entries($ldapconn, $result);
 			        	//print_r($data[0]);
 			        	if($data["count"] == 1){
