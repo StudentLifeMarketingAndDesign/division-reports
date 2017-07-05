@@ -4,6 +4,8 @@
 	position: relative;
 	margin-left: 0px;
 
+	// margin-right: 0px;
+
 	p {
 		display: block;
 		position: relative;
@@ -32,18 +34,14 @@
 	padding-left: 4rem;
 	padding-right: 3rem;
 	padding-bottom: 2rem;
-	margin-right: 0;
+
+	// margin-right: 0;
 	position: relative;
 	width: 50%;
 	float: left;
 
 	@media screen and (max-width: $break-large) {
 		width: 100%;
-
-		// min-height: 478.945px;
-		// padding-bottom: 0px;
-
-		// padding-top: 3rem;
 	}
 }
 
@@ -56,8 +54,6 @@
 
 	@media screen and (max-width: $break-large) {
 		width: 100%;
-
-		// column-count: 2;
 	}
 }
 
@@ -78,12 +74,19 @@
 		padding-top: 20px;
 		padding-right: 20px;
 	}
+
+	@media screen and (max-width: $break-medium) {
+		column-count: 1;
+	}
+
+	@media screen and (max-width: $break-small) {
+		column-count: 1;
+	}
 }
 
 .md-bar {
 	background-color: #000000;
-	margin-right: 0px;
-	padding: 5px 0 10px 3rem;
+	padding: 5px 3rem 10px;
 }
 
 .md-bar--logo {

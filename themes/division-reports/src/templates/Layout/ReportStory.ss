@@ -1,4 +1,4 @@
-<article role="main" class="story-single">
+<main role="main" class="story-single smooth">
 	<header class="container">
 		<div class="row">
 			<div class="col-lg-10 offset-lg-2">
@@ -17,15 +17,17 @@
 		</div>
 	</header>
 	<% if $FeaturedImage %>
-		<img src="$FeaturedImage.FocusFillMax(1920,1080).URL" class="story-single__img" width="1920" height="1080">
+		<div class="story-single__coverimage">
+			<img src="$FeaturedImage.FocusFillMax(1920,1080).URL" class="story-single__img" width="1920" height="1080">
+			<% if $FeaturedImageCaption %>
+				<p class="story-single__image-caption">$FeaturedImageCaption</p>
+			<% end_if %>
+		</div>
 	<% end_if %>
 	<div class="container story-single__body-container">
 		<div class="row">
 			<div class="col-lg-8 push-lg-2">
 				<div class="story-single__body">
-					<% if $FeaturedImageCaption %>
-						<p class="story-single__image-caption">$FeaturedImageCaption</p>
-					<% end_if %>
 					<div class="story-single__text">
 						$Content
 					</div>
@@ -57,9 +59,18 @@
 				<p class="story-single__photo-credit story-single__image-caption">$PhotoCredit</p>
 				<% end_if %>
 				<div class="story-share">
-					<h2 class="story-share__heading">Share this article</h2>
+					<h3 class="story-share__heading">Share this article</h3>
+					<ul class="story-share__social clearfix">
+						<li><a href="javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);"  title="Share on Facebook"><img src="{$ThemeDir}/dist/images/social-facebook.png" alt="Share on Facebook"></a>
+						</li>
+						<li><a href="https://twitter.com/intent/tweet?text=$AbsoluteLink" title="Share on Twitter" target="_blank"><img src="{$ThemeDir}/dist/images/social-twitter.png" alt="Share on Twitter"></a></li>
+						<li><a href="javascript:window.open('https://www.linkedin.com/cws/share?url=$AbsoluteLink', '_blank', 'width=400,height=500');void(0);" title="Share on LinkedIn" target="_blank"><img src="{$ThemeDir}/dist/images/social-linkedin.png" alt="share on linkedid"></a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
-</article>
+
+	<% include RelatedStories %>
+
+</main>

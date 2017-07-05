@@ -1,4 +1,4 @@
-.section-tag {
+.section-tag{
 	background: $yellow;
 	color: $black;
 	font-family: $heading-font;
@@ -11,88 +11,103 @@
 	font-weight: 500;
 	vertical-align: top;
 	transition: 0.3s ease-in;
-
 	&:hover, &:focus {
 		background: #222;
 		color: $yellow;
 	}
 }
-
-.story-single__img {
+.story-single__img{
 	width: 100%;
 	display: block;
 	max-width: 1400px;
 	margin: 0 auto;
 }
-
-.story-single__header {
+.story-single__header{
 	margin: 60px 0;
 }
-
 .story-single-heading__title {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
-
-.story-single__title {
+.story-single__title{
 	margin-top: 20px;
 	margin-bottom: 0;
 }
-
-.story-single__image-caption {
+.story-single__image-caption{
 	font-size: 14px;
 	margin-top: 30px;
 	margin-bottom: 65px;
 }
-
-.story-single__photo-credit {
+.story-single__photo-credit{
 	font-size: 12px;
 }
+.story-single__body{
 
-.story-single__body {
 	@media screen and (min-width: $break-xlarge) {
 		width: 580px;
 		margin-left: 64px;
 		margin-right: 64px;
 	}
 }
-
-.story-single__text {
+.story-single__text{
 	color: #181818;
-
 	p:first-child:first-letter {
-		color: #222;
-		float: left;
-		font-size: 63px;
-		font-weight: bold;
-		line-height: 55px;
-		padding-top: 4px;
-		padding-right: 8px;
-		padding-left: 3px;
+	  color: #222;
+	  float: left;
+	  font-size: 63px;
+	  font-weight: bold;
+	  line-height: 55px;
+	  padding-top: 4px;
+	  padding-right: 8px;
+	  padding-left: 3px;
 	}
 }
-
-.story-share {}
-
+.story-share {
+	text-align: center;
+}
 .story-share__heading {
+	margin-top: 0;
+}
+
+.story-share__social {
+	display: table;
+	list-style: none;
+	margin: 10px auto;
+	& li {
+		display: table-cell;
+		& a {
+			background: #fff;
+			border-radius: 50%;
+			padding: 6px;
+			border: 2px solid #ccc;
+			margin: 0 4px;
+		}
+		& img {
+			display: block;
+			width: 16px;
+			height: 16px;
+		}
+	}
+	& a {
+		display: block;
+	}
+}
+.story-share__heading{
 	padding-top: 20px;
 	font-size: 21px;
 }
-
-.story-meta {
+.story-meta{
 	@media screen and (min-width: $break-large) {
-		margin-top: 125px;
+		margin-top: 1em;
 	}
 }
-
-.story-meta__author-img {
+.story-meta__author-img{
 	display: block;
 	border-radius: 200px;
 	margin: auto;
 	width: 100px;
 }
-
-.story-meta__author-name {
+.story-meta__author-name{
 	font-family: $heading-font;
 	font-weight: 600;
 	font-size: 21px;
