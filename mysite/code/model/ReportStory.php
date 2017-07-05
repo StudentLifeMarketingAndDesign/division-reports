@@ -99,7 +99,9 @@ class ReportStory extends BlogPost {
 		return $entries;
 	}
 
-public function onBeforeWrite() {
+
+
+	public function onBeforeWrite() {
     // check on first write action, aka "database row creation" (ID-property is not set)
     if(!$this->isInDb()) {
 
