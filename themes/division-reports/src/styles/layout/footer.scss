@@ -74,11 +74,15 @@
 		padding-top: 20px;
 		padding-right: 20px;
 	}
+
+	@media screen and (max-width: $break-medium) {
+		column-count: 1;
+	}
 }
 
 .md-bar {
 	background-color: #000000;
-	padding: 5px 2rem 10px 2rem;
+	padding: 5px 3rem 10px;
 }
 
 .md-bar--logo {
