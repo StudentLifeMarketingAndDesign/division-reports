@@ -112,3 +112,48 @@ var myCircle2 = Circles.create({
   styleWrapper:        true,
   styleText:           true
 });
+
+//*********************
+//*********************
+//*********************
+
+function sectionList(str) {
+  var xhttp;    
+  if (str == "") {
+    document.getElementById("filter").innerHTML = "";
+    return;
+  }
+  else{
+    xhttp = new XMLHttpRequest();
+    $("#tag-dropdown").reset();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("filter").innerHTML = xhttp.responseText;
+      }
+    };
+    xhttp.open("GET", "annual-report-2017-sample/load/"+str, true);
+    xhttp.send();
+  }
+  
+}
+
+function tagList(str) {
+  var xhttp;    
+  if (str == "") {
+    document.getElementById("filter").innerHTML = "";
+    return;
+  }
+  else{
+    xhttp = new XMLHttpRequest();
+    $("#section-dropdown").reset();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("filter").innerHTML = xhttp.responseText;
+        // $("#section-dropdown").val(0).removeAttr("selected");
+      }
+    };
+    xhttp.open("GET", "annual-report-2017-sample/load/"+str, true);
+    xhttp.send();
+  }
+  
+}

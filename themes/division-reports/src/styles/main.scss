@@ -25,6 +25,7 @@
 //@import "plugins/shifter";
 @import "plugins/navigation";
 @import "plugins/flickity";
+
 /* Layout
 -------------------------------------------*/
 // @import "components/childpages";
@@ -37,6 +38,7 @@
 // @import "site/relatednews";
 // @import "components/initiatives";
 @import "components/searchresults";
+
 // @import "components/homepage";
 
 // @import "components/footer";
@@ -48,16 +50,18 @@
 @import "components/story-tile";
 @import "components/info-slideshow";
 @import "components/info-slide";
+
 // @import "components/mobilenav";
 // @import "components/breadcrumbs";
 @import "components/pagination";
-
 
 /* Site specific styles
 -------------------------------------------*/
 @import "layout/story";
 @import "layout/default";
 @import "layout/header";
+@import "layout/footer";
+
 /* Print
 -------------------------------------------*/
 @import "base/print";

@@ -59,5 +59,7 @@
       ga('send', 'pageview');
     </script>
     <% end_if %>
+          <% include Footer %>
+
   </body>
 </html>

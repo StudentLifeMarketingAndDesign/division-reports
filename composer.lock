@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c5bfea28c0749775dd1bd984fe2de3a1",
+    "hash": "9a6aa096f8affbfe1d157f4caecaacfe",
+    "content-hash": "469e2e8ca69f763e4cf11f6891582612",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -39,7 +40,7 @@
                 "MIT"
             ],
             "description": "Child process management",
-            "time": "2015-07-28T00:39:41+00:00"
+            "time": "2015-07-28 00:39:41"
         },
         {
             "name": "composer/installers",
@@ -153,7 +154,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2017-04-24T06:37:16+00:00"
+            "time": "2017-04-24 06:37:16"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -201,7 +202,7 @@
                 "serialize",
                 "tokenizer"
             ],
-            "time": "2015-01-10T01:09:28+00:00"
+            "time": "2015-01-10 01:09:28"
         },
         {
             "name": "jonom/focuspoint",
@@ -360,7 +361,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2014-07-23T18:24:17+00:00"
+            "time": "2014-07-23 18:24:17"
         },
         {
             "name": "onelogin/php-saml",
@@ -414,7 +415,7 @@
                 "onelogin",
                 "saml"
             ],
-            "time": "2017-05-19T10:32:03+00:00"
+            "time": "2017-05-19 10:32:03"
         },
         {
             "name": "ramsey/array_column",
@@ -459,7 +460,7 @@
                 "array_column",
                 "column"
             ],
-            "time": "2015-03-20T22:07:39+00:00"
+            "time": "2015-03-20 22:07:39"
         },
         {
             "name": "sheadawson/silverstripe-blocks",
@@ -505,7 +506,7 @@
                 "silverstripe",
                 "widgets"
             ],
-            "time": "2016-11-08T22:48:10+00:00"
+            "time": "2016-11-08 22:48:10"
         },
         {
             "name": "silverstripe-australia/gridfieldextensions",
@@ -558,7 +559,7 @@
                 "gridfield",
                 "silverstripe"
             ],
-            "time": "2017-05-03T04:48:33+00:00"
+            "time": "2017-05-03 04:48:33"
         },
         {
             "name": "silverstripe-themes/simple",
@@ -594,7 +595,7 @@
                 "silverstripe",
                 "theme"
             ],
-            "time": "2015-04-09T03:18:37+00:00"
+            "time": "2015-04-09 03:18:37"
         },
         {
             "name": "silverstripe/activedirectory",
@@ -654,7 +655,7 @@
             "support": {
                 "source": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-activedirectory/tree/3"
             },
-            "time": "2017-05-09T19:46:58+00:00"
+            "time": "2017-05-09 19:46:58"
         },
         {
             "name": "silverstripe/blog",
@@ -702,7 +703,7 @@
                 "news",
                 "silverstripe"
             ],
-            "time": "2016-11-16T23:39:49+00:00"
+            "time": "2016-11-16 23:39:49"
         },
         {
             "name": "silverstripe/cms",
@@ -756,7 +757,7 @@
                 "cms",
                 "silverstripe"
             ],
-            "time": "2017-05-29T00:02:55+00:00"
+            "time": "2017-05-29 00:02:55"
         },
         {
             "name": "silverstripe/framework",
@@ -810,7 +811,7 @@
                 "framework",
                 "silverstripe"
             ],
-            "time": "2017-05-30T22:03:17+00:00"
+            "time": "2017-05-30 22:03:17"
         },
         {
             "name": "silverstripe/lumberjack",
@@ -845,7 +846,7 @@
                 }
             ],
             "description": "A module to make managing pages in a GridField easy without losing any of the functionality that you're used to in the CMS.",
-            "time": "2017-05-16T03:06:02+00:00"
+            "time": "2017-05-16 03:06:02"
         },
         {
             "name": "silverstripe/multivaluefield",
@@ -886,7 +887,7 @@
                 "formfield",
                 "silverstripe"
             ],
-            "time": "2017-02-21T04:01:46+00:00"
+            "time": "2017-02-21 04:01:46"
         },
         {
             "name": "silverstripe/queuedjobs",
@@ -927,7 +928,7 @@
                 "jobs",
                 "silverstripe"
             ],
-            "time": "2017-02-07T23:05:09+00:00"
+            "time": "2017-02-07 23:05:09"
         },
         {
             "name": "silverstripe/reports",
@@ -977,7 +978,7 @@
                 "reports",
                 "silverstripe"
             ],
-            "time": "2017-05-29T00:04:35+00:00"
+            "time": "2017-05-29 00:04:35"
         },
         {
             "name": "silverstripe/siteconfig",
@@ -1020,7 +1021,7 @@
                 "silverstripe",
                 "siteconfig"
             ],
-            "time": "2017-05-29T00:04:11+00:00"
+            "time": "2017-05-29 00:04:11"
         },
         {
             "name": "silverstripe/tagfield",
@@ -1062,7 +1063,7 @@
                 "silverstripe",
                 "tag"
             ],
-            "time": "2016-08-22T09:56:00+00:00"
+            "time": "2016-08-22 09:56:00"
         },
         {
             "name": "studiobonito/silverstripe-typekit",
@@ -1100,7 +1101,7 @@
                 "typekit",
                 "typography"
             ],
-            "time": "2014-07-31T10:20:30+00:00"
+            "time": "2014-07-31 10:20:30"
         },
         {
             "name": "unclecheese/betterbuttons",
@@ -1136,7 +1137,7 @@
                 "gridfield",
                 "silverstripe"
             ],
-            "time": "2017-01-20T08:51:05+00:00"
+            "time": "2017-01-20 08:51:05"
         },
         {
             "name": "unclecheese/display-logic",
@@ -1245,7 +1246,7 @@
                 "Authentication",
                 "zf2"
             ],
-            "time": "2015-06-03T15:31:59+00:00"
+            "time": "2015-06-03 15:31:59"
         },
         {
             "name": "zendframework/zend-eventmanager",
@@ -1292,7 +1293,7 @@
                 "eventmanager",
                 "zf2"
             ],
-            "time": "2016-02-18T20:49:05+00:00"
+            "time": "2016-02-18 20:49:05"
         },
         {
             "name": "zendframework/zend-hydrator",
@@ -1350,7 +1351,7 @@
                 "hydrator",
                 "zf2"
             ],
-            "time": "2016-02-18T22:38:26+00:00"
+            "time": "2016-02-18 22:38:26"
         },
         {
             "name": "zendframework/zend-ldap",
@@ -1402,7 +1403,7 @@
                 "ldap",
                 "zf2"
             ],
-            "time": "2015-06-03T15:32:02+00:00"
+            "time": "2015-06-03 15:32:02"
         },
         {
             "name": "zendframework/zend-session",
@@ -1462,7 +1463,7 @@
                 "session",
                 "zf2"
             ],
-            "time": "2015-06-03T15:32:03+00:00"
+            "time": "2015-06-03 15:32:03"
         },
         {
             "name": "zendframework/zend-stdlib",
@@ -1521,7 +1522,7 @@
                 "stdlib",
                 "zf2"
             ],
-            "time": "2016-04-12T21:17:31+00:00"
+            "time": "2016-04-12 21:17:31"
         }
     ],
     "packages-dev": [
@@ -1584,7 +1585,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-09-02T10:13:14+00:00"
+            "time": "2014-09-02 10:13:14"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -1631,7 +1632,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2016-10-03T07:40:28+00:00"
+            "time": "2016-10-03 07:40:28"
         },
         {
             "name": "phpunit/php-text-template",
@@ -1672,7 +1673,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2015-06-21T13:50:34+00:00"
+            "time": "2015-06-21 13:50:34"
         },
         {
             "name": "phpunit/php-timer",
@@ -1721,7 +1722,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2017-02-26T11:10:40+00:00"
+            "time": "2017-02-26 11:10:40"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -1771,7 +1772,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2014-03-03T05:10:30+00:00"
+            "time": "2014-03-03 05:10:30"
         },
         {
             "name": "phpunit/phpunit",
@@ -1844,7 +1845,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-10-17T09:04:17+00:00"
+            "time": "2014-10-17 09:04:17"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1893,7 +1894,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2013-01-13T10:24:48+00:00"
+            "time": "2013-01-13 10:24:48"
         },
         {
             "name": "symfony/yaml",
@@ -1942,7 +1943,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-01T20:52:29+00:00"
+            "time": "2017-06-01 20:52:29"
         }
     ],
     "aliases": [],
