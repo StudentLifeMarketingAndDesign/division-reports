@@ -77,7 +77,26 @@ class ReportStory extends BlogPost {
 	}
 
 	public function RelatedStories(){
+		$holder = Blog::get()->First();
+		$tags = $this->owner->Tags()->limit(6);
+		$entries = new ArrayList();
 
+		foreach($tags as $tag){
+			$taggedEntries = $tag->BlogPosts()->exclude(array("ID"=>$this->owner->ID))->sort('PublishDate', 'ASC')->Limit(3);
+			if($taggedEntries){
+				foreach($taggedEntries as $taggedEntry){
+					if($taggedEntry->ID){
+						$entries->push($taggedEntry);
+					}
+				}
+			}
+
+		}
+
+		if($entries->count() > 1){
+			$entries->removeDuplicates();
+		}
+		return $entries;
 	}
 
 public function onBeforeWrite() {
