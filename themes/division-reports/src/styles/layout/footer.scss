@@ -78,6 +78,10 @@
 	@media screen and (max-width: $break-medium) {
 		column-count: 1;
 	}
+
+	@media screen and (max-width: $break-small) {
+		column-count: 1;
+	}
 }
 
 .md-bar {
