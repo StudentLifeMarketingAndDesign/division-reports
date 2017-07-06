@@ -118,7 +118,7 @@ class ReportStory extends BlogPost {
 			$stories = $section->Stories()->exclude(array("ID"=>$this->owner->ID))->sort('PublishDate', 'ASC');
 		}
 
-		if($entries->count() > 1){
+		if($stories->count() > 1){
 			$stories->removeDuplicates();
 		}
 		
