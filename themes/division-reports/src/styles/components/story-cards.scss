@@ -178,5 +178,37 @@ $border-color: #222;
 
 
 
-
-
+.story-card--mini {
+	padding: 1.5em 0;
+	@media(min-width: $break-large) {
+		padding: 2em 0;
+	}
+}
+.story-card--mini {
+	@media(min-width: $break-large) {
+		border-right: 1px solid #ddd;
+		margin: 1em 0;
+	}
+}
+.story-card--3up .col-lg-4:nth-child(1) .story-card--mini {
+	@media(min-width: $break-large) {
+		padding-right: 15px;
+	}
+}
+.story-card--3up .col-lg-4:nth-child(3) .story-card--mini {
+	@media(min-width: $break-large) {
+		border-right: none;
+	}
+}
+.story-card {
+	&__title {
+		margin: 0;
+	}
+	&__title-anchor {
+		color: #333;
+		&:hover, &:focus {
+			color: #555;
+			text-decoration: underline;
+		}
+	}
+}
