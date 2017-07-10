@@ -50,6 +50,10 @@ class ReportStory extends BlogPost {
 		return $f;
 	}
 
+	public function allSections(){
+		return ReportSection::get();
+	}
+
 	public function getContributingSections(){
 		$sections = $this->Sections();
 		$list = '';
