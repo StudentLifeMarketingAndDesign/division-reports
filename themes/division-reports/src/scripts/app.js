@@ -118,7 +118,7 @@ var myCircle2 = Circles.create({
 //*********************
 
 function sectionList(str) {
-  var xhttp;    
+  var xhttp;
   if (str == "") {
     document.getElementById("filter").innerHTML = "";
     return;
@@ -134,11 +134,11 @@ function sectionList(str) {
     xhttp.open("GET", "annual-report-2017-sample/load/"+str, true);
     xhttp.send();
   }
-  
+
 }
 
 function tagList(str) {
-  var xhttp;    
+  var xhttp;
   if (str == "") {
     document.getElementById("filter").innerHTML = "";
     return;
@@ -155,8 +155,16 @@ function tagList(str) {
     xhttp.open("GET", "annual-report-2017-sample/load/"+str, true);
     xhttp.send();
   }
-  
+
 }
+
+
+//************************
+//****** FitVids ******
+//************************
+$(".content-inner").fitVids();
+
+
 
 //************************
 //****** Tilt Cards ******
