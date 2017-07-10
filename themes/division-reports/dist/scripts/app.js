@@ -113,6 +113,11 @@ var myCircle2 = Circles.create({
   styleText:           true
 });
 
+//************************
+//****** FitVids ******
+//************************
+$(".content-inner").fitVids();
+
 
 
 //************************
