@@ -1,29 +1,36 @@
-<article>
-	<div class="container header__container">
-		<header class="header text-center">
-			<div class="row">
-				<div class="col-lg-10 offset-lg-1">
-					<h1 class="header__page-title">
-					<% if $ArchiveYear %>
-						<%t Blog.Archive 'Archive' %>:
-						<% if $ArchiveDay %>
-							$ArchiveDate.Nice
-						<% else_if $ArchiveMonth %>
-							$ArchiveDate.format('F, Y')
-						<% else %>
-							$ArchiveDate.format('Y')
-						<% end_if %>
-					<% else_if $CurrentTag %>
-						<%t Blog.Tag 'Tag' %>: $CurrentTag.Title
-					<% else_if $CurrentCategory %>
-						<%t Blog.Category 'Category' %>: $CurrentCategory.Title
-					<% else %>
-						Featured Stories
-					<% end_if %>
-					</h1>		
-					<p class="header__intro summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed est vel nunc iaculis tempus quis quis urna. Curabitur scelerisque hendrerit mauris, id pellentesque metus maximus vitae.</p>
-			
-				</div>
+
+
+		<article>
+			<div class="container">
+				<header class="header text-center">
+					<div class="row">
+						<div class="col-lg-10 offset-lg-1">
+							<h1>
+							<% if $ArchiveYear %>
+								<%t Blog.Archive 'Archive' %>:
+								<% if $ArchiveDay %>
+									$ArchiveDate.Nice
+								<% else_if $ArchiveMonth %>
+									$ArchiveDate.format('F, Y')
+								<% else %>
+									$ArchiveDate.format('Y')
+								<% end_if %>
+							<% else_if $CurrentTag %>
+								<%t Blog.Tag 'Tag' %>: $CurrentTag.Title
+							<% else_if $CurrentCategory %>
+								<%t Blog.Category 'Category' %>: $CurrentCategory.Title
+							<% else %>
+								Featured Stories
+							<% end_if %>
+							</h1>		
+
+							<div class="header__intro summary">
+								<%-- $Content --%>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed est vel nunc iaculis tempus quis quis urna. Curabitur scelerisque hendrerit mauris, id pellentesque metus maximus vitae.</p>
+							</div>
+						</div>
+					</div>
+				</header>
 			</div>
 		</header>
 	</div>
@@ -73,50 +80,53 @@
 						</div>
 					</div>
 				</div>		
-			</div>
-		</div>
-	<% end_with %>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<h3 class="text-center story-filter__header">Filter stories by department, topic, or search</h3>
 			</div>
-		</div>
-		<div class="story-filter">
-			<div class="row">
-				<div class="col-lg-4">
-					<select name="section-filter" class="form-control story-filter__input story-filter__dept">
-						<option value="" disabled selected hidden>Department</option>
-					<% loop $Sections %>
-						<option value="$ID">$Title</option>
-					<% end_loop %>
-					</select>
+			<% end_with %>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<h3 class="text-center">Filter stories by department, topic, or search</h3>
+					</div>
 				</div>
-				<div class="col-lg-4">
-					<select name="topic-filter" class="form-control story-filter__input story-filter__dept">
-						<option value="" disabled selected hidden>Topic</option>
-					<% loop $Tags %>
-						<option value="$ID">$Title</option>
-					<% end_loop %>
-					</select>
+				<div class="row">
+					<div class="col-lg-4">
+
+						<select name="section-filter" id="section-dropdown" onchange="sectionList(this.value)" placeholder="Department" class="form-control story-filter__input story-filter__dept">
+						<option value="0" hidden>Section</option>
+						<% loop $Sections %>
+							<option value="$ID">$Title</option>
+						<% end_loop %>
+						</select>
+
+					</div>
+					<div class="col-lg-4">
+						
+						<select name="topic-filter" id="tag-dropdown" onchange="tagList(this.value)" placeholder="Department" class="form-control story-filter__input story-filter__dept">
+						<option value="0" hidden>Topic</option>
+						<% loop $Tags %>
+							<option value="$ID">$Title</option>
+						<% end_loop %>
+						</select>
+
+					</div>
+					<div class="col-lg-4">
+						<input type="search" name="dept-filter" placeholder="Search" class="form-control story-filter__input story-filter__search">
+					</div>
 				</div>
-				<div class="col-lg-4">
-					<input type="search" name="dept-filter" placeholder="Search" class="form-control story-filter__input story-filter__search">
-				</div>
+
 			</div>
-		</div>
-	</div>
- 	<div class="container">
-		<% if $PaginatedList.Exists %>
-			<% loop $PaginatedList %>
-				<% include StoryCardLarge %>
-			<% end_loop %>
-		<% else %>
-			<p><%t Blog.NoPosts 'There are no posts' %></p>
-		<% end_if %>
- 	</div>
-</article>
+				<div class="filtered-story-card container" id="filter">
+					<% if $PaginatedList.Exists %>
+						<% loop $PaginatedList %>
+							<% include StoryCardLarge %>
+						<% end_loop %>
+					<% else %>
+						<p><%t Blog.NoPosts 'There are no posts' %></p>
+					<% end_if %>
+			 	</div>
+			</article>
 
 $Form
 $CommentsForm

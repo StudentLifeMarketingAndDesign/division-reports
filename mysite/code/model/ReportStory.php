@@ -50,6 +50,10 @@ class ReportStory extends BlogPost {
 		return $f;
 	}
 
+	public function allSections(){
+		return ReportSection::get();
+	}
+
 	public function getContributingSections(){
 		$sections = $this->Sections();
 		$list = '';
@@ -90,13 +94,39 @@ class ReportStory extends BlogPost {
 					}
 				}
 			}
+		}
 
+		$sections = $this->Sections();
+		foreach($sections as $section){
+			$sectionedEntries = $section->Stories()->exclude(array("ID"=>$this->owner->ID))->sort('PublishDate', 'ASC')->Limit(3);
+			if($sectionedEntries){
+				foreach($sectionedEntries as $sectionedEntry){
+					if($sectionedEntry->ID){
+						$entries->push($sectionedEntry);
+					}
+				}
+			}
 		}
 
 		if($entries->count() > 1){
 			$entries->removeDuplicates();
 		}
 		return $entries;
+	}
+
+	public function OtherStoriesInThisSection(){
+		$sections = $this->Sections();
+		$stories = new ArrayList();
+
+		foreach($sections as $section){
+			$stories = $section->Stories()->exclude(array("ID"=>$this->owner->ID))->sort('PublishDate', 'ASC');
+		}
+
+		if($stories->count() > 1){
+			$stories->removeDuplicates();
+		}
+		
+		return $stories;
 	}
 
 

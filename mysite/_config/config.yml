@@ -13,3 +13,6 @@ SiteConfig:
 ReportSection:
   extensions:
     - BlocksSiteTreeExtension
+Block:
+  extensions:
+    - BlockExtension

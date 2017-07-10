@@ -84,10 +84,30 @@ class Report_Controller extends Blog_Controller {
 	
 	private static $allowed_actions = array(
         'section',
+        'loadSection',
+        'loadTag',
     );
     private static $url_handlers = array(
         'section/$Section!/$Rss' => 'section',
+        'load/$Section!' => 'loadSection',
+        'load/$Tag!' => 'loadTag',
+
     );
+
+    public function loadSection(){
+
+        $section = ReportSection::get()->byID($this->request->param('Section'));
+        // print_r($this->getRequest()->param('Section'));
+        // print_r($section);
+        return $section->renderWith('LoadSection');
+    }
+
+    public function loadTag(){
+
+        $tag = BlogTag::get()->byID($this->request->param('Tag'));
+        return $tag->renderWith('LoadTag');
+    }
+
     public function section(){
 
         $section = $this->getCurrentSection();

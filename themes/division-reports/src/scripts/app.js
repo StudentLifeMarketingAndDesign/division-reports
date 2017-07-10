@@ -3,16 +3,16 @@
 //*********************
 
 $("nav").navigation({
-	customClass    : "",
-	gravity        : "left",
-	label          : true,
-	labels: {
-		closed     : "Explore",
-		open       : "Close"
-	},
-	maxWidth       : "9000px",
-	theme          : "fs-light",
-	type           : "toggle"
+  customClass    : "",
+  gravity        : "left",
+  label          : true,
+  labels: {
+    closed     : "Explore",
+    open       : "Close"
+  },
+  maxWidth       : "9000px",
+  theme          : "fs-light",
+  type           : "toggle"
 });
 
 $("nav").on("open.navigation", function() {
@@ -26,17 +26,17 @@ $("nav").on("open.navigation", function() {
 //**********************
 
 var $carousel = $('.carousel').flickity({
-	imagesLoaded: true,
-	percentPosition: false,
-	selectedAttraction: 0.015,
-	friction: 0.3,
-	prevNextButtons: false,
-	draggable: true,
-	autoPlay: true,
-	autoPlay: 8000,
-	pauseAutoPlayOnHover: false,
-	bgLazyLoad: true,
-	pageDots: true
+  imagesLoaded: true,
+  percentPosition: false,
+  selectedAttraction: 0.015,
+  friction: 0.3,
+  prevNextButtons: false,
+  draggable: true,
+  autoPlay: true,
+  autoPlay: 8000,
+  pauseAutoPlayOnHover: false,
+  bgLazyLoad: true,
+  pageDots: true
 });
 
 var $imgs = $carousel.find('.carousel-cell .cell-bg');
@@ -56,23 +56,23 @@ $carousel.on( 'scroll.flickity', function() {
 });
 
 $('.carousel-nav-cell').click(function() {
-	flkty.stopPlayer();
+  flkty.stopPlayer();
 });
 
 //**********************
 //****** Count up ******
 //**********************
 
-var countOptions = {
-  useEasing : true,
-  useGrouping : true,
-  separator : ',',
-  decimal : '.',
-};
-var demo = new CountUp("stat1", 0, 3746, 0, 2.5, countOptions);
-var demo2 = new CountUp("stat2", 0, 562, 0, 2.5, countOptions);
-demo.start();
-demo2.start();
+// var countOptions = {
+//   useEasing : true,
+//   useGrouping : true,
+//   separator : ',',
+//   decimal : '.',
+// };
+// var demo = new CountUp("stat1", 0, 3746, 0, 2.5, countOptions);
+// var demo2 = new CountUp("stat2", 0, 562, 0, 2.5, countOptions);
+// demo.start();
+// demo2.start();
 
 
 //*********************
@@ -113,12 +113,50 @@ var myCircle2 = Circles.create({
   styleText:           true
 });
 
-//************************
-//****** FitVids ******
-//************************
-$(".content-inner").fitVids();
+//*********************
+//*********************
+//*********************
 
+function sectionList(str) {
+  var xhttp;    
+  if (str == "") {
+    document.getElementById("filter").innerHTML = "";
+    return;
+  }
+  else{
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("filter").innerHTML = xhttp.responseText;
+        $("#tag-dropdown").val(0).removeAttr("selected");
+      }
+    };
+    xhttp.open("GET", "annual-report-2017-sample/load/"+str, true);
+    xhttp.send();
+  }
+  
+}
 
+function tagList(str) {
+  var xhttp;    
+  if (str == "") {
+    document.getElementById("filter").innerHTML = "";
+    return;
+  }
+  else{
+    xhttp = new XMLHttpRequest();
+    // $("#section-dropdown").reset();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("filter").innerHTML = xhttp.responseText;
+        $("#section-dropdown").val(0).removeAttr("selected");
+      }
+    };
+    xhttp.open("GET", "annual-report-2017-sample/load/"+str, true);
+    xhttp.send();
+  }
+  
+}
 
 //************************
 //****** Tilt Cards ******

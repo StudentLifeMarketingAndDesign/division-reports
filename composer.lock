@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "32c6e0c588c66543bd85135946a2c804",
+    "content-hash": "3bb717603dcbe341f41dc3df64142f41",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -560,6 +560,45 @@
             ],
             "abandoned": "symbiote/silverstripe-gridfieldextensions",
             "time": "2017-07-01T13:28:41+00:00"
+        },
+        {
+            "name": "silverstripe-rebelalliance/youtubefield",
+            "version": "0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe-rebelalliance/silverstripe-youtubefield.git",
+                "reference": "9a8b57cdcacc7c4ce724bc71a690a0734b124d65"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe-rebelalliance/silverstripe-youtubefield/zipball/9a8b57cdcacc7c4ce724bc71a690a0734b124d65",
+                "reference": "9a8b57cdcacc7c4ce724bc71a690a0734b124d65",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.0"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "youtubefield"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ed Linklater",
+                    "email": "ed@silverstripe.com"
+                }
+            ],
+            "description": "Field for selecting YouTube videos. Takes various URL formats as input and stores the YouTube ID.",
+            "keywords": [
+                "formfield",
+                "silverstripe",
+                "youtube"
+            ],
+            "time": "2015-09-09T03:26:11+00:00"
         },
         {
             "name": "silverstripe-themes/simple",
