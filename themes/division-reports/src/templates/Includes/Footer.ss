@@ -9,7 +9,7 @@
 		<div class="footer-link__container">
 			<div class="small-6 columns">
 				<ul class="border-list" id="col">
-					<% loop $Sections %>
+					<% loop $allSections %>
 						<li><a href="$Link" target="_blank">$Title</a></li>
 					<% end_loop %>
 				</ul>

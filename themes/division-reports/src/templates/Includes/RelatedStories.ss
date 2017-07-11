@@ -1,7 +1,7 @@
 
 <h3 class="" id="RelatedStoriesSection">Related Stories</h3>
 
-<% loop $Sections %>
+<%-- <% loop $Sections %>
 <div class="container">
 		<div class="row">
 			<% loop Stories.limit(3) %>
@@ -11,7 +11,7 @@
 			<% end_loop %>
 		</div>
 	</div>
-<% end_loop %>
+<% end_loop %> --%>
 
 
 <% if $RelatedStories %>
