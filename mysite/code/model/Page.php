@@ -19,26 +19,17 @@ class Page extends SiteTree {
 
         if($this->ClassName == 'ReportStory'){
         	$sections = $this->Parent->Sections();
-        	foreach ($sections as $section){
-        		$results->push($section);
-        	}
         }
 
         else if ($this->ClassName == 'Report'){
         	$sections = $this->Sections();
-        	foreach ($sections as $section){
-        		$results->push($section);
-        	}
         }
 
         else{
 			$sections = $this->LatestIssue()->Sections();
-        	foreach ($sections as $section){
-        		$results->push($section);
-        	}
         }
 
-        return $results;
+        return $sections;
 
     }
 
