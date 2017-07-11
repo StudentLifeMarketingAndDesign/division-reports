@@ -14,7 +14,6 @@ class Page extends SiteTree {
 
 	public function allSections(){
 
-        $results = new ArrayList();
         $sections = new ArrayList();
 
         if($this->ClassName == 'ReportStory'){
