@@ -1,50 +1,73 @@
 
 <% with $CurrentSection %>
-<% if $InfoSlides %>
-	
+	<% if $InfoSlides %>
+		<div class="carousel__container">
+			<% include SectionHeader %>
+			<div class="carousel">
+				<% loop $InfoSlides %>
+					<div class="carousel-cell">
+						<% if $MediaType == "Image" %>
+							<div class="cell-bg" data-flickity-bg-lazyload="$BackgroundImage.CroppedFocusedImage(1500,900).URL">
+								<div class="cell-screen"></div>
+								<div class="inner inner--is-overlay">
+									<% include InfoSlideBody %>
+								</div>
+							</div>
+						<% else_if $MediaType == "Video" %>
+							<div class="cell-bg">
+								<div class="fullwidth-video">
+									<video playsinline autoplay muted loop autoplay src="$BackgroundVideo.URL" id="vid-bg" class="ani-vid-fadein" style="opacity: 1;"></video>
+								</div>
+								<div class="inner inner--is-overlay">
+									<% include InfoSlideBody %>
+								</div>
+							</div>
+						<% end_if %>
+					</div>
+				<% end_loop %>
+			</div>
 
-	<div class="carousel__container">
-		<% include SectionHeader %>
-		<div class="carousel">
-			<% loop $InfoSlides %>
-				<div class="carousel-cell">
-					<% if $MediaType == "Image" %>
-						<div class="cell-bg" data-flickity-bg-lazyload="$BackgroundImage.CroppedFocusedImage(1500,900).URL">
-							<div class="cell-screen"></div>
-							<div class="inner inner--is-overlay">
-								<% include InfoSlideBody %>
-							</div>
-						</div>
-					<% else_if $MediaType == "Video" %>
-						<div class="cell-bg">
-							<div class="fullwidth-video">
-								<video playsinline autoplay muted loop autoplay src="$BackgroundVideo.URL" id="vid-bg" class="ani-vid-fadein" style="opacity: 1;"></video>
-							</div>
-							<div class="inner inner--is-overlay">
-								<% include InfoSlideBody %>
-							</div>
-						</div>
-					<% end_if %>
+		</div>
+	<% else %>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9 offset-lg-1">
+					<h1>$Title</h1>
 				</div>
-			<% end_loop %>
+			</div>
 		</div>
 
-	</div>
-<% else %>
-	
-	<header class="header">
-		<h1>$Title</h1>
-	</header>
+	<% end_if %>
 
-<% end_if %>
+	<br />
  	<div class="container">
-		<% if $Stories %>
-			<% loop $Stories %>
-				<% include StoryCardLarge %>
-			<% end_loop %>
-		<% else %>
-			<p><%t Blog.NoPosts 'There are no posts' %></p>
-		<% end_if %>
- 	</div>
+ 		<% if $Content %>
+ 			<div class="row">
+ 				<div class="col-lg-6 offset-lg-3">
+ 					<div class="content-inner">
+						$Content
+					</div>
+				</div>
+			</div>
+ 		<% end_if %>
+ 		<br />
+	</div>
+	<% if $Stories %>
+		<div class="storycards">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<h4 class="storycards__heading">Stories from $Title</h4>
+					</div>
+				</div>
+				<% loop $Stories %>
+					<% include StoryCardLarge %>
+				<% end_loop %>
+			</div>
+		</div>
+	<% else %>
+		<p><%t Blog.NoPosts 'There are no posts' %></p>
+	<% end_if %>
 <% end_with %>
 

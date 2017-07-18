@@ -18,6 +18,7 @@ class ReportSection extends DataObject implements CategorisationObject
 
     private static $db = array(
         'Title' => 'Varchar(255)',
+        'Content' => 'HTMLText',
         'ShowInMenus' => 'Boolean',
         'Sort' => 'Int'
     );
@@ -66,7 +67,8 @@ class ReportSection extends DataObject implements CategorisationObject
             TextField::create('Title', _t('JobListingDepartment.Title', 'Title')),
             LiteralField::create('URLSegmentLabel', '<a href="'.$this->Link().'">'.$this->Link().'</a>'),
             CheckboxField::create('ShowInMenus', 'Show in menus'),
-            $infoSlideGridField
+            $infoSlideGridField,
+            HTMLEditorField::create('Content', 'Content')
         );
 
         if($this->ID){
