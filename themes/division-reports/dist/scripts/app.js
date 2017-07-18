@@ -118,7 +118,7 @@ var myCircle2 = Circles.create({
 //*********************
 
 function sectionList(str) {
-  var xhttp;    
+  var xhttp;
   if (str == "") {
     document.getElementById("filter").innerHTML = "";
     return;
@@ -134,11 +134,11 @@ function sectionList(str) {
     xhttp.open("GET", "annual-report-2017-sample/load/"+str, true);
     xhttp.send();
   }
-  
+
 }
 
 function tagList(str) {
-  var xhttp;    
+  var xhttp;
   if (str == "") {
     document.getElementById("filter").innerHTML = "";
     return;
@@ -155,8 +155,32 @@ function tagList(str) {
     xhttp.open("GET", "annual-report-2017-sample/load/"+str, true);
     xhttp.send();
   }
-  
+
 }
+
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+// Background Video
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+$('.backgroundvideo__link').click(function(e){
+  var that = $(this);
+  var video = that.data('video');
+  var width = $('img', that).width();
+  var height = $('img', that).height();
+  that.parent().addClass('on');
+  that.parent().prepend('<div class="flex-video widescreen"><iframe src="https://www.youtube.com/embed/' + video + '?rel=0&autoplay=1" width="' + width + '" height="' + height + '" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>');
+  that.hide();
+  e.preventDefault();
+});
+
+
+//************************
+//****** FitVids ******
+//************************
+$(".content-inner").fitVids();
+
+
 
 //************************
 //****** Tilt Cards ******

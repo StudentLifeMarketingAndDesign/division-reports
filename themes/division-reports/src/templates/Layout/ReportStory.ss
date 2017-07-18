@@ -58,25 +58,32 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 offset-lg-3">
+					$BlockArea(BeforeContentConstrained)
 					<div class="content-inner">
 						$Content
 					</div>
+					$BlockArea(AfterContentConstrained)
 				</div>
 			</div>
 		</div>
 
-
 		<div class="story-footer clearfix">
 			<div class="story-meta">
 				<div class="inner">
+					<% if $Credits.Count > 1 %>
+						<div class="multiple-authors">
+							<h4 class="story-meta__section-title">Authors</h4>
+					<% end_if %>
 					<% loop $Credits %>
-						<a href="$URL" class="story-meta__author-link">
+						<a href="$URL" class="author clearfix">
 							<% if $BlogProfileImage %>
-								<img src="$BlogProfileImage.FocusFill(200,200).URL" class="story-meta__author-img" />
+								<img src="$BlogProfileImage.FocusFill(200,200).URL" class="author__img" />
 							<% end_if %>
-							<p class="story-meta__author-name text-center">$FirstName $Surname</p>
+							<p class="author__name">$FirstName $Surname</p>
 						</a>
 					<% end_loop %>
+					<% if $Credits.Count > 1 %></div><% end_if %>
+
 					<div class="story-meta__section">
 						<h4 class="story-meta__section-title">Section</h4>
 						<ul class="story-meta__tags">

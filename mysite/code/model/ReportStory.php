@@ -82,11 +82,11 @@ class ReportStory extends BlogPost {
 
 	public function RelatedStories(){
 		$holder = Blog::get()->First();
-		$tags = $this->owner->Tags()->limit(6);
+		$tags = $this->owner->Tags()->limit(12);
 		$entries = new ArrayList();
 
 		foreach($tags as $tag){
-			$taggedEntries = $tag->BlogPosts()->exclude(array("ID"=>$this->owner->ID))->sort('PublishDate', 'ASC')->Limit(3);
+			$taggedEntries = $tag->BlogPosts()->exclude(array("ID"=>$this->owner->ID))->sort('PublishDate', 'ASC')->Limit(6);
 			if($taggedEntries){
 				foreach($taggedEntries as $taggedEntry){
 					if($taggedEntry->ID){
@@ -98,7 +98,7 @@ class ReportStory extends BlogPost {
 
 		$sections = $this->Sections();
 		foreach($sections as $section){
-			$sectionedEntries = $section->Stories()->exclude(array("ID"=>$this->owner->ID))->sort('PublishDate', 'ASC')->Limit(3);
+			$sectionedEntries = $section->Stories()->exclude(array("ID"=>$this->owner->ID))->sort('PublishDate', 'ASC')->Limit(6);
 			if($sectionedEntries){
 				foreach($sectionedEntries as $sectionedEntry){
 					if($sectionedEntry->ID){
@@ -125,7 +125,7 @@ class ReportStory extends BlogPost {
 		if($stories->count() > 1){
 			$stories->removeDuplicates();
 		}
-		
+
 		return $stories;
 	}
 

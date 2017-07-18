@@ -158,6 +158,22 @@ function tagList(str) {
 
 }
 
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+// Background Video
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+$('.backgroundvideo__link').click(function(e){
+  var that = $(this);
+  var video = that.data('video');
+  var width = $('img', that).width();
+  var height = $('img', that).height();
+  that.parent().addClass('on');
+  that.parent().prepend('<div class="flex-video widescreen"><iframe src="https://www.youtube.com/embed/' + video + '?rel=0&autoplay=1" width="' + width + '" height="' + height + '" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>');
+  that.hide();
+  e.preventDefault();
+});
+
 
 //************************
 //****** FitVids ******

@@ -1,8 +1,19 @@
+.storycards {
+	margin-top: 4em;
+	padding-bottom: 4em;
+	background-color: #f9f8f5;
+}
+.storycards__heading {
+	border-top: 2px solid #333;
+	padding: 3em 0;
+	margin: 0;
+	text-align: center;
+}
 .story-card-large{
 	background: #fff;
 	border: 2px solid #222;
 	padding: 0;
-	margin: 20px 0;
+	margin-bottom: 20px;
 	position: relative;
 	&__heading{
 		margin-top: 10px;
@@ -30,10 +41,39 @@
 			display: none;
 		}
 	}
+}
+.story-card-large__anchor {
+	background-color: #fff;
+	display: block;
+	position: relative;
+	transition: all .25s ease-in;
+	&:hover, &:focus {
+		box-shadow: 0 4px 20px rgba(0,0,0,.2);
+		.read-more {
+			color: #222;
+			padding-left: 12px;
+		}
+		.story-card-large__imagewrapper:after {
+			opacity: 0;
+		}
+		.line-btn {
+			&:before, &:after {
+				width: 100%;
+			}
+			.line-btn--inner:before, .line-btn--inner:after {
+				height: 100%;
+			}
+		}
+		.story-card-large__heading {
+			text-decoration: underline;
+		}
+	}
 	@media (min-width: $break-medium) {
 		padding: 25px;
 	}
 }
+
+
 .story-card-large__category {
 	width: 60px;
 	height: 60px;
@@ -74,15 +114,12 @@
 	text-transform: uppercase;
 	font-size: 13px;
 	transition: all 0.3s ease-in;
-	&:hover, &:focus {
-		color: #222;
-		padding-left: 12px;
-	}
 }
 
-.test {
+.story-card-large__imagewrapper {
 	display: block;
 	position: relative;
+	overflow: hidden;
 	&:after {
 		content:'';
 		overflow: hidden;
@@ -105,13 +142,7 @@
 		right: 0;
 		opacity: .25;
 	}
-	&:hover, &:focus {
-		&:after {
-			opacity: 0;
-		}
-	}
 }
-
 
 
 // ------------------------------------------------------
@@ -163,15 +194,6 @@ $border-color: #222;
 		height: 0;
 	}
 
-	/* hover */
-	&:hover, &:focus {
-		&:before, &:after {
-			width: 100%;
-		}
-		.line-btn--inner:before, .line-btn--inner:after {
-			height: 100%;
-		}
-	}
 }
 
 
@@ -190,7 +212,8 @@ $border-color: #222;
 		margin: 1em 0;
 	}
 }
-.story-card--3up .col-lg-4:nth-child(1) .story-card--mini {
+.story-card--3up .col-lg-4:nth-child(1) .story-card--mini,
+.story-card--3up .col-lg-4:nth-child(2) .story-card--mini {
 	@media(min-width: $break-large) {
 		padding-right: 15px;
 	}

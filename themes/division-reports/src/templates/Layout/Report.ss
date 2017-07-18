@@ -22,7 +22,7 @@
 							<% else %>
 								Featured Stories
 							<% end_if %>
-							</h1>		
+							</h1>
 
 							<div class="header__intro summary">
 								<%-- $Content --%>
@@ -38,7 +38,7 @@
 	<% with $Featured %>
 		<div class="story-tile__container">
 			<div class="row no-gutters">
-				<div class="col-lg-6">
+				<div class="col-lg-8">
 					<% with $Story1 %>
 						<a href="$Link" style="background-image: url($FeaturedImage.FocusFillMax(1280,720).URL" class="story-tile story-tile--large">
 							<div class="story-tile__header story-tile__header--large">
@@ -50,7 +50,7 @@
 						</a>
 					<% end_with %>
 				</div>
-				<div class="col-lg-6">
+				<div class="col-lg-4">
 					<div class="row">
 						<div class="col-lg-12">
 							<% with $Story2 %>
@@ -79,7 +79,7 @@
 							<% end_with %>
 						</div>
 					</div>
-				</div>		
+				</div>
 
 			</div>
 			<% end_with %>
@@ -102,7 +102,7 @@
 
 					</div>
 					<div class="col-lg-4">
-						
+
 						<select name="topic-filter" id="tag-dropdown" onchange="tagList(this.value)" placeholder="Department" class="form-control story-filter__input story-filter__dept">
 						<option value="0" hidden>Topic</option>
 						<% loop $Tags %>
@@ -117,6 +117,7 @@
 				</div>
 
 			</div>
+			<br>
 				<div class="filtered-story-card container" id="filter">
 					<% if $PaginatedList.Exists %>
 						<% loop $PaginatedList %>

@@ -158,26 +158,52 @@
 	}
 }
 
-.story-meta__author-link {
+/* Authors
+=========================================================== */
+.author {
 	color: #333;
 	display: block;
 	margin-bottom: 16px;
 }
-.story-meta__author-img{
+.author__img {
 	display: block;
-	border-radius: 200px;
+	border-radius: 50%;
 	margin: auto;
 	width: 100px;
 	margin-bottom: 16px;
 }
-.story-meta__author-name{
+.author__name {
 	font-family: $heading-font;
 	font-weight: 900;
 	font-size: 21px;
 	margin: 0;
 }
+/* if multiple authors */
+.multiple-authors .story-meta__section-title {
+	border-top: none;
+	margin-bottom: 10px;
+	margin-top: 0;
+	padding-top: 0;
+}
+.multiple-authors .author {
+	border-top: 1px dotted #ccc;
+	padding: 10px 0;
+	text-align: left;
+	margin-bottom: 0;
+}
+.multiple-authors .author__img {
+	width: 32px;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 0;
+}
+.multiple-authors .author__name {
+	font-size: 14px;
+	line-height: 32px;
+}
 
-
+/* Share this story
+=========================================================== */
 .story-share {
 	text-align: center;
 	padding: 2em 0;
@@ -196,6 +222,32 @@
 		padding: 0;
 	}
 }
+.story-share__social {
+	display: table;
+	list-style: none;
+	margin: 10px auto;
+	& li {
+		display: table-cell;
+		& a {
+			background: #fff;
+			border-radius: 50%;
+			padding: 6px;
+			border: 2px solid #ccc;
+			margin: 0 4px;
+			&:hover, &:focus {
+				background: $yellow;
+			}
+		}
+		& img {
+			display: block;
+			width: 16px;
+			height: 16px;
+		}
+	}
+	& a {
+		display: block;
+	}
+}
 
 
 
@@ -210,11 +262,14 @@
 
 
 .content-inner {
-	max-width: 600px;
-	margin: 0 auto;
+
+}
+.content-inner a {
+	text-decoration: underline;
 }
 
-/* Blockquote */
+/* Blockquote
+=========================================================== */
 .content-inner blockquote {
 	text-align: center;
 	font-style: italic;
@@ -238,16 +293,21 @@
 	margin-left: 3em;
 	margin-top: 0;
 	margin-bottom: 0;
-	& p {
-
-	}
+}
+.content-inner blockquote.left {
+	width: 300px;
+	float: left;
+	margin-left: -40%;
+	margin-right: 3em;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 .content-inner blockquote:not(.right) p {
 	margin: 40px 0;
 	text-align: center;
 	letter-spacing: -.01em;
 	width: calc(100vw - 100px);
-	max-width: 915px;
+	max-width: 1000px;
 	position: relative;
 	left: 50%;
 	transform: translateX(-50%);
@@ -258,7 +318,8 @@
 	}
 }
 
-/* Drop Cap */
+/* Drop Cap
+=========================================================== */
 .content-inner > p:first-child:first-letter {
 	color: #222;
 	float: left;
@@ -269,6 +330,7 @@
 	padding-right: 8px;
 	padding-left: 3px;
 }
+
 
 
 .story-single__body{
@@ -322,11 +384,78 @@
 	}
 }
 
-
-.captionImage {
+/* Media
+=========================================================== */
+.captionImage, .media {
 	max-width: 100%;
 }
-.captionImage p.caption {
+p.caption {
 	font-size: 14px;
 	margin: 0 0 2em 0;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 10px;
 }
+img.left {
+	float: left;
+	@media(min-width: $break-large) {
+		margin-left: -50%;
+	}
+}
+img.right {
+	float: right;
+	@media(min-width: $break-large) {
+		margin-right: -50%;
+	}
+}
+
+/* Centered with caption */
+.captionImage.center, .media.center, img.center {
+	@media (min-width: $break-medium) {
+		width: calc(100vw - 100px) !important;
+		max-width: 1000px;
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+/* floated left, with caption */
+.captionImage.left {
+	& img.left {
+		float: none;
+		margin: 0;
+	}
+	@media (min-width: $break-small) {
+		float: left;
+		margin-right: 1.5em;
+		margin-bottom: 1.5em;
+	}
+	@media (min-width: $break-large) {
+		margin-left: -50%;
+		max-width: 885px;
+	}
+}
+.captionImage.right {
+	& img.right {
+		float: none;
+		margin: 0;
+	}
+	@media (min-width: $break-small) {
+		float: right;
+		margin-left: 1.5em;
+		margin-bottom: 1.5em;
+	}
+	@media (min-width: $break-large) {
+		margin-right: -50%;
+		max-width: 885px;
+	}
+}
+.media.left {
+	@media (min-width: $break-large) {
+		margin-left: -50%;
+		max-width: 885px;
+	}
+}
+.captionImage .media {
+	margin-bottom: 10px;
+}
+

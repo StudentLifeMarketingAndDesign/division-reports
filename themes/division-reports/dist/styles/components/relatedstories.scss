@@ -1,19 +1,23 @@
 .relatedstories {
 	margin-top: 4em;
-	padding-bottom: 8em;
-	// & .container {
-	// 	border-top: 1px solid #ddd;
-	// }
-
+	padding-bottom: 4em;
+	background-color: #f9f8f5;
 }
 .tilter-container {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: flex-start;
-	justify-content: space-between;
+	// display: flex;
+	// flex-wrap: wrap;
+	// align-items: flex-start;
+	// justify-content: space-between;
 	position: relative;
+	border-top: 1px solid #ddd;
+	padding-top: 3em;
 }
-
+.relatedstories__heading {
+	border-top: 2px solid #333;
+	border-bottom: 1px solid #ddd;
+	padding: .5em 0;
+	margin: 0;
+}
 .be {
 	display: block;
 	position: absolute;
@@ -24,26 +28,25 @@
 	top: 4%;
 	left: 4%;
 }
-
 .tilter {
 	display: block;
 	position: relative;
-	width: 47%;
+	margin-bottom: 2em;
 	height: auto;
-	// margin: 1.5em 2.5em;
-	color: #fff;
-	flex: none;
 	perspective: 1000px;
+	@media(min-width: $break-large) {
+		margin-bottom: 0;
+	}
 }
-
 .tilter * {
 	pointer-events: none;
 }
-
 .tilter:hover,
 .tilter:focus {
-	color: #fff;
 	outline: none;
+}
+.tilter:focus .tilter__title {
+	text-decoration: underline;
 }
 .tilter--scale {
 	transition: all .4s ease-in;
@@ -75,11 +78,11 @@
 	transform: translateZ(0px); /* Force correct stacking order */
 }
 
-.smooth .tilter__figure,
-.smooth .tilter__deco--overlay,
-.smooth .tilter__deco--lines,
-.smooth .tilter__deco--shine div,
-.smooth .tilter__caption {
+.tilter__figure,
+.tilter__deco--overlay,
+.tilter__deco--lines,
+.tilter__deco--shine div,
+.tilter__caption {
 	transition: transform 0.4s ease-out;
 }
 
@@ -116,15 +119,12 @@
 	left: -50%;
 	background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.25) 50%, transparent 100%);
 }
-
 .tilter__caption {
 	padding: 4% 8% 8%;
 }
-
 .tilter__title {
 	margin: 0;
 }
-
 .story-card-medium__summary {
 	color: #777;
 	font-style: italic;
@@ -137,12 +137,27 @@
 /* Individual styles */
 
 /* Example 1 (Default) */
-.tilter--1 .tilter__figure::before {
+.tilter .tilter__figure::before {
 	box-shadow: 0 15px 35px rgba(0,0,0,0.5);
 	transition: all .3s ease-in-out;
 }
-.tilter--1:hover .tilter__figure::before {
+.tilter:hover .tilter__figure::before {
 	box-shadow: 0 25px 60px rgba(0,0,0,0.5);
 }
 
 
+.tilter-container .col-lg-6:first-of-type {
+	@media (min-width: $break-large) {
+		border-right: 1px solid #ddd;
+		& .tilter {
+			margin-right: 15px;
+		}
+	}
+}
+.tilter-container .col-lg-6:nth-child(2) {
+	@media (min-width: $break-large) {
+		& .tilter {
+			margin-left: 15px;
+		}
+	}
+}

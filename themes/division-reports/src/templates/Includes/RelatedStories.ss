@@ -6,9 +6,9 @@
 				<h3 class="relatedstories__heading" id="RelatedStoriesSection">Related Stories</h3>
 			</div>
 		</div>
-		<% loop $Sections %>
-			<div class="row story-card--3up">
-				<% loop Stories.limit(3) %>
+		<div class="row story-card--3up">
+			<% if $RelatedStories %>
+				<% loop $RelatedStories.limit(3) %>
 					<div class="col-lg-4">
 						<div class="story-card--mini">
 							<% if $Sections %>
@@ -20,14 +20,13 @@
 						</div>
 					</div>
 				<% end_loop %>
-			</div>
-		<% end_loop %>
-
+			<% end_if %>
+		</div>
 
 		<% if $RelatedStories %>
 			<div class="tilter-container">
 				<div class="row">
-					<% loop $RelatedStories.limit(2) %>
+					<% loop $RelatedStories.Limit(2,3) %>
 						<div class="col-lg-6">
 							<a href="$Link" class="tilter tilter--scale">
 								<div class="tilter__figure">
