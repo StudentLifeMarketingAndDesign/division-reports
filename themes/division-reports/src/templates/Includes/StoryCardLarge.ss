@@ -9,7 +9,7 @@
 		<div class="row">
 			<div class="col-md-4">
 				<% if $FeaturedImage %>
-					<div class="story-card-large__imagewrapper">
+					<div class="imagegradient">
 						<img class="story-card-large__image" src="$FeaturedImage.CroppedFocusedImage(506,340).URL" <% if $FeaturedImageCaption %>alt="$FeaturedImageCaption" <% else %>alt="$Title"<% end_if %> />
 					</div>
 				<% end_if %>

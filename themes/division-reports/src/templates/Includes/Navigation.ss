@@ -14,18 +14,27 @@
 				</div>
 			</div>
 		</div>
-
+	</div>
+</nav>
+<div class="explorenav">
+	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
 				<nav data-navigation-handle="#handle" data-navigation-content="#content">
-					<ul>
-					<% loop $Menu(1) %>
-					    <li><a href="$Link">$MenuTitle</a></li>
-					<% end_loop %>
-					</ul>
+					<div class="row">
+						<% loop $Sections %>
+							<div class="col-sm-6 col-lg-4">
+								<a href="$Link" class="explorenav__link">
+									<div class="imagegradient">
+										<img src="$SectionCover.CroppedFocusedImage(400,140).URL" alt="" class="desaturate">
+									</div>
+									<h3>$Title</h3>
+								</a>
+							</div>
+						<% end_loop %>
+					</div>
 				</nav>
 			</div>
 		</div>
-
 	</div>
-</nav>
+</div>
