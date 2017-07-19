@@ -16,7 +16,19 @@
 			</div>
 		</div>
 	</div>
-
+	<% if $FeaturedVideo %>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="featuredvideo">
+						<div class="fluid-width-video-wrapper" style="padding-top: 56.25%;">
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/$FeaturedVideo" frameborder="0" allowfullscreen></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<% end_if %>
 	<% if $FeaturedImage %>
 		<figure class="coverimage">
 			<div class="coverimage__container">

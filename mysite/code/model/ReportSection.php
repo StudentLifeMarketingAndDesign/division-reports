@@ -69,7 +69,7 @@ class ReportSection extends DataObject implements CategorisationObject
             LiteralField::create('URLSegmentLabel', '<a href="'.$this->Link().'">'.$this->Link().'</a>'),
             CheckboxField::create('ShowInMenus', 'Show in menus'),
             $infoSlideGridField,
-            UploadField::create('SectionCover', 'Cover Photo'),
+            UploadField::create('SectionCover', 'Navigation Photo'),
             HTMLEditorField::create('Content', 'Content')
         );
 
