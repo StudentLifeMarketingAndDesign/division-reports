@@ -12,6 +12,26 @@ class Page extends SiteTree {
 		return DivisionUnit::get()->filter(array('ShowInMenus' => 1));
 	}
 
+	public function allSections(){
+
+        $sections = new ArrayList();
+
+        if($this->ClassName == 'ReportStory'){
+        	$sections = $this->Parent->Sections();
+        }
+
+        else if ($this->ClassName == 'Report'){
+        	$sections = $this->Sections();
+        }
+
+        else{
+			$sections = $this->LatestIssue()->Sections();
+        }
+
+        return $sections;
+
+    }
+
 	public function LatestIssue(){
 		$home = Page::get()->filter(array('URLSegment' => 'home'))->First();
 		return $home->LinkTo();
