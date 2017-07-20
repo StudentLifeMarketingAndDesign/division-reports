@@ -15,3 +15,5 @@ HtmlEditorConfig::get('cms')->enablePlugins(array(
 ));
 HtmlEditorConfig::get('cms')->insertButtonsBefore('fullscreen', 'aceeditor');
 HtmlEditorConfig::get('cms')->removeButtons('code');
+
+Authenticator::set_default_authenticator('SAMLAuthenticator');

@@ -36,7 +36,9 @@ class ReportStory extends BlogPost {
 		$authorEmailField = TextareaField::create('AuthorEmails', 'Author email addresses (comma separated)')->setRows(3);
 		$member = Member::currentUser();
 
-		$sectionField = ListboxField::create('Sections', 'Departments / Section(s)', ReportSection::get()->map()->toArray())->setMultiple(true);
+
+		$reportSections = $this->Parent()->Sections();
+		$sectionField = ListboxField::create('Sections', 'Departments / Section(s)', $reportSections->map()->toArray())->setMultiple(true);
 		if (!Permission::checkMember($member, 'ADMIN')) {
 
 			$sectionField->setDisabled(true);
@@ -63,6 +65,8 @@ class ReportStory extends BlogPost {
 		}
 		return $list;
 	}
+
+
 
 	public function populateDefaults() {
 		//set attributes before calling parent::populateDefaults();
