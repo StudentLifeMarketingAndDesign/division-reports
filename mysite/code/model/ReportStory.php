@@ -6,7 +6,8 @@ class ReportStory extends BlogPost {
 		'AuthorEmails' => 'Text',
 		'IsFeatured' => 'Boolean',
 		'FeaturedImageCaption' => 'Text',
-		'PhotoCredit' => 'Text'
+		'PhotoCredit' => 'Text',
+		"FeaturedVideo" => "Text"
 	);
 
 	private static $many_many = array(
@@ -43,6 +44,10 @@ class ReportStory extends BlogPost {
 		$f->addFieldToTab("Root.Main", $sectionField, 'Content');
 		$f->addFieldToTab("Root.Main", TextField::create('FeaturedImageCaption', 'Cover Image Caption'));
 		$f->addFieldToTab("Root.Main", TextField::create('PhotoCredit', 'Photo Credit'));
+
+		$f->addFieldToTab("Root.Main", HeaderField::create( '<br><br><h3>Featured Video</h3>', '3', true ) );
+		$f->addFieldToTab('Root.Main', TextField::create('FeaturedVideo','Youtube id'));
+
 		$f->addFieldToTab("blog-admin-sidebar", $authorEmailField);
 
 

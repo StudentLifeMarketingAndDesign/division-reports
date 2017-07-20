@@ -8,8 +8,13 @@
 		<% end_if %>
 		<div class="row">
 			<div class="col-md-4">
+				<% if $FeaturedVideo %>
+					<div class="imagegradient">
+						<img class="story-card-large__image" src="http://img.youtube.com/vi/$FeaturedVideo/sddefault.jpg" alt="$Title" />
+					</div>
+				<% end_if %>
 				<% if $FeaturedImage %>
-					<div class="story-card-large__imagewrapper">
+					<div class="imagegradient">
 						<img class="story-card-large__image" src="$FeaturedImage.CroppedFocusedImage(506,340).URL" <% if $FeaturedImageCaption %>alt="$FeaturedImageCaption" <% else %>alt="$Title"<% end_if %> />
 					</div>
 				<% end_if %>

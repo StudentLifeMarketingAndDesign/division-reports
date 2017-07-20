@@ -5,13 +5,14 @@
 	position: relative;
 	padding: 30px;
 	background-color: #333;
+	background-position: center center;
 	&__header{
 		position: absolute;
 		bottom: 10px;
 		&--large{
 			bottom: 15px;
 		}
-		
+
 	}
 	&__title{
 		color: white;
@@ -23,7 +24,7 @@
 		}
 	}
 	&__container{
-		margin-bottom: 75px; 
+		margin-bottom: 75px;
 	}
 
 	&--small{
