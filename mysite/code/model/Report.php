@@ -89,8 +89,8 @@ class Report_Controller extends Blog_Controller {
     );
     private static $url_handlers = array(
         'section/$Section!/$Rss' => 'section',
-        'load/$Section!' => 'loadSection',
-        'load/$Tag!' => 'loadTag',
+        'loadSection/$Section!' => 'loadSection',
+        'loadTag/$Tag!' => 'loadTag',
 
     );
 
