@@ -22,7 +22,7 @@
 			<div class="col-sm-12">
 				<nav data-navigation-handle="#handle" data-navigation-content="#content">
 					<div class="row">
-						<% loop $Sections %>
+						<% loop $allSections %>
 							<div class="col-sm-6 col-lg-4">
 								<a href="$Link" class="explorenav__link">
 									<div class="imagegradient">
