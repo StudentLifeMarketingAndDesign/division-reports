@@ -83,7 +83,7 @@
 
 			</div>
 			<% end_with %>
-
+			<br />
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -117,7 +117,7 @@
 				</div>
 
 			</div>
-			<br>
+			<br><br />
 				<div class="filtered-story-card container" id="filter">
 					<% if $PaginatedList.Exists %>
 						<% loop $PaginatedList %>
