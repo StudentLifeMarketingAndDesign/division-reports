@@ -45,9 +45,11 @@
  		<% if $Content %>
  			<div class="row">
  				<div class="col-lg-6 offset-lg-3">
- 					<div class="content-inner">
+ 					$BlockArea(BeforeContent)
+					<div class="content-inner">
 						$Content
 					</div>
+					$BlockArea(AfterContent)
 				</div>
 			</div>
  		<% end_if %>

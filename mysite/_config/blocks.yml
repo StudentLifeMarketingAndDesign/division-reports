@@ -3,12 +3,12 @@ BlockManager:
     themes:
         division-reports:
           areas:
-              Sidebar: true # a Sidebar area will be available on all page types in simple theme
-              BeforeContentConstrained: true
+              # Sidebar: true  a Sidebar area will be available on all page types in simple theme
+              # BeforeContentConstrained: true
               BeforeContent: true
-              AfterContentConstrained: true
+              # AfterContentConstrained: true
               AfterContent: true
-              Footer: true # a Footer area will be available on all page types in simple theme
+              # Footer: true  a Footer area will be available on all page types in simple theme
           use_blocksets: false
             #use_blocksets: false # Whether to use BlockSet functionality (default if undeclared: true)
             #use_extra_css_classes: true # Whether to allow cms users to add extra css classes to blocks (default if undeclared: false)
