@@ -40,7 +40,7 @@
 			<div class="row no-gutters">
 				<div class="col-lg-8">
 					<% with $Story1 %>
-						<a href="$Link" <% if $FeaturedVideo %>style="background-image: url('http://img.youtube.com/vi/$FeaturedVideo/maxresdefault.jpg')"<% else_if $FeaturedImage %>style="background-image: url($FeaturedImage.FocusFillMax(1280,720).URL"<% end_if %> class="story-tile story-tile--large">
+						<a href="$Link" <% if $FeaturedVideo %>style="background-image: url('http://img.youtube.com/vi/$FeaturedVideo/maxresdefault.jpg')"<% else_if $FeaturedImage %>style="background-image: url($FeaturedImage.FocusFillMax(1080,720).URL"<% end_if %> class="story-tile story-tile--large">
 							<div class="story-tile__header story-tile__header--large">
 								<% if $Sections %>
 									<span class="section-tag" href="$Sections.First.Link">$Sections.First.Title</span>
@@ -54,7 +54,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<% with $Story2 %>
-								<a href="$Link" <% if $FeaturedVideo %>style="background-image: url('http://img.youtube.com/vi/$FeaturedVideo/sddefault.jpg')"<% else_if $FeaturedImage %>style="background-image: url($FeaturedImage.FocusFillMax(1280,720).URL"<% end_if %> class="story-tile story-tile--small">
+								<a href="$Link" <% if $FeaturedVideo %>style="background-image: url('http://img.youtube.com/vi/$FeaturedVideo/sddefault.jpg')"<% else_if $FeaturedImage %>style="background-image: url($FeaturedImage.FocusFillMax(1080,720).URL"<% end_if %> class="story-tile story-tile--small">
 									<div class="story-tile__header">
 										<% if $Sections %>
 											<span class="section-tag" href="$Sections.First.Link">$Sections.First.Title</span>
@@ -68,7 +68,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<% with $Story3 %>
-								<a href="$Link" <% if $FeaturedVideo %>style="background-image: url('http://img.youtube.com/vi/$FeaturedVideo/sddefault.jpg')"<% else_if $FeaturedImage %>style="background-image: url($FeaturedImage.FocusFillMax(1280,720).URL"<% end_if %> class="story-tile story-tile--small">
+								<a href="$Link" <% if $FeaturedVideo %>style="background-image: url('http://img.youtube.com/vi/$FeaturedVideo/sddefault.jpg')"<% else_if $FeaturedImage %>style="background-image: url($FeaturedImage.FocusFillMax(1080,720).URL"<% end_if %> class="story-tile story-tile--small">
 									<div class="story-tile__header">
 										<% if $Sections %>
 											<span class="section-tag" href="$Sections.First.Link">$Sections.First.Title</span>

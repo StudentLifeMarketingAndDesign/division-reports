@@ -32,7 +32,13 @@
 								<div class="tilter__figure">
 									<div style="background: #fff">
 										<div class="tilter__image-container">
-											<img class="tilter__image" src="$FeaturedImage.CroppedFocusedImage(550,350).URL" <% if $FeaturedImageCaption %>alt="$FeaturedImageCaption" <% else %>alt="$Title"<% end_if %> />
+
+											<% if $FeaturedVideo %>
+												<img class="tilter__image" src="http://img.youtube.com/vi/$FeaturedVideo/sddefault.jpg" alt="$Title">
+											<% else_if $FeaturedImage %>
+												<img class="tilter__image" src="$FeaturedImage.CroppedFocusedImage(575,365).URL" <% if $FeaturedImageCaption %>alt="$FeaturedImageCaption" <% else %>alt="$Title"<% end_if %> />
+											<% end_if %>
+
 											<div class="tilter__deco tilter__deco--shine"><div></div></div>
 										</div>
 
