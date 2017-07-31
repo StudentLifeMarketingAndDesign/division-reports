@@ -25,7 +25,7 @@ silverstripe-typekit/
 node_modules
 npm-debug.log
 betterbuttons/
-blocks/
+/blocks/
 gridfieldextensions/
 .DS_Store
 uiowa-bar
