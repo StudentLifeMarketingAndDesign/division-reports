@@ -25,10 +25,12 @@
 //@import "plugins/shifter";
 @import "plugins/navigation";
 @import "plugins/flickity";
+@import "plugins/lity";
 
 /* Blocks
 -------------------------------------------*/
 @import "components/content-blocks/video";
+@import "components/content-blocks/percentage-block";
 
 /* Layout
 -------------------------------------------*/

@@ -414,7 +414,10 @@ img.right {
 }
 
 /* Centered with caption */
-.captionImage.center, .media.center, img.center {
+.captionImage.center,
+.media.center,
+img.center,
+.percentageblock.center {
 	@media (min-width: $break-medium) {
 		width: calc(100vw - 100px) !important;
 		max-width: 1000px;
@@ -424,7 +427,8 @@ img.right {
 	}
 }
 /* floated left, with caption */
-.captionImage.left {
+.captionImage.left,
+.percentageblock.left {
 	& img.left {
 		float: none;
 		margin: 0;
@@ -439,7 +443,8 @@ img.right {
 		max-width: 885px;
 	}
 }
-.captionImage.right {
+.captionImage.right,
+.percentageblock.right {
 	& img.right {
 		float: none;
 		margin: 0;
