@@ -108,6 +108,9 @@
 	position: relative;
 	max-height: 365px;
 	overflow: hidden;
+	@media (min-width: $break-large) and (max-width: $break-xlarge) {
+		max-height: 285px;
+	}
 }
 .tilter__deco--shine div {
 	position: absolute;
