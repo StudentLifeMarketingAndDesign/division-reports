@@ -63,16 +63,29 @@ $('.carousel-nav-cell').click(function() {
 //****** Count up ******
 //**********************
 
-// var countOptions = {
-//   useEasing : true,
-//   useGrouping : true,
-//   separator : ',',
-//   decimal : '.',
-// };
-// var demo = new CountUp("stat1", 0, 3746, 0, 2.5, countOptions);
-// var demo2 = new CountUp("stat2", 0, 562, 0, 2.5, countOptions);
-// demo.start();
-// demo2.start();
+var countOptions = {
+  useEasing : true,
+  useGrouping : true,
+  separator : ',',
+  decimal : '.',
+};
+
+
+var counts = [];
+
+$('.count').each(
+  function(index){
+    counts[index] = new CountUp(
+      $( this ).attr("id"), 
+      0, //start at 0
+      $( this ).attr("data-value"), 
+      0, //number of decimals
+      2.5, //speed/duration
+      countOptions
+    );
+    counts[index].start();
+  }
+);
 
 
 //*********************
