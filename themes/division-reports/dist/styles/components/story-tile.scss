@@ -9,6 +9,7 @@
 	&__header{
 		position: absolute;
 		bottom: 10px;
+		transition: bottom .2s ease-in-out;
 		&--large{
 			bottom: 15px;
 		}
@@ -32,6 +33,16 @@
 	}
 
 	&--large{
-		height: 700px;
+		height: 350px;
+		@media (min-width: $break-large) {
+			height: 700px;
+		}
+
+	}
+}
+.story-tile:hover,
+.story-tile:focus {
+	& .story-tile__header {
+		bottom: 20px;
 	}
 }

@@ -79,61 +79,30 @@ $('.carousel-nav-cell').click(function() {
 //****** Circles ******
 //*********************
 
-var myCircle = Circles.create({
-	id:                  'circles-1',
-	radius:              100,
-	value:               84,
-	maxValue:            100,
-	width:               10,
-	text:                function(value){return value + '%';},
-	colors:              ['#565655', '#f0be1e'],
-	duration:            2000,
-	wrpClass:            'circles-wrp',
-	textClass:           'circles-text',
-	valueStrokeClass:    'circles-valueStroke',
-	maxValueStrokeClass: 'circles-maxValueStroke',
-	styleWrapper:        true,
-	styleText:           true
-});
+var circles = [];
 
-var myCircle2 = Circles.create({
-	id:                  'circles-2',
-	radius:              100,
-	value:               81,
-	maxValue:            100,
-	width:               10,
-	text:                function(value){return value + '%';},
-	colors:              ['#565655', '#f0be1e'],
-	duration:            2000,
-	wrpClass:            'circles-wrp',
-	textClass:           'circles-text',
-	valueStrokeClass:    'circles-valueStroke',
-	maxValueStrokeClass: 'circles-maxValueStroke',
-	styleWrapper:        true,
-	styleText:           true
-});
+$('.circle').each(
+  function(index){
+    // alert($( this ).attr("id"));
+    circles[index] = Circles.create({
+        id:                  $( this ).attr("id"),
+        radius:              100,
+        value:               $( this ).attr("data-value"),
+        maxValue:            100,
+        width:               10,
+        text:                function(value){return value + '%';},
+        colors:              ['#565655', '#f0be1e'],
+        duration:            2000,
+        wrpClass:            'circles-wrp',
+        textClass:           'circles-text',
+        valueStrokeClass:    'circles-valueStroke',
+        maxValueStrokeClass: 'circles-maxValueStroke',
+        styleWrapper:        true,
+        styleText:           true
+    });
 
-
-var circleID = $('.circle').attr("id");
-var circlevalue = $('#circles-4').data('value');
-
-var myCircle3 = Circles.create({
-	id:                  circleID,
-	radius:              100,
-	value:               circlevalue,
-	maxValue:            100,
-	width:               10,
-	text:                function(value){return value + '%';},
-	colors:              ['#565655', '#f0be1e'],
-	duration:            2000,
-	wrpClass:            'circles-wrp',
-	textClass:           'circles-text',
-	valueStrokeClass:    'circles-valueStroke',
-	maxValueStrokeClass: 'circles-maxValueStroke',
-	styleWrapper:        true,
-	styleText:           true
-});
-
+  }
+);
 
 
 //*********************

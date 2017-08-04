@@ -16,3 +16,6 @@ ReportSection:
 Block:
   extensions:
     - BlockExtension
+LeftAndMain:
+  extra_requirements_css:
+    - themes/division-reports/dist/css/cms.css
