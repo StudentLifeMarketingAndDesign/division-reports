@@ -1,6 +1,9 @@
 .nav{
 	box-shadow: 0px 2px 5px -3px rgba(0,0,0,0.68);
 	padding: 28px 0;
+	&:focus {
+		outline: none;
+	}
 }
 
 .nav__dsl-logo{

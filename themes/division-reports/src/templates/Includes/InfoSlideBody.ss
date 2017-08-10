@@ -38,9 +38,9 @@
 					</div>
 				</div>
 			</div>
-		</div>	
+		</div>
 	<% end_if %>
-	
+
 	<% if $ButtonLink %>
 		<a href="$ButtonLink" target="_blank" class="cell-btn">$ButtonText</a>
 	<% end_if %>

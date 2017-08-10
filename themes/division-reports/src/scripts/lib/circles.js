@@ -179,8 +179,9 @@
 
       this._svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       this._svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-      this._svg.setAttribute('width', this._svgSize);
-      this._svg.setAttribute('height', this._svgSize);
+      this._svg.setAttribute('viewBox', '0 0 200 200');
+      // this._svg.setAttribute('width', this._svgSize);
+      // this._svg.setAttribute('height', this._svgSize);
 
       this._generatePath(100, false, this._colors[0], this._maxValClass)._generatePath(1, true, this._colors[1], this._valClass);
 
