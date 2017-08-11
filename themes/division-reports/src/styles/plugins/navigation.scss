@@ -39,6 +39,8 @@
     display: block;
     position: relative;
     z-index: 1;
+    background: transparent;
+    text-align: left;
 }
 
 .fs-navigation-overlay-nav.fs-navigation-enabled, .fs-navigation-push-nav.fs-navigation-enabled, .fs-navigation-reveal-nav.fs-navigation-enabled {

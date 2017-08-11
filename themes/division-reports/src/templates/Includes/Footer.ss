@@ -10,7 +10,7 @@
 			<div class="small-6 columns">
 				<ul class="border-list" id="col">
 					<% loop $allSections %>
-						<li><a href="$Link" target="_blank">$Title</a></li>
+						<li><a href="$Link">$Title</a></li>
 					<% end_loop %>
 				</ul>
 			</div>

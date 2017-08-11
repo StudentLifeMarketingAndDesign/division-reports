@@ -9,7 +9,7 @@
 			</div>
 			<div class="col-sm-3 offset-sm-3 col-md-2 offset-md-6">
 				<div class="nav__explore">
-					<span class="nav__item" id="handle">Explore</span>
+					<button class="nav__item" id="handle">Explore</button>
 					<div class="nav__menu-icon"></div>
 				</div>
 			</div>
