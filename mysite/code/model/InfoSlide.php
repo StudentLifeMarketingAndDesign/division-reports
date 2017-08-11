@@ -48,7 +48,7 @@ class InfoSlide extends DataObject
         'TwoStats' => 'Two Statistics & Labels',
         'ThreeStats' => 'Three Statistics & Labels',
         'FourStats' => 'Four Statistics & Labels',
-        
+
     );
 
     private static $summary_fields = array(
@@ -61,7 +61,7 @@ class InfoSlide extends DataObject
         return $this->stat('layout_types');
     }
     public function getCMSFields(){
-    
+
         $f = new FieldList();
 
         $f->push(TextField::create('Title', 'Title / Heading'));
