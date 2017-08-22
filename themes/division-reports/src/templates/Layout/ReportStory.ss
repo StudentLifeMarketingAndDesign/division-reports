@@ -75,6 +75,7 @@
 						$Content
 					</div>
 					$BlockArea(AfterContent)
+
 				</div>
 			</div>
 		</div>

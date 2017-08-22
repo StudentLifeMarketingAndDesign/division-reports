@@ -73,51 +73,74 @@ var countOptions = {
 
 var counts = [];
 
-$('.count').each(
-  function(index){
+$('.count__container').each(
+  function(){
+  	new Waypoint({
+	  element:  this,
+	  offset: 'bottom-in-view',
+	  handler: countCreator
+	});
+  }
+);
+
+function countCreator(index){
+
+	var countId = $( this.element ).attr("data-count-id");
+	var count = document.getElementById(countId);
     counts[index] = new CountUp(
-      $( this ).attr("id"), 
+      $( count ).attr("id"), 
       0, //start at 0
-      $( this ).attr("data-value"), 
+      $( count ).attr("data-value"), 
       0, //number of decimals
       2.5, //speed/duration
       countOptions
     );
+
     counts[index].start();
-  }
-);
-
-
+  
+}
 //*********************
 //****** Circles ******
 //*********************
 
 var circles = [];
-
-$('.circle').each(
-  function(index){
-    // alert($( this ).attr("id"));
-    circles[index] = Circles.create({
-        id:                  $( this ).attr("id"),
-        radius:              100,
-        value:               $( this ).attr("data-value"),
-        maxValue:            100,
-        width:               10,
-        text:                function(value){return value + '%';},
-        colors:              ['#565655', '#f0be1e'],
-        duration:            2000,
-        wrpClass:            'circles-wrp',
-        textClass:           'circles-text',
-        valueStrokeClass:    'circles-valueStroke',
-        maxValueStrokeClass: 'circles-maxValueStroke',
-        styleWrapper:        true,
-        styleText:           true
-    });
-
+var circleWaypoints = [];
+//Use an element with the class "circle" and the attribute 'data-value="X"' in the markup
+$('.circle__container').each(
+  function(){
+  	new Waypoint({
+	  element:  this,
+	  offset: 'bottom-in-view',
+	  handler: circleCreator
+	});
   }
 );
 
+function circleCreator(index) {
+	var circleId = $( this.element ).attr("data-circle-id");
+	var circle = document.getElementById(circleId);
 
+	if($(circle).attr("data-active") != "true"){
+		circles.push (Circles.create({
+		    id:                  circleId,
+		    radius:              100,
+		    value:               $(circle).attr("data-value"),
+		    maxValue:            100,
+		    width:               10,
+		    text:                function(value){return value + '%';},
+		    colors:              ['#565655', '#f0be1e'],
+		    duration:            2000,
+		    wrpClass:            'circles-wrp',
+		    textClass:           'circles-text',
+		    valueStrokeClass:    'circles-valueStroke',
+		    maxValueStrokeClass: 'circles-maxValueStroke',
+		    styleWrapper:        true,
+		    styleText:           true
+		}));
+
+		$(circle).attr("data-active", true);
+	}
+}
 //*********************
 //*********************
 //*********************
