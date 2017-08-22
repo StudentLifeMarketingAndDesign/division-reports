@@ -1,44 +1,57 @@
 
 <% with $CurrentSection %>
 	<% if $InfoSlides %>
-		<div class="carousel__container">
-			<% include SectionHeader %>
-			<div class="carousel">
-				<% loop $InfoSlides %>
-					<div class="carousel-cell">
-						<% if $MediaType == "Image" %>
-							<div class="cell-bg" data-flickity-bg-lazyload="$BackgroundImage.CroppedFocusedImage(1500,900).URL">
-								<div class="cell-screen"></div>
-								<div class="inner inner--is-overlay">
-									<% include InfoSlideBody %>
-								</div>
-							</div>
-						<% else_if $MediaType == "Video" %>
-							<div class="cell-bg">
-								<div class="fullwidth-video">
-									<video playsinline autoplay muted loop autoplay src="$BackgroundVideo.URL" id="vid-bg" class="ani-vid-fadein" style="opacity: 1;"></video>
-								</div>
-								<div class="inner inner--is-overlay">
-									<% include InfoSlideBody %>
-								</div>
+		<% if $InfoSlides.Count > 1 %><div class="carousel"><% end_if %>
+
+			<% loop $InfoSlides %>
+
+				<div class="infoslide" <% if $MediaType == "Image" %>style="background-image: url($BackgroundImage.CroppedFocusedImage(1500,900).URL"<% end_if %>>
+
+					<% if $MediaType == "Video" %>
+						<div class="fullwidth-video">
+							<video playsinline autoplay muted loop autoplay src="$BackgroundVideo.URL" id="vid-bg" class="ani-vid-fadein" style="opacity: 1;"></video>
+						</div>
+					<% end_if %>
+
+					<div class="infoslide__body">
+						<h1 class="infoslide__title">$Up.Title</h1>
+						<% include InfoSlideBody %>
+						<% if $ButtonLink %>
+							<div class="infoslide__btnwrap">
+								<a href="$ButtonLink" class="infoslide__btn">$ButtonTitle</a>
 							</div>
 						<% end_if %>
 					</div>
-				<% end_loop %>
-			</div>
 
-		</div>
-	<% else %>
-
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-9 offset-lg-1">
-					<h1>$Title</h1>
 				</div>
-			</div>
-		</div>
+			<% end_loop %>
+
+		<% if $InfoSlides.Count > 1 %></div><% end_if %>
 
 	<% end_if %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	<br />
  	<div class="container">

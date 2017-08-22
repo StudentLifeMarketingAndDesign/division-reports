@@ -83,7 +83,6 @@ $('.count__container').each(
   }
 );
 
-
 function countCreator(index){
 
 	var countId = $( this.element ).attr("data-count-id");

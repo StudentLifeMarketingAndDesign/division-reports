@@ -1,12 +1,12 @@
 /*!
- * Flickity PACKAGED v2.0.8
+ * Flickity PACKAGED v2.0.9
  * Touch, responsive, flickable carousels
  *
  * Licensed GPLv3 for open source use
  * or Flickity Commercial License for commercial use
  *
  * http://flickity.metafizzy.co
- * Copyright 2016 Metafizzy
+ * Copyright 2017 Metafizzy
  */
 
 /**
@@ -154,7 +154,7 @@ return jQueryBridget;
 }));
 
 /**
- * EvEmitter v1.0.3
+ * EvEmitter v1.1.0
  * Lil' event emitter
  * MIT License
  */
@@ -234,13 +234,14 @@ proto.emitEvent = function( eventName, args ) {
   if ( !listeners || !listeners.length ) {
     return;
   }
-  var i = 0;
-  var listener = listeners[i];
+  // copy over to avoid interference if .off() in listener
+  listeners = listeners.slice(0);
   args = args || [];
   // once stuff
   var onceListeners = this._onceEvents && this._onceEvents[ eventName ];
 
-  while ( listener ) {
+  for ( var i=0; i < listeners.length; i++ ) {
+    var listener = listeners[i]
     var isOnce = onceListeners && onceListeners[ listener ];
     if ( isOnce ) {
       // remove listener
@@ -251,12 +252,14 @@ proto.emitEvent = function( eventName, args ) {
     }
     // trigger listener
     listener.apply( this, args );
-    // get next listener
-    i += isOnce ? 0 : 1;
-    listener = listeners[i];
   }
 
   return this;
+};
+
+proto.allOff = function() {
+  delete this._events;
+  delete this._onceEvents;
 };
 
 return EvEmitter;
@@ -2070,7 +2073,7 @@ proto._bindStartEvent = function( elem, isBind ) {
   isBind = isBind === undefined ? true : !!isBind;
   var bindMethod = isBind ? 'addEventListener' : 'removeEventListener';
 
-  if ( window.PointerEvent ) {
+  if ( false ) {
     // Pointer Events. Chrome 55, IE11, Edge 14
     elem[ bindMethod ]( 'pointerdown', this );
   } else {
@@ -2307,7 +2310,7 @@ return Unipointer;
 }));
 
 /*!
- * Unidragger v2.2.2
+ * Unidragger v2.2.3
  * Draggable base class
  * MIT license
  */
@@ -2376,10 +2379,13 @@ proto._bindHandles = function( isBind ) {
     // touch-action: none to override browser touch gestures
     // metafizzy/flickity#540
     if ( window.PointerEvent ) {
-      handle.style.touchAction = isBind ? 'none' : '';
+      handle.style.touchAction = isBind ? this._touchActionValue : '';
     }
   }
 };
+
+// prototype so it can be overwriteable by Flickity
+proto._touchActionValue = 'none';
 
 // ----- start event ----- //
 
@@ -2625,6 +2631,7 @@ Flickity.createMethods.push('_createDrag');
 
 var proto = Flickity.prototype;
 utils.extend( proto, Unidragger.prototype );
+proto._touchActionValue = 'pan-y';
 
 // --------------------------  -------------------------- //
 
@@ -3997,14 +4004,14 @@ return Flickity;
 }));
 
 /*!
- * Flickity v2.0.8
+ * Flickity v2.0.9
  * Touch, responsive, flickable carousels
  *
  * Licensed GPLv3 for open source use
  * or Flickity Commercial License for commercial use
  *
  * http://flickity.metafizzy.co
- * Copyright 2016 Metafizzy
+ * Copyright 2017 Metafizzy
  */
 
 ( function( window, factory ) {
@@ -4191,7 +4198,7 @@ return Flickity;
 }));
 
 /*!
- * imagesLoaded v4.1.2
+ * imagesLoaded v4.1.3
  * JavaScript is all like "You images are done yet or what?"
  * MIT License
  */
@@ -4620,126 +4627,6 @@ proto.imagesLoaded = function() {
   }
   imagesLoaded( this.slider ).on( 'progress', onImagesLoadedProgress );
 };
-
-return Flickity;
-
-}));
-
-/**
- * Flickity background lazyload v1.0.0
- * lazyload background cell images
- */
-
-/*jshint browser: true, unused: true, undef: true */
-
-( function( window, factory ) {
-  // universal module definition
-  /*globals define, module, require */
-  if ( typeof define == 'function' && define.amd ) {
-    // AMD
-    define( [
-      'flickity/js/index',
-      'fizzy-ui-utils/utils'
-    ], factory );
-  } else if ( typeof module == 'object' && module.exports ) {
-    // CommonJS
-    module.exports = factory(
-      require('flickity'),
-      require('fizzy-ui-utils')
-    );
-  } else {
-    // browser global
-    factory(
-      window.Flickity,
-      window.fizzyUIUtils
-    );
-  }
-
-}( window, function factory( Flickity, utils ) {
-/*jshint strict: true */
-'use strict';
-
-Flickity.createMethods.push('_createBgLazyLoad');
-
-var proto = Flickity.prototype;
-
-proto._createBgLazyLoad = function() {
-  this.on( 'select', this.bgLazyLoad );
-};
-
-proto.bgLazyLoad = function() {
-  var lazyLoad = this.options.bgLazyLoad;
-  if ( !lazyLoad ) {
-    return;
-  }
-
-  // get adjacent cells, use lazyLoad option for adjacent count
-  var adjCount = typeof lazyLoad == 'number' ? lazyLoad : 0;
-  var cellElems = this.getAdjacentCellElements( adjCount );
-
-  for ( var i=0; i < cellElems.length; i++ ) {
-    var cellElem = cellElems[i];
-    this.bgLazyLoadElem( cellElem );
-    // select lazy elems in cell
-    var children = cellElem.querySelectorAll('[data-flickity-bg-lazyload]');
-    for ( var j=0; j < children.length; j++ ) {
-      this.bgLazyLoadElem( children[j] );
-    }
-  }
-};
-
-proto.bgLazyLoadElem = function( elem ) {
-  var attr = elem.getAttribute('data-flickity-bg-lazyload');
-  if ( attr ) {
-    new BgLazyLoader( elem, attr, this );
-  }
-};
-
-// -------------------------- LazyBGLoader -------------------------- //
-
-/**
- * class to handle loading images
- */
-function BgLazyLoader( elem, url, flickity ) {
-  this.element = elem;
-  this.url = url;
-  this.img = new Image();
-  this.flickity = flickity;
-  this.load();
-}
-
-BgLazyLoader.prototype.handleEvent = utils.handleEvent;
-
-BgLazyLoader.prototype.load = function() {
-  this.img.addEventListener( 'load', this );
-  this.img.addEventListener( 'error', this );
-  // load image
-  this.img.src = this.url;
-  // remove attr
-  this.element.removeAttribute('data-flickity-bg-lazyload');
-};
-
-BgLazyLoader.prototype.onload = function( event ) {
-  this.element.style.backgroundImage = 'url(' + this.url + ')';
-  this.complete( event, 'flickity-bg-lazyloaded' );
-};
-
-BgLazyLoader.prototype.onerror = function( event ) {
-  this.complete( event, 'flickity-bg-lazyerror' );
-};
-
-BgLazyLoader.prototype.complete = function( event, className ) {
-  // unbind events
-  this.img.removeEventListener( 'load', this );
-  this.img.removeEventListener( 'error', this );
-
-  this.element.classList.add( className );
-  this.flickity.dispatchEvent( 'bgLazyLoad', event, this.element );
-};
-
-// -----  ----- //
-
-Flickity.BgLazyLoader = BgLazyLoader;
 
 return Flickity;
 
