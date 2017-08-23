@@ -366,8 +366,8 @@ $(".content-inner").fitVids();
 			new TiltFx(el, tiltSettings[idx-1]);
 		});
 	}
-
-	// Preload all images.
+	init();
+	// // Preload all images.
 	// imagesLoaded(document.querySelector('main'), function() {
 	// 	document.body.classList.remove('loading');
 	// 	init();
