@@ -32,44 +32,32 @@ var $carousel = $('.carousel').flickity({
 	friction: 0.3,
 	prevNextButtons: false,
 	draggable: true,
-	autoPlay: false,
-	// autoPlay: 8000,
-	// pauseAutoPlayOnHover: false,
+	autoPlay: true,
+	autoPlay: 8000,
+	pauseAutoPlayOnHover: false,
 	bgLazyLoad: true,
 	pageDots: true
 });
 
-var $gallery = $('.carousel').flickity();
+var $imgs = $carousel.find('.carousel-cell .cell-bg');
+// get transform property
+var docStyle = document.documentElement.style;
+var transformProp = typeof docStyle.transform == 'string' ?
+	'transform' : 'WebkitTransform';
+// get Flickity instance
+var flkty = $carousel.data('flickity');
 
-function onLoadeddata( event ) {
-	var cell = $gallery.flickity( 'getParentCell', event.target );
-	$gallery.flickity( 'cellSizeChange', cell && cell.element );
-}
-
-$gallery.find('video').each( function( i, video ) {
-	video.play();
-	$( video ).on( 'loadeddata', onLoadeddata );
+$carousel.on( 'scroll.flickity', function() {
+	flkty.slides.forEach( function( slide, i ) {
+		var img = $imgs[i];
+		var x = ( slide.target + flkty.x ) * -1/3;
+		img.style[ transformProp ] = 'translateX(' + x  + 'px)';
+	});
 });
 
-// var $imgs = $carousel.find('.carousel-cell .cell-bg');
-// // get transform property
-// var docStyle = document.documentElement.style;
-// var transformProp = typeof docStyle.transform == 'string' ?
-// 	'transform' : 'WebkitTransform';
-// // get Flickity instance
-// var flkty = $carousel.data('flickity');
-
-// $carousel.on( 'scroll.flickity', function() {
-// 	flkty.slides.forEach( function( slide, i ) {
-// 		var img = $imgs[i];
-// 		var x = ( slide.target + flkty.x ) * -1/3;
-// 		img.style[ transformProp ] = 'translateX(' + x  + 'px)';
-// 	});
-// });
-
-// $('.carousel-nav-cell').click(function() {
-// 	flkty.stopPlayer();
-// });
+$('.carousel-nav-cell').click(function() {
+	flkty.stopPlayer();
+});
 
 //**********************
 //****** Count up ******
@@ -85,49 +73,74 @@ var countOptions = {
 
 var counts = [];
 
-$('.count').each(
-  function(index){
+$('.count__container').each(
+  function(){
+  	new Waypoint({
+	  element:  this,
+	  offset: 'bottom-in-view',
+	  handler: countCreator
+	});
+  }
+);
+
+function countCreator(index){
+
+	var countId = $( this.element ).attr("data-count-id");
+	var count = document.getElementById(countId);
     counts[index] = new CountUp(
-      $( this ).attr("id"),
+      $( count ).attr("id"), 
       0, //start at 0
-      $( this ).attr("data-value"),
+      $( count ).attr("data-value"), 
       0, //number of decimals
       2.5, //speed/duration
       countOptions
     );
+
     counts[index].start();
-  }
-);
-
-
+  
+}
 //*********************
 //****** Circles ******
 //*********************
 
 var circles = [];
-
-$('.circle').each(
-	function(index){
-		circles[index] = Circles.create({
-			id:                  $( this ).attr("id"),
-			radius:              100,
-			value:               $( this ).attr("data-value"),
-			maxValue:            100,
-			width:               16,
-			text:                function(value){return value + '<sup>%</sup>';},
-			colors:              ['rgba(0,0,0,.6)', '#f0be1e'],
-			duration:            2000,
-			wrpClass:            'circles-wrp',
-			textClass:           'circles-text',
-			valueStrokeClass:    'circles-valueStroke',
-			maxValueStrokeClass: 'circles-maxValueStroke',
-			styleWrapper:        true,
-			styleText:           true
-		});
-	}
+var circleWaypoints = [];
+//Use an element with the class "circle" and the attribute 'data-value="X"' in the markup
+$('.circle__container').each(
+  function(){
+  	new Waypoint({
+	  element:  this,
+	  offset: 'bottom-in-view',
+	  handler: circleCreator
+	});
+  }
 );
 
+function circleCreator(index) {
+	var circleId = $( this.element ).attr("data-circle-id");
+	var circle = document.getElementById(circleId);
 
+	if($(circle).attr("data-active") != "true"){
+		circles.push (Circles.create({
+		    id:                  circleId,
+		    radius:              100,
+		    value:               $(circle).attr("data-value"),
+		    maxValue:            100,
+		    width:               10,
+		    text:                function(value){return value + '%';},
+		    colors:              ['#565655', '#f0be1e'],
+		    duration:            2000,
+		    wrpClass:            'circles-wrp',
+		    textClass:           'circles-text',
+		    valueStrokeClass:    'circles-valueStroke',
+		    maxValueStrokeClass: 'circles-maxValueStroke',
+		    styleWrapper:        true,
+		    styleText:           true
+		}));
+
+		$(circle).attr("data-active", true);
+	}
+}
 //*********************
 //*********************
 //*********************
@@ -366,18 +379,18 @@ $(".content-inner").fitVids();
 			new TiltFx(el, tiltSettings[idx-1]);
 		});
 	}
-	init();
-	// // Preload all images.
-	// imagesLoaded(document.querySelector('main'), function() {
-	// 	document.body.classList.remove('loading');
-	// 	init();
-	// });
+
+	// Preload all images.
+	imagesLoaded(document.querySelector('main'), function() {
+		document.body.classList.remove('loading');
+		init();
+	});
 
 	// REMOVE THIS!
 	// For Demo purposes only. Prevent the click event.
-	// [].slice.call(document.querySelectorAll('a[href="#"]')).forEach(function(el) {
-	// 	el.addEventListener('click', function(ev) { ev.preventDefault(); });
-	// });
+	[].slice.call(document.querySelectorAll('a[href="#"]')).forEach(function(el) {
+		el.addEventListener('click', function(ev) { ev.preventDefault(); });
+	});
 
 
 })();

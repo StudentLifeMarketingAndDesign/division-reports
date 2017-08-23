@@ -83,7 +83,29 @@
 
 			</div>
 			<% end_with %>
-			<br />
+			<div class="explorenav">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<h3 class="text-center">Sections</h3>
+						
+								<div class="row">
+									<% loop $allSections %>
+										<div class="col-sm-6 col-lg-4">
+											<a href="$Link" class="explorenav__link">
+												<div class="imagegradient">
+													<img src="$SectionCover.CroppedFocusedImage(400,140).URL" alt="" class="desaturate">
+												</div>
+												<h3>$Title</h3>
+											</a>
+										</div>
+									<% end_loop %>
+								</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">

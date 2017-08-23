@@ -18,6 +18,8 @@ class ReportStory extends BlogPost {
 
 	private static $plural_name = 'Stories';
 
+	private static $show_in_sitetree = true;
+	
 	private static $summary_fields = array('Title', 'ContributingSections');
 
 	public function getCMSFields() {
