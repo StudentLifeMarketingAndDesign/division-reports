@@ -27,7 +27,6 @@ $("nav").on("open.navigation", function() {
 
 var $carousel = $('.carousel').flickity({
 	imagesLoaded: true,
-	adaptiveHeight: true,
 	percentPosition: false,
 	selectedAttraction: 0.015,
 	friction: 0.3,
