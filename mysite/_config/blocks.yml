@@ -4,9 +4,9 @@ BlockManager:
         division-reports:
           areas:
               # Sidebar: true  a Sidebar area will be available on all page types in simple theme
-              # BeforeContentConstrained: true
+              BeforeContentConstrained: true
               BeforeContent: true
-              # AfterContentConstrained: true
+              AfterContentConstrained: true
               AfterContent: true
               # Footer: true  a Footer area will be available on all page types in simple theme
           use_blocksets: false

@@ -29,7 +29,7 @@ class Report extends Blog {
 
 		$sectionGridField->setConfig($sectionGridFieldConfig);
 		
-		$f->addFieldToTab('Root.Sections', $sectionGridField);
+		$f->addFieldToTab('Root.Main', $sectionGridField);
 
 		return $f;
 	}
