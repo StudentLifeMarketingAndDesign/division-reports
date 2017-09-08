@@ -45,7 +45,7 @@ class ReportStory extends BlogPost {
 
 			$sectionField->setDisabled(true);
 		}
-		$f->addFieldToTab("Root.Main", $sectionField, 'Content');
+		$f->addFieldToTab("blog-admin-sidebar", $sectionField);
 		$f->addFieldToTab("Root.Main", TextField::create('FeaturedImageCaption', 'Cover Image Caption'));
 		$f->addFieldToTab("Root.Main", TextField::create('PhotoCredit', 'Photo Credit'));
 
@@ -54,6 +54,7 @@ class ReportStory extends BlogPost {
 
 		$f->addFieldToTab("blog-admin-sidebar", $authorEmailField);
 
+		$f->renameField('blog-admin-sidebar', 'Story Options');
 
 
 		return $f;

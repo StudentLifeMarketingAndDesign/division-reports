@@ -1,4 +1,5 @@
 <main role="main" class="story-single">
+	$BlockArea(BeforeContent)
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-9 offset-lg-1">
@@ -70,11 +71,16 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 offset-lg-3">
-					$BlockArea(BeforeContent)
+					$BlockArea(BeforeContentConstrained)
 					<div class="content-inner">
 						$Content
 					</div>
-					$BlockArea(AfterContent)
+					<h2>COUNT</h2>
+<div class="count__container" data-count-id="stat4">
+  <p><span class="stat__num count" id="stat4" data-value="1880">1,880</span>
+  <span class="stat__label">Student employees</span></p>
+</div>
+					$BlockArea(AfterContentConstrained)
 
 				</div>
 			</div>
@@ -129,7 +135,7 @@
 			</div>
 		</div>
 	</div>
-
+	$BlockArea(AfterContent)
 	<% include RelatedStories %>
 </main>
 
