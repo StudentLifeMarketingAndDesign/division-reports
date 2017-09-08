@@ -88,16 +88,16 @@ function countCreator(index){
 	var countId = $( this.element ).attr("data-count-id");
 	var count = document.getElementById(countId);
     counts[index] = new CountUp(
-      $( count ).attr("id"), 
+      $( count ).attr("id"),
       0, //start at 0
-      $( count ).attr("data-value"), 
+      $( count ).attr("data-value"),
       0, //number of decimals
       2.5, //speed/duration
       countOptions
     );
 
     counts[index].start();
-  
+
 }
 //*********************
 //****** Circles ******
@@ -379,12 +379,12 @@ $(".content-inner").fitVids();
 			new TiltFx(el, tiltSettings[idx-1]);
 		});
 	}
-
+	init();
 	// Preload all images.
-	imagesLoaded(document.querySelector('main'), function() {
-		document.body.classList.remove('loading');
-		init();
-	});
+	// imagesLoaded(document.querySelector('main'), function() {
+	// 	document.body.classList.remove('loading');
+
+	// });
 
 	// REMOVE THIS!
 	// For Demo purposes only. Prevent the click event.
