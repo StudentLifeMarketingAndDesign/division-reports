@@ -24,10 +24,9 @@
 							<% end_if %>
 							</h1>
 
-							<div class="header__intro summary">
-								<%-- $Content --%>
+							<%-- <div class="header__intro summary">
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed est vel nunc iaculis tempus quis quis urna. Curabitur scelerisque hendrerit mauris, id pellentesque metus maximus vitae.</p>
-							</div>
+							</div> --%>
 						</div>
 					</div>
 				</header>
@@ -35,7 +34,8 @@
 		</header>
 	</div>
 
-	<% with $Featured %>
+	<% if not $CurrentTag %>
+		<% with $Featured %>
 		<div class="story-tile__container">
 			<div class="row no-gutters">
 				<div class="col-lg-8">
@@ -80,15 +80,19 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
-			<% end_with %>
+		</div>
+		<% end_with %>
+		<% end_if %>
+
+
+			<% if not $CurrentTag %>
 			<div class="explorenav">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
 							<h3 class="text-center">Sections</h3>
-						
+
 								<div class="row">
 									<% loop $allSections %>
 										<div class="col-sm-6 col-lg-4">
@@ -101,14 +105,18 @@
 										</div>
 									<% end_loop %>
 								</div>
-							
+
 						</div>
 					</div>
 				</div>
 			</div>
+			<% end_if %>
+
+			<% if not $CurrentTag %>
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
+						<br><br>
 						<h3 class="text-center">Filter stories by department, topic, or search</h3>
 					</div>
 				</div>
@@ -139,17 +147,18 @@
 				</div>
 
 			</div>
+			<% end_if %>
 			<br><br />
-				<div class="filtered-story-card container" id="filter">
-					<% if $PaginatedList.Exists %>
-						<% loop $PaginatedList %>
-							<% include StoryCardLarge %>
-						<% end_loop %>
-					<% else %>
-						<p><%t Blog.NoPosts 'There are no posts' %></p>
-					<% end_if %>
-			 	</div>
-			</article>
+			<div class="filtered-story-card container" id="filter">
+				<% if $PaginatedList.Exists %>
+					<% loop $PaginatedList %>
+						<% include StoryCardLarge %>
+					<% end_loop %>
+				<% else %>
+					<p><%t Blog.NoPosts 'There are no posts' %></p>
+				<% end_if %>
+		 	</div>
+		</article>
 
 $Form
 $CommentsForm
