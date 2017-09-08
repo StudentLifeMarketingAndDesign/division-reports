@@ -20,7 +20,9 @@ $("nav").on("open.navigation", function() {
 }).on("close.navigation", function() {
 		$(".nav__menu-icon").removeClass("nav__menu-icon--menu-is-active");
 });
-
+$('#archive-dropdown').on('change', function(){
+    location.href = $(this).val();
+});
 //**********************
 //****** Carousel ******
 //**********************

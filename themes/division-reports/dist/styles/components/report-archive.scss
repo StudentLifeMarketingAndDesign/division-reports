@@ -1,0 +1,10 @@
+.archive-dropdown{
+	border: 1px solid #333;
+	font-size: 13px;
+	background-color: #222;
+	color: white;
+
+	&__option{
+		padding: rem-calc(10);
+	}
+}

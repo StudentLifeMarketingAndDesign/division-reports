@@ -3,7 +3,7 @@
 class Report extends Blog {
 
 	private static $db = array(
-
+        'Year' => 'Int'
 
 	);
 
@@ -23,6 +23,8 @@ class Report extends Blog {
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
 		$f->removeByName('Content');
+
+        $f->addFieldToTab('Root.Main', TextField::create('Year'));
 
 		$sectionGridFieldConfig = GridFieldConfig_RelationEditor::create();
 		$sectionGridField = new GridField('Sections', 'Units/Sections in this report', $this->Sections());
