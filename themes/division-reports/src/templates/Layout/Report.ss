@@ -31,7 +31,7 @@
 					</div>
 				</header>
 			</div>
-		</header>
+		</article>
 	</div>
 
 	<% if not $CurrentTag %>
@@ -92,7 +92,6 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<h3 class="text-center">Sections</h3>
-
 								<div class="row">
 									<% loop $allSections %>
 										<div class="col-sm-6 col-lg-4">
@@ -111,6 +110,7 @@
 				</div>
 			</div>
 			<% end_if %>
+
 
 			<% if not $CurrentTag %>
 			<div class="container">
@@ -158,7 +158,8 @@
 					<p><%t Blog.NoPosts 'There are no posts' %></p>
 				<% end_if %>
 		 	</div>
-		</article>
+		</div>
+
 
 $Form
 $CommentsForm
