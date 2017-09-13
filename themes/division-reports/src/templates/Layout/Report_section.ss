@@ -30,29 +30,6 @@
 
 	<% end_if %>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	<br />
  	<div class="container">
  		<% if $Content %>
@@ -82,15 +59,8 @@
 			</div>
 		</div>
 	<% else %>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8">
-					<h1>$Title</h1>
-					<p>There are no stories in this section.</p>
-				</div>
-			</div>
-		</div>
-					
+
+
 	<% end_if %>
 <% end_with %>
 
