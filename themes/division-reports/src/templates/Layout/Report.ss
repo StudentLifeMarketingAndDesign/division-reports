@@ -5,28 +5,24 @@
 				<header class="header text-center">
 					<div class="row">
 						<div class="col-lg-10 offset-lg-1">
-							<h1>
+
 							<% if $ArchiveYear %>
-								<%t Blog.Archive 'Archive' %>:
+								<h1><%t Blog.Archive 'Archive' %>:
 								<% if $ArchiveDay %>
-									$ArchiveDate.Nice
+									$ArchiveDate.Nice</h1>
 								<% else_if $ArchiveMonth %>
-									$ArchiveDate.format('F, Y')
+									$ArchiveDate.format('F, Y')</h1>
 								<% else %>
-									$ArchiveDate.format('Y')
+									$ArchiveDate.format('Y')</h1>
 								<% end_if %>
 							<% else_if $CurrentTag %>
-								<%t Blog.Tag 'Tag' %>: $CurrentTag.Title
+								<h1><%t Blog.Tag 'Tag' %>: $CurrentTag.Title</h1>
 							<% else_if $CurrentCategory %>
-								<%t Blog.Category 'Category' %>: $CurrentCategory.Title
+								<h1><%t Blog.Category 'Category' %>: $CurrentCategory.Title</h1>
 							<% else %>
-								Featured Stories
-							<% end_if %>
-							</h1>
 
-							<%-- <div class="header__intro summary">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed est vel nunc iaculis tempus quis quis urna. Curabitur scelerisque hendrerit mauris, id pellentesque metus maximus vitae.</p>
-							</div> --%>
+							<% end_if %>
+
 						</div>
 					</div>
 				</header>
@@ -173,7 +169,7 @@
 								<p><%t Blog.NoPosts 'There are no stories in this section' %></p>
 							</div>
 						</div>
-						
+
 					<% end_if %>
 				</div>
 		 	</div>
