@@ -58,6 +58,7 @@
 		margin: 0;
 		padding: 9px 0;
 		display: block;
+		width: 100%;
 
 	}
 	&__search-button{
@@ -65,9 +66,13 @@
 
 	}
 
+	&__search-icon{
+		width: 20px;
+	}
+
 	&__search-action{
-		right: 3px;
-		top: 3px;
+		right: 10px;
+		top: 8px;
 		position: absolute;		
 	}
 }
