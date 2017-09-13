@@ -20,7 +20,9 @@ $("nav").on("open.navigation", function() {
 }).on("close.navigation", function() {
 		$(".nav__menu-icon").removeClass("nav__menu-icon--menu-is-active");
 });
-
+$('#archive-dropdown').on('change', function(){
+    location.href = $(this).val();
+});
 //**********************
 //****** Carousel ******
 //**********************
@@ -154,6 +156,7 @@ function sectionList(str) {
 	}
 	else{
 		xhttp = new XMLHttpRequest();
+		document.getElementById("filter").innerHTML = '<p class="text-center"><img src="themes/division-reports/dist/images/loader.gif" /></p>';
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				document.getElementById("filter").innerHTML = xhttp.responseText;
@@ -174,6 +177,7 @@ function tagList(str) {
 		return;
 	}
 	else{
+		document.getElementById("filter").innerHTML = '<p class="text-center"><img src="themes/division-reports/dist/images/loader.gif" /></p>';
 		xhttp = new XMLHttpRequest();
 		// $("#section-dropdown").reset();
 		xhttp.onreadystatechange = function() {

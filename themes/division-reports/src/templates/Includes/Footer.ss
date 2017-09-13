@@ -4,6 +4,14 @@
 			<div class="medium-6 large-5 columns">
 				<a href="$BaseUrl"><% include DslLogoStackedSvg %></a>
 					<p class="footer-info--text">The Division of Student Life fosters student success by creating and promoting inclusive educationally purposeful services and activities within and beyond the classroom.</p>
+						<label for="archive-dropdown">Archive:</label>
+						<select name="archive-dropdown" id="archive-dropdown" class="archive-dropdown">
+						  <% loop AllReports %>
+						  	<option class="archive-dropdown__option" value="$Link">$Year</option>
+						  <% end_loop %>
+						</select>
+					  	
+					
 			</div>
 		</div>
 		<div class="footer-link__container">

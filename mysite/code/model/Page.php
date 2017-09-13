@@ -32,6 +32,27 @@ class Page extends SiteTree {
 
     }
 
+    public function AllReports(){
+    	// $redirectors = ReportRedirector::get()->toArray();
+    	// $reports = Report::get()->toArray();
+
+    	// $allReports = array_merge($redirectors, $reports);
+
+    	$allReports = SiteTree::get()->filter(array(
+    			'ClassName' => array('Report','ReportRedirector')
+    		));
+
+    	$allReportsArrayList = new ArrayList();
+
+    	foreach($allReports as $report){
+    		$allReportsArrayList->push($report);
+    	}
+
+    	$allReportsArrayList->sort('Year DESC');
+    	//print_r($allReports->execute());
+    	return $allReportsArrayList;
+    }
+
 	public function LatestIssue(){
 		$home = Page::get()->filter(array('URLSegment' => 'home'))->First();
 		return $home->LinkTo();

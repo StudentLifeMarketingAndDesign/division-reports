@@ -20,7 +20,9 @@ $("nav").on("open.navigation", function() {
 }).on("close.navigation", function() {
 		$(".nav__menu-icon").removeClass("nav__menu-icon--menu-is-active");
 });
-
+$('#archive-dropdown').on('change', function(){
+    location.href = $(this).val();
+});
 //**********************
 //****** Carousel ******
 //**********************
@@ -149,14 +151,19 @@ function sectionList(str) {
 	var xhttp;
 	var currentUrl = window.location.href;
 	if (str == "") {
-		document.getElementById("filter").innerHTML = "";
+		document.getElementById("filter-list").innerHTML = "";
 		return;
 	}
 	else{
 		xhttp = new XMLHttpRequest();
+		$("#filter-list").show();
+		$("#pagination").hide();
+		$("#default-list").hide();
+		$("#search-input").val("");
+		document.getElementById("filter-list").innerHTML = '<p class="text-center"><img src="themes/division-reports/dist/images/loader.gif" /></p>';
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("filter").innerHTML = xhttp.responseText;
+				document.getElementById("filter-list").innerHTML = xhttp.responseText;
 				$("#tag-dropdown").val(0).removeAttr("selected");
 			}
 		};
@@ -170,22 +177,63 @@ function tagList(str) {
 	var xhttp;
 	var currentUrl = window.location.href;
 	if (str == "") {
-		document.getElementById("filter").innerHTML = "";
+		document.getElementById("filter-list").innerHTML = "";
 		return;
 	}
 	else{
+		$("#filter-list").show();
+		$("#pagination").hide();
+		$("#default-list").hide();
+		$("#search-input").val("");
+		document.getElementById("filter-list").innerHTML = '<p class="text-center"><img src="themes/division-reports/dist/images/loader.gif" /></p>';
 		xhttp = new XMLHttpRequest();
 		// $("#section-dropdown").reset();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("filter").innerHTML = xhttp.responseText;
+				document.getElementById("filter-list").innerHTML = xhttp.responseText;
 				$("#section-dropdown").val(0).removeAttr("selected");
 			}
 		};
-		xhttp.open("GET", currentUrl + "/loadTag/"+str, true);
+		xhttp.open("GET", currentUrl + "loadTag/"+str, true);
 		xhttp.send();
 	}
 
+}
+
+function searchList(str){
+	if(str.length < 4){
+		return;
+	}
+	var xhttp;
+	var currentUrl = window.location.href;
+	if (str == "") {
+		document.getElementById("filter-list").innerHTML = "";
+		return;
+	}
+	else{
+		$("#filter-list").show();
+		$("#pagination").hide();
+		$("#default-list").hide();
+		document.getElementById("filter-list").innerHTML = '<p class="text-center"><img src="themes/division-reports/dist/images/loader.gif" /></p>';
+		xhttp = new XMLHttpRequest();
+		// $("#section-dropdown").reset();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("filter-list").innerHTML = xhttp.responseText;
+				$("#section-dropdown").val(0).removeAttr("selected");
+				$("#tag-dropdown").val(0).removeAttr("selected");
+			}
+		};
+		xhttp.open("GET", currentUrl + "/loadSearch/"+str, true);
+		xhttp.send();
+	}
+
+}
+
+function resetList(){
+	$("#pagination").show();
+	$("#default-list").show();
+	$("#filter-list").hide();
 }
 
 /*-------------------------------------------------*/

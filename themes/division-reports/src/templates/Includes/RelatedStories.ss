@@ -1,13 +1,12 @@
-
-<section class="relatedstories" aria-labelledby="RelatedStoriesSection">
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<h3 class="relatedstories__heading" id="RelatedStoriesSection">Related Stories</h3>
+<% if $RelatedStories %>
+	<section class="relatedstories" aria-labelledby="RelatedStoriesSection">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h3 class="relatedstories__heading" id="RelatedStoriesSection">Related Stories</h3>
+				</div>
 			</div>
-		</div>
-		<div class="row story-card--3up">
-			<% if $RelatedStories %>
+			<div class="row story-card--3up">
 				<% loop $RelatedStories.limit(3) %>
 					<div class="col-lg-4">
 						<div class="story-card--mini">
@@ -20,10 +19,7 @@
 						</div>
 					</div>
 				<% end_loop %>
-			<% end_if %>
-		</div>
-
-		<% if $RelatedStories %>
+			</div>
 			<div class="tilter-container">
 				<div class="row">
 					<% loop $RelatedStories.Limit(2,3) %>
@@ -32,7 +28,6 @@
 								<div class="tilter__figure">
 									<div style="background: #fff">
 										<div class="tilter__image-container">
-
 											<% if $FeaturedVideo %>
 												<img class="tilter__image" src="http://img.youtube.com/vi/$FeaturedVideo/sddefault.jpg" alt="$Title">
 											<% else_if $FeaturedImage %>
@@ -41,7 +36,6 @@
 
 											<div class="tilter__deco tilter__deco--shine"><div></div></div>
 										</div>
-
 										<div class="tilter__caption">
 											<h3 class="tilter__title">$Title</h3>
 											<div class="story-card-medium__summary">
@@ -64,6 +58,6 @@
 					<% end_loop %>
 				</div>
 			</div>
-		<% end_if %>
-	</div>
-</section>
+		</div>
+	</section>
+<% end_if %>

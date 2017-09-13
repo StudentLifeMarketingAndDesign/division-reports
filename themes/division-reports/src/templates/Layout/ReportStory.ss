@@ -75,11 +75,6 @@
 					<div class="content-inner">
 						$Content
 					</div>
-					<h2>COUNT</h2>
-<div class="count__container" data-count-id="stat4">
-  <p><span class="stat__num count" id="stat4" data-value="1880">1,880</span>
-  <span class="stat__label">Student employees</span></p>
-</div>
 					$BlockArea(AfterContentConstrained)
 
 				</div>

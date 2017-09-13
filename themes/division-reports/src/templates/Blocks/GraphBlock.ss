@@ -1,0 +1,5 @@
+<% if $GraphType == "Image" %>
+	<img src="$Image.URL" alt="" role="presentation" class="graphblock__img" />
+<% else %>
+
+<% end_if %>

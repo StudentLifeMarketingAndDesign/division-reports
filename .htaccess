@@ -33,7 +33,8 @@ ErrorDocument 500 /assets/error-500.html
 	RewriteEngine On
 	RewriteBase '/division-reports'
 
-	
+	RewriteRule ^archive$ - [L]
+  	RewriteRule ^archive/.* - [L]
 
 	# Deny access to potentially sensitive files and folders
 	RewriteRule ^vendor(/|$) - [F,L,NC]

@@ -1,1 +1,1 @@
-<% if $Stories %> <ul class="story-filter__list"> <% loop $Stories %> <% include StoryCardLarge %> <% end_loop %> </ul> <% end_if %>
+<% if $Stories %> <ul class="story-filter__list"> <% loop $Stories %> <% include StoryCardLarge %> <% end_loop %> </ul> <% else %> <p class="text-center">No stories in the section "{$Title}."</p> <% end_if %> <p><button onclick="resetList()">Reset search</button></p>

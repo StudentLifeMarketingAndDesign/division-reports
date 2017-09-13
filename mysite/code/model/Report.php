@@ -3,7 +3,7 @@
 class Report extends Blog {
 
 	private static $db = array(
-
+        'Year' => 'Int'
 
 	);
 
@@ -23,6 +23,8 @@ class Report extends Blog {
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
 		$f->removeByName('Content');
+
+        $f->addFieldToTab('Root.Main', TextField::create('Year'));
 
 		$sectionGridFieldConfig = GridFieldConfig_RelationEditor::create();
 		$sectionGridField = new GridField('Sections', 'Units/Sections in this report', $this->Sections());
@@ -86,11 +88,13 @@ class Report_Controller extends Blog_Controller {
         'section',
         'loadSection',
         'loadTag',
+        'loadSearch'
     );
     private static $url_handlers = array(
         'section/$Section!/$Rss' => 'section',
         'loadSection/$Section!' => 'loadSection',
         'loadTag/$Tag!' => 'loadTag',
+        'loadSearch/$Query!' => 'loadSearch',
 
     );
 
@@ -99,13 +103,40 @@ class Report_Controller extends Blog_Controller {
         $section = ReportSection::get()->byID($this->request->param('Section'));
         // print_r($this->getRequest()->param('Section'));
         // print_r($section);
-        return $section->renderWith('LoadSection');
+
+        if($section){
+           return $section->renderWith('LoadSection'); 
+        }
+        
     }
 
     public function loadTag(){
 
         $tag = BlogTag::get()->byID($this->request->param('Tag'));
-        return $tag->renderWith('LoadTag');
+
+        if($tag){
+            return $tag->renderWith('LoadTag');
+        }
+        
+    }
+
+    public function loadSearch(){
+        $query = $this->request->param('Query');
+
+        if(strlen($query) < 4){
+            return;
+        }
+        $pages = SiteTree::get()->filter(array('ParentID' => $this->ID))->filterAny(
+            array('Title:PartialMatch' => $query,
+                  'Content:PartialMatch' => $query));
+        // print_r($query);
+        return $this->customise(
+            array(
+                'Query' => $query,
+                'Pages' => $pages
+            )
+            )->renderWith('LoadSearch');
+
     }
 
     public function section(){

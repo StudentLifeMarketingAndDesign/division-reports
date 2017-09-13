@@ -31,6 +31,7 @@
 -------------------------------------------*/
 @import "components/content-blocks/video";
 @import "components/content-blocks/percentage-block";
+@import "components/content-blocks/graph";
 
 /* Layout
 -------------------------------------------*/
@@ -56,11 +57,13 @@
 @import "components/story-tile";
 @import "components/info-slideshow";
 @import "components/info-slide";
-
+@import "components/report-archive";
 // @import "components/mobilenav";
 // @import "components/breadcrumbs";
 @import "components/pagination";
 @import "components/relatedstories";
+
+
 
 /* Site specific styles
 -------------------------------------------*/
