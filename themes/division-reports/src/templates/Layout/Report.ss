@@ -1,5 +1,5 @@
 
-
+	<% if not $PaginatedList.NotFirstPage %>
 		<article>
 			<div class="container">
 				<header class="header text-center">
@@ -157,6 +157,7 @@
 
 			</div>
 			<% end_if %>
+			<% end_if %><%--end_if current page == Z1 --%>
 			<br><br />
 			<div class="filtered-story-card container">
 				<div id="filter-list"></div>
