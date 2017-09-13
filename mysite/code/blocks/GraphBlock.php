@@ -16,8 +16,21 @@ class GraphBlock extends Block{
 
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
-		$f->addFieldToTab('Root.Main', DropdownField::create('GraphType', 'GraphType', singleton('GraphBlock')->dbObject('GraphType')->enumValues()));
-		// $f->addFieldToTab('Root.Main', new UploadField('Image', 'Image'));
+
+		$f->removeByName('Image');
+		$f->addFieldToTab('Root.Main',
+		
+				DropdownField::create('GraphType', 'Graph Type', singleton('GraphBlock')->dbObject('GraphType')->enumValues())
+			);
+
+		$f->addFieldToTab('Root.Main',
+				DisplayLogicWrapper::create(
+					UploadField::create('Image', 'Image')
+				)->displayIf('GraphType')->isEqualTo('Image')->end());
+
+
+
+		// $f->addFieldToTab('Root.Main', );
 		// $f->addFieldToTab('Root.Main', new TextField('Link', 'Link'));
 
 		return $f;

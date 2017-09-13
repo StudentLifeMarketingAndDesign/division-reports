@@ -1,5 +1,5 @@
 <% if $MoreThanOnePage %>
-<ul class="pagination text-center" role="navigation" aria-label="Pagination">
+<ul class="pagination text-center" id="pagination" role="navigation" aria-label="Pagination">
 
 	<% if $NotFirstPage %>
 		<li class="pagination-previous">

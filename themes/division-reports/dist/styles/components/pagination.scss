@@ -1,46 +1,51 @@
-#PageNumbers {
-	margin-top: 50px;
-	text-align: center;
+.pagination {
+	margin: 2.5em 0;
+	& li {
+		margin-right: 2px;
+		border-radius: 2px;
+		font-size: 16px;
+		display: inline-block;
+	}
+	& .disabled {
+		padding: 3px 12px;
+		color: #cacaca;
+		cursor: not-allowed;
+	}
+	& .current {
+		padding: 3px 12px;
+		background: $yellow;
+		color: #333;
+		cursor: default;
+	}
+	& a, & button {
+		display: block;
+		padding: 3px 12px;
+		border-radius: 0;
+		color: #222;
+	}
 }
-ul.pagination {
-	display: block;
-	margin: 0;
-}
-ul.pagination li {
-	color: #222;
-	font-size: 16px;
-	margin-left: 5px;
+.pagination-previous.disabled:before,
+.pagination-previous a:before {
 	display: inline-block;
+	margin-right: .5em;
+	content: "\00ab";
 }
-ul.pagination li a {
-	border-radius: 3px;
-
-	background: none;
-	color: #444;
-	display: block;
-	font-size: 16px;
-	font-weight: normal;
-	line-height: inherit;
-	padding: 10px;
+.pagination-next.disabled:after,
+.pagination-next a:after {
+	display: inline-block;
+	margin-left: .5em;
+	content: "\00bb";
 }
-/* Hover */
-ul.pagination li:hover a,
-ul.pagination li a:focus {
-  background: #e6e6e6;
+.pagination a:hover,
+.pagination a:focus,
+.pagination button:hover,
+.pagination button:focus {
+	background: #f4f4f4;
 }
-/* Current Link */
-ul.pagination li.current a {
-	background: $link;
-	color: #FFFFFF;
-	cursor: default;
-	font-weight: bold;
-}
-/* disabled prev/next links */
-ul.pagination li.unavailable a{
-	cursor: default;
-	color: #999999;
-}
-ul.pagination li.unavailable:hover a,
-ul.pagination li.unavailable a:focus {
-  background: transparent;
+.show-for-sr, .show-on-focus {
+	position: absolute!important;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
 }

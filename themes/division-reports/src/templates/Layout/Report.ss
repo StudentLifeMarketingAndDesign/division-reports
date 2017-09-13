@@ -142,21 +142,39 @@
 
 					</div>
 					<div class="col-lg-4">
-						<input type="search" name="dept-filter" placeholder="Search" class="form-control story-filter__input story-filter__search">
+					<form id="SearchForm_SearchForm" action="{$Link}SearchForm" method="get" enctype="application/x-www-form-urlencoded" class="story-filter__search">
+							<input type="search" name="Search" id="search-input" oninput="searchList(this.value)" placeholder="Search this report" class="story-filter__search-input">
+
+							<span class="story-filter__search-action">
+								<button type="submit" class="story-filter__search-button">
+									<img class="story-filter__search-icon" src="{$ThemeDir}/dist/images/search.svg" alt="Search">
+									<span class="sr-only">Search this report</span>
+								</button>
+							</span>
+						</form>
 					</div>
 				</div>
 
 			</div>
 			<% end_if %>
 			<br><br />
-			<div class="filtered-story-card container" id="filter">
-				<% if $PaginatedList.Exists %>
-					<% loop $PaginatedList %>
-						<% include StoryCardLarge %>
-					<% end_loop %>
-				<% else %>
-					<p><%t Blog.NoPosts 'There are no posts' %></p>
-				<% end_if %>
+			<div class="filtered-story-card container">
+				<div id="filter-list"></div>
+
+				<div id="default-list">
+					<% if $PaginatedList.Exists %>
+						<% loop $PaginatedList %>
+							<% include StoryCardLarge %>
+						<% end_loop %>
+					<% else %>
+						<div class="container">
+							<div class="col-lg-8">
+								<p><%t Blog.NoPosts 'There are no stories in this section' %></p>
+							</div>
+						</div>
+						
+					<% end_if %>
+				</div>
 		 	</div>
 		</article>
 

@@ -1,5 +1,10 @@
+<% if $BlogPosts %>
 <ul class="story-filter__list"> 
 	<% loop $BlogPosts %>
 		<% include StoryCardLarge %>
 	<% end_loop %>
 </ul>
+<% else %>
+	<p class="text-center">No stories filed under "{$Title}."</p>
+<% end_if %>
+<p><button onclick="resetList()">Reset search</button></p>

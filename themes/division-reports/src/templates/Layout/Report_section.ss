@@ -82,7 +82,15 @@
 			</div>
 		</div>
 	<% else %>
-		<p><%t Blog.NoPosts 'There are no posts' %></p>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<h1>$Title</h1>
+					<p>There are no stories in this section.</p>
+				</div>
+			</div>
+		</div>
+					
 	<% end_if %>
 <% end_with %>
 
