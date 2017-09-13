@@ -27,6 +27,7 @@ class Report extends Blog {
         $f->addFieldToTab('Root.Main', TextField::create('Year'));
 
 		$sectionGridFieldConfig = GridFieldConfig_RelationEditor::create();
+        $sectionGridFieldConfig->addComponent(new GridFieldOrderableRows('Sort'));
 		$sectionGridField = new GridField('Sections', 'Units/Sections in this report', $this->Sections());
 
 		$sectionGridField->setConfig($sectionGridFieldConfig);
