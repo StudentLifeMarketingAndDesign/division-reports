@@ -3,3 +3,6 @@
 <% else %>
 
 <% end_if %>
+<% if $Caption %>
+	<p class="graphblock__caption">$Caption</p>
+<% end_if %>
