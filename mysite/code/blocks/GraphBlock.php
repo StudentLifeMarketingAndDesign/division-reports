@@ -3,7 +3,7 @@
 class GraphBlock extends Block{
 
 	private static $db = array(
-		'Caption' => 'HTMLText'
+		'Caption' => 'HTMLText',
 		"GraphType" => "Enum('Image,Google Sheets,Chart.js','Image')",
 	);
 
