@@ -29,8 +29,7 @@
 				</div>
 			</div>
 		</div>
-	<% end_if %>
-	<% if $FeaturedImage %>
+	<% else_if $FeaturedImage %>
 		<figure class="coverimage">
 			<div class="coverimage__container">
 				<picture>
