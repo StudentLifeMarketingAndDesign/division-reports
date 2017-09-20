@@ -3,6 +3,7 @@
 class GraphBlock extends Block{
 
 	private static $db = array(
+		'Caption' => 'HTMLText',
 		"GraphType" => "Enum('Image,Google Sheets,Chart.js','Image')",
 	);
 
@@ -29,7 +30,7 @@ class GraphBlock extends Block{
 				)->displayIf('GraphType')->isEqualTo('Image')->end());
 
 
-
+		$f->addFieldToTab('Root.Main', HTMLEditorField::create('Caption', 'Graph caption'));
 		// $f->addFieldToTab('Root.Main', );
 		// $f->addFieldToTab('Root.Main', new TextField('Link', 'Link'));
 
