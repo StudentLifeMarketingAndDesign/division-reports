@@ -88,24 +88,33 @@
 /* Blockquotes */
 .typography blockquote {
 	margin: 1.6667em 0;
-	padding-left: 1em;
-	border-left: 5px solid #008d9d;
+	text-align: center;
+}
+.typography blockquote:before,
+.typography blockquote:after {
+	content: open-quote;
+	font-size: 40px;
+	line-height: 1;
+	top: 10px;
+   position: relative;
 }
 .typography blockquote p {
 	font-size: 20px;
 	font-style: italic;
 }
-.typography blockquote.pull-right {
+.typography blockquote.right {
 	float: right;
 	margin-left: 1em;
 	padding-right: 1em;
 	padding-left: 0;
-	border-right: 5px solid #008d9d;
-	border-left: 0;
+	width: 275px;
 }
-.typography blockquote.pull-right p,
-.typography blockquote.pull-right small {
-	text-align: right;
+.typography blockquote.left {
+	float: left;
+	margin-right: 1em;
+	padding-left: 1em;
+	padding-right: 0;
+	width: 275px;
 }
 
 /* ---------------------------------------------------------------
