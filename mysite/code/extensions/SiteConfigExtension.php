@@ -3,7 +3,6 @@
 class SiteConfigExtension extends DataExtension {
 
 	private static $db = array(
-		'GoogleAnalyticsID' => 'Text'
 	);
 
 	private static $has_one = array(
@@ -15,9 +14,6 @@ class SiteConfigExtension extends DataExtension {
 	);
 
 	public function updateCMSFields(FieldList $fields) {
-
-		$fields->addFieldToTab('Root.Main', new TextField('GoogleAnalyticsID', 'Google Analytics ID (UA-XXXXX-X)'));
-
 
 
 		return $fields;
