@@ -29,9 +29,9 @@
 				<h3 class="story-card-large__heading"><a href="$Link">$Title</a></h3>
 				<div class="story-card-large__summary">
 					<% if $Summary %>
-						<p>$Summary.NoHTML.LimitCharacters(160)</p>
+						<p>$Summary.LimitCharacters(160)</p>
 					<% else %>
-						<p>$Content.NoHTML.LimitCharacters(160)</p>
+						<p>$Content.LimitCharacters(160)</p>
 					<% end_if %>
 				</div>
 				<a href="$Link" class="line-btn">
