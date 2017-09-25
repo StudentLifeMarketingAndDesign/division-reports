@@ -3,21 +3,25 @@
 	box-shadow: inset -1px -74px 74px 2px rgba(0,0,0,0.80);
 	background-size: cover;
 	position: relative;
-	padding: 30px;
+	padding: 15px;
 	background-color: #333;
 	background-position: center center;
 	&__header{
 		position: absolute;
-		bottom: 10px;
+		bottom: 15px;
 		transition: bottom .2s ease-in-out;
+		width: calc(100% - 30px);
 		&--large{
 			bottom: 15px;
 		}
-
+		@media (min-width: $break-medium) {
+			bottom: 30px;
+			width: calc(100% - 60px);
+		}
 	}
 	&__title{
 		color: white;
-		margin-top: 0;
+		margin: 0;
 		font-size: 33px;
 
 		&--small{
@@ -38,6 +42,9 @@
 			height: 700px;
 		}
 
+	}
+	@media (min-width: $break-medium) {
+		padding: 30px;
 	}
 }
 .story-tile:hover,
