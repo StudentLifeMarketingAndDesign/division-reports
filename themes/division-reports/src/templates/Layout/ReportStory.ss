@@ -71,7 +71,7 @@
 			<div class="row">
 				<div class="col-lg-6 offset-lg-3">
 					$BlockArea(BeforeContentConstrained)
-					<div class="content-inner">
+					<div class="content-inner <% if $EnableDropCaps %>content-inner--with-dropcaps<% end_if %>">
 						$Content
 					</div>
 					$BlockArea(AfterContentConstrained)
