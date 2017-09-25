@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6 col-md-4">
-				<a href="$BaseUrl"><% include DslLogoSvg %>
+				<a href="$BaseUrl" class="nav__sitename"><% include DslLogoSvg %>
 				<br />
 				<span class="nav__report-title">$LatestIssue.Title</span>
 				</a>
