@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4d4e12ef7a5a0ae8209352c1b07e0c5",
+    "content-hash": "aaa32c0df70c355ee5b1a8433bcd06f5",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -246,6 +246,46 @@
             "time": "2017-03-22T23:16:19+00:00"
         },
         {
+            "name": "jonom/silverstripe-betternavigator",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jonom/silverstripe-betternavigator.git",
+                "reference": "63f16e40545c8d7d0c84548dd1b799cd1a271518"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jonom/silverstripe-betternavigator/zipball/63f16e40545c8d7d0c84548dd1b799cd1a271518",
+                "reference": "63f16e40545c8d7d0c84548dd1b799cd1a271518",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "betternavigator"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathon Menz",
+                    "homepage": "http://jonathonmenz.com"
+                }
+            ],
+            "description": "Front-end utility menu for SilverStripe websites featuring administration and development tools",
+            "keywords": [
+                "BetterNavigator",
+                "SilverStripeNavigator",
+                "navigator",
+                "silverstripe"
+            ],
+            "time": "2017-03-22T23:39:21+00:00"
+        },
+        {
             "name": "md/division-analytics",
             "version": "1.x-dev",
             "source": {
@@ -278,12 +318,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/uiowa-bar.git",
-                "reference": "9ca0b450ffbf32e002b441fbb876e72005129eac"
+                "reference": "752cfb8866d8ac2873a3e87a6d495b5ac7f62d7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/uiowa-bar/zipball/9ca0b450ffbf32e002b441fbb876e72005129eac",
-                "reference": "9ca0b450ffbf32e002b441fbb876e72005129eac",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/uiowa-bar/zipball/752cfb8866d8ac2873a3e87a6d495b5ac7f62d7f",
+                "reference": "752cfb8866d8ac2873a3e87a6d495b5ac7f62d7f",
                 "shasum": ""
             },
             "require": {
@@ -299,10 +339,10 @@
             },
             "description": "The University of Iowa Bar",
             "support": {
-                "source": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-uiowa-bar/tree/master",
-                "issues": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-uiowa-bar/issues"
+                "source": "https://github.com/StudentLifeMarketingAndDesign/uiowa-bar/tree/master",
+                "issues": "https://github.com/StudentLifeMarketingAndDesign/uiowa-bar/issues"
             },
-            "time": "2017-06-21 15:05:10"
+            "time": "2017-09-21 21:42:12"
         },
         {
             "name": "nathancox/codeeditorfield",
