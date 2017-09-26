@@ -7,7 +7,8 @@ class ReportStory extends BlogPost {
 		'IsFeatured' => 'Boolean',
 		'FeaturedImageCaption' => 'Text',
 		'PhotoCredit' => 'Text',
-		"FeaturedVideo" => "Text"
+		'FeaturedVideo' => 'Text',
+		'EnableDropCaps' => 'Boolean(1)'
 	);
 
 	private static $many_many = array(
@@ -34,6 +35,7 @@ class ReportStory extends BlogPost {
 		$f->renameField('FeaturedImage', 'Cover Image');
 
 		$f->addFieldToTab('Root.Main',CheckboxField::create('IsFeatured', 'Can be featured on report homepage?'), 'Content');
+		$f->addFieldToTab('Root.Main',CheckboxField::create('EnableDropCaps', 'Enable drop caps on this story?'), 'Content');
 		$f->addFieldToTab('Root.Main', HTMLEditorField::create('Summary')->setRows(3), 'Content');
 		$authorEmailField = TextareaField::create('AuthorEmails', 'Author email addresses (comma separated)')->setRows(3);
 		$member = Member::currentUser();
@@ -45,14 +47,14 @@ class ReportStory extends BlogPost {
 
 			$sectionField->setDisabled(true);
 		}
-		$f->addFieldToTab("blog-admin-sidebar", $sectionField);
-		$f->addFieldToTab("Root.Main", TextField::create('FeaturedImageCaption', 'Cover Image Caption'));
-		$f->addFieldToTab("Root.Main", TextField::create('PhotoCredit', 'Photo Credit'));
+		$f->addFieldToTab('blog-admin-sidebar', $sectionField);
+		$f->addFieldToTab('Root.Main', TextField::create('FeaturedImageCaption', 'Cover Image Caption'));
+		$f->addFieldToTab('Root.Main', TextField::create('PhotoCredit', 'Photo Credit'));
 
-		$f->addFieldToTab("Root.Main", HeaderField::create( '<br><br><h3>Featured Video</h3>', '3', true ) );
+		$f->addFieldToTab('Root.Main', HeaderField::create( '<br><br><h3>Featured Video</h3>', '3', true ) );
 		$f->addFieldToTab('Root.Main', TextField::create('FeaturedVideo','Youtube id'));
 
-		$f->addFieldToTab("blog-admin-sidebar", $authorEmailField);
+		$f->addFieldToTab('blog-admin-sidebar', $authorEmailField);
 
 		$f->renameField('blog-admin-sidebar', 'Story Options');
 
@@ -94,7 +96,7 @@ class ReportStory extends BlogPost {
 		$entries = new ArrayList();
 
 		foreach($tags as $tag){
-			$taggedEntries = $tag->BlogPosts()->exclude(array("ID"=>$this->owner->ID))->sort('PublishDate', 'ASC')->Limit(6);
+			$taggedEntries = $tag->BlogPosts()->exclude(array('ID'=>$this->owner->ID))->sort('PublishDate', 'ASC')->Limit(6);
 			if($taggedEntries){
 				foreach($taggedEntries as $taggedEntry){
 					if($taggedEntry->ID){
@@ -106,7 +108,7 @@ class ReportStory extends BlogPost {
 
 		$sections = $this->Sections();
 		foreach($sections as $section){
-			$sectionedEntries = $section->Stories()->exclude(array("ID"=>$this->owner->ID))->sort('PublishDate', 'ASC')->Limit(6);
+			$sectionedEntries = $section->Stories()->exclude(array('ID'=>$this->owner->ID))->sort('PublishDate', 'ASC')->Limit(6);
 			if($sectionedEntries){
 				foreach($sectionedEntries as $sectionedEntry){
 					if($sectionedEntry->ID){
@@ -127,7 +129,7 @@ class ReportStory extends BlogPost {
 		$stories = new ArrayList();
 
 		foreach($sections as $section){
-			$stories = $section->Stories()->exclude(array("ID"=>$this->owner->ID))->sort('PublishDate', 'ASC');
+			$stories = $section->Stories()->exclude(array('ID'=>$this->owner->ID))->sort('PublishDate', 'ASC');
 		}
 
 		if($stories->count() > 1){
@@ -140,7 +142,7 @@ class ReportStory extends BlogPost {
 
 
 	public function onBeforeWrite() {
-    // check on first write action, aka "database row creation" (ID-property is not set)
+    // check on first write action, aka 'database row creation' (ID-property is not set)
     if(!$this->isInDb()) {
 
     }
@@ -155,7 +157,7 @@ class ReportStory extends BlogPost {
     foreach ($authorEmailsArray as $email){
     	$email = trim($email);
     	if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-  			// echo("$email is a valid email address");
+  			// echo('$email is a valid email address');
   			if (Member::get()->filter(array('Email' => $email))->First()){
   				$author = Member::get()->filter(array('Email' => $email))->First();
   				$this->Authors()->add($author);
@@ -176,7 +178,7 @@ class ReportStory extends BlogPost {
 
 
 
-		// else { echo("$email is not a valid email address"); }
+		// else { echo('$email is not a valid email address'); }
     }
     // CAUTION: You are required to call the parent-function, otherwise
     // SilverStripe will not execute the request.
@@ -189,37 +191,37 @@ class ReportStory extends BlogPost {
 			$ldapserver = 'iowa.uiowa.edu';
 			$ldapuser      =  AD_SERVICEID_USER;
 			$ldappass     = AD_SERVICEID_PASS;
-			$ldaptree    = "DC=iowa, DC=uiowa, DC=edu";
+			$ldaptree    = 'DC=iowa, DC=uiowa, DC=edu';
 
-			$ldapconn = ldap_connect($ldapserver) or die("Could not connect to LDAP server.");
+			$ldapconn = ldap_connect($ldapserver) or die('Could not connect to LDAP server.');
 
 			if($ldapconn) {
 			    // binding to ldap server
 			    ldap_set_option( $ldapconn, LDAP_OPT_PROTOCOL_VERSION, 3 );
 			    ldap_set_option( $ldapconn, LDAP_OPT_REFERRALS, 0 );
-			    $ldapbind = ldap_bind($ldapconn, $ldapuser, $ldappass) or die ("Error trying to bind: ".ldap_error($ldapconn));
+			    $ldapbind = ldap_bind($ldapconn, $ldapuser, $ldappass) or die ('Error trying to bind: '.ldap_error($ldapconn));
 			    // verify binding
 			    if ($ldapbind) {
 
 			    	//do stuff
-						$result = ldap_search($ldapconn,$ldaptree, "mail=".$email, array("mail","sn", "givenName", "objectGUID", "memberOf")) or die ("Error in search query: ".ldap_error($ldapconn));
+						$result = ldap_search($ldapconn,$ldaptree, 'mail='.$email, array('mail','sn', 'givenName', 'objectGUID', 'memberOf')) or die ('Error in search query: '.ldap_error($ldapconn));
 
 			        	$data = ldap_get_entries($ldapconn, $result);
 			        	//print_r($data[0]);
-			        	if($data["count"] == 1){
-			        		$memberGuid = $this->GUIDtoStr($data[0]["objectguid"][0]);
+			        	if($data['count'] == 1){
+			        		$memberGuid = $this->GUIDtoStr($data[0]['objectguid'][0]);
 			        		$resultArray['guid'] = $memberGuid;
-			        		$resultArray['firstName'] = $data[0]["givenname"][0];
-			        		$resultArray['lastName'] = $data[0]["sn"][0];
-			        		// echo "<p>Found a GUID (".$memberGuid.") matching the email <strong>".$member->Email."</strong>, adding it to the local member's GUID field.</p>";
+			        		$resultArray['firstName'] = $data[0]['givenname'][0];
+			        		$resultArray['lastName'] = $data[0]['sn'][0];
+			        		// echo '<p>Found a GUID ('.$memberGuid.') matching the email <strong>'.$member->Email.'</strong>, adding it to the local member's GUID field.</p>';
 			        		//print_r($resultArray);
 			        		return $resultArray;
-			        		// echo "<p><strong>Done.</strong></p>";
+			        		// echo '<p><strong>Done.</strong></p>';
 			        	}
 
 
 			    } else {
-			        echo "LDAP bind failed...";
+			        echo 'LDAP bind failed...';
 			    }
 			}
 			// all done? clean up
