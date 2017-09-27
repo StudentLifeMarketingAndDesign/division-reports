@@ -1,9 +1,11 @@
 .keystatistics {
 	color: #fff;
-	margin: 1em 0;
 	padding: 2em 0;
 	position: relative;
 	text-align: center;
+	background-size: cover;
+	background-color: #111;
+	background-position: center top;
 	&__container {
 		position: relative;
 		z-index: 1;
@@ -32,7 +34,7 @@
 		font-weight: bold;
 	}
 	&:after {
-		background-color: rgba(0,0,0,.85);
+		background-color: rgba(0,0,0,.84);
 		content: '';
 		position: absolute;
 		top: 0;
