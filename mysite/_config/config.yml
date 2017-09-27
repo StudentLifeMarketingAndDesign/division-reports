@@ -16,6 +16,9 @@ ReportSection:
 Block:
   extensions:
     - BlockExtension
+Page:
+  extensions:
+    - OpenGraphExtension
 LeftAndMain:
   extra_requirements_css:
     - themes/division-reports/dist/css/cms.css
