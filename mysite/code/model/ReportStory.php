@@ -32,10 +32,12 @@ class ReportStory extends BlogPost {
 		$f->removeByName('Authors');
 		$f->removeByName('Metadata');
 		$f->renameField('Tags', 'Topics');
-		$f->renameField('FeaturedImage', 'Cover Image');
+		$f->removeByName('FeaturedImage');
 
-		$f->addFieldToTab('Root.Main',CheckboxField::create('IsFeatured', 'Can be featured on report homepage?'), 'Content');
-		$f->addFieldToTab('Root.Main',CheckboxField::create('EnableDropCaps', 'Enable drop caps on this story?'), 'Content');
+
+		$f->addFieldToTab('Root.Main', UploadField::create('FeaturedImage', 'Cover Image'), 'Content');
+
+
 		$f->addFieldToTab('Root.Main', HTMLEditorField::create('Summary')->setRows(3), 'Content');
 		$authorEmailField = TextareaField::create('AuthorEmails', 'Author email addresses (comma separated)')->setRows(3);
 		$member = Member::currentUser();
@@ -48,9 +50,10 @@ class ReportStory extends BlogPost {
 			$sectionField->setDisabled(true);
 		}
 		$f->addFieldToTab('blog-admin-sidebar', $sectionField);
-		$f->addFieldToTab('Root.Main', TextField::create('FeaturedImageCaption', 'Cover Image Caption'));
-		$f->addFieldToTab('Root.Main', TextField::create('PhotoCredit', 'Photo Credit'));
-
+		$f->addFieldToTab('Root.Main', TextField::create('FeaturedImageCaption', 'Cover Image Caption'), 'Summary');
+		$f->addFieldToTab('Root.Main', TextField::create('PhotoCredit', 'Photo Credit'), 'Summary');
+		$f->addFieldToTab('Root.Main',CheckboxField::create('IsFeatured', 'Can be featured on report homepage?'), 'Summary');
+		$f->addFieldToTab('Root.Main',CheckboxField::create('EnableDropCaps', 'Enable drop caps on this story?'), 'Summary');
 		$f->addFieldToTab('Root.Main', HeaderField::create( '<br><br><h3>Featured Video</h3>', '3', true ) );
 		$f->addFieldToTab('Root.Main', TextField::create('FeaturedVideo','Youtube id'));
 

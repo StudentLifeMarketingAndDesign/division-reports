@@ -12,6 +12,17 @@ class Page extends SiteTree {
 		return DivisionUnit::get()->filter(array('ShowInMenus' => 1));
 	}
 
+	public function getCMSFields(){
+
+		$fields = parent::getCMSFields();
+		// Make sure settings tab is last
+		$formContent = $fields->fieldByName('Root.Blocks');
+		$fields->removeByName('Blocks');
+
+		$fields->addFieldsToTab('Root.Main', $formContent);
+		return $fields;
+	}
+
 	public function allSections(){
 
         $sections = new ArrayList();
