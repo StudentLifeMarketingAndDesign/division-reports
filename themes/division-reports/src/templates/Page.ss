@@ -38,6 +38,11 @@
     <meta name="theme-color" content="#000000"> -->
 
     $TypeKit
+    <script>
+        // Picture element HTML5 shiv
+        document.createElement( "picture" );
+    </script>
+    <script src="https://cdn.rawgit.com/scottjehl/picturefill/3.0.2/dist/picturefill.min.js" async></script>
     <link rel="stylesheet" href="{$ThemeDir}/dist/css/main.css">
   </head>
   <body class="{$ClassName} action--{$Action}">
