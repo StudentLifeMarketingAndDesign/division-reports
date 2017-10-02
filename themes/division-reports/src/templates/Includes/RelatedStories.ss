@@ -49,12 +49,13 @@
 											</div>
 										</div>
 									</div>
+									<div class="be tilter__deco--lines">
+										<% if $Sections %>
+											<span class="section-tag tilter__description" href="$Sections.First.Link">$Sections.First.Title</span>
+										<% end_if %>
+									</div>
 								</div>
-								<span class="be tilter__deco--lines">
-									<% if $Sections %>
-										<span class="section-tag tilter__description" href="$Sections.First.Link">$Sections.First.Title</span>
-									<% end_if %>
-								</span>
+
 							</a>
 						</div>
 					<% end_loop %>
