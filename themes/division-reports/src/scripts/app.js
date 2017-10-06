@@ -167,7 +167,7 @@ function sectionList(str) {
 				$("#tag-dropdown").val(0).removeAttr("selected");
 			}
 		};
-		xhttp.open("GET", currentUrl + "loadSection/"+str, true);
+		xhttp.open("GET", currentUrl + "/loadSection/"+str, true);
 		xhttp.send();
 	}
 
@@ -194,7 +194,7 @@ function tagList(str) {
 				$("#section-dropdown").val(0).removeAttr("selected");
 			}
 		};
-		xhttp.open("GET", currentUrl + "loadTag/"+str, true);
+		xhttp.open("GET", currentUrl + "/loadTag/"+str, true);
 		xhttp.send();
 	}
 
