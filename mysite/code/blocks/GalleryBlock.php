@@ -13,6 +13,9 @@ class GalleryBlock extends Block{
 	private static $many_many = array(
 		'GalleryImages' => 'Image'
 	);
+    private static $many_many_extraFields = array(
+        'GalleryImages' => array('SortOrder' => 'Int')
+    );
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
@@ -20,7 +23,7 @@ class GalleryBlock extends Block{
 
 		$fields->addFieldToTab(
 			'Root.Main',
-			$uploadField = new UploadField(
+			$uploadField = new SortableUploadField(
 				$name = 'GalleryImages',
 				$title = 'Upload one or more images (max 20 in total)'
 			)
@@ -29,5 +32,7 @@ class GalleryBlock extends Block{
 
 		return $fields;
 	}
-
+   public function SortedImages(){
+        return $this->GalleryImages()->Sort('SortOrder');
+    }
 }

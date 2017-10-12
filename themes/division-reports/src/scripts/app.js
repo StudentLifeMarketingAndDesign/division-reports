@@ -257,13 +257,41 @@ $('.backgroundvideo__link').click(function(e){
 });
 
 
-//************************
-//****** FitVids ******
-//************************
+//***********************
+//****** FitVids ********
+//***********************
 $(".content-inner").fitVids();
 
+//***********************
+//*** Image Galleries ***
+//***********************
+
+$(document).ready(function() {
+	$('.galleryblock').each(function() { // the containers for all your galleries
+	    $(this).magnificPopup({
+	        delegate: 'a', // the selector for gallery item
+	        type: 'image',
+	        gallery: {
+	          enabled:true
+	        },
+
+			callbacks: {
+			    open: function() {
+			      $('html').addClass('modal');
+			    },
+			    close: function() {
+			      // Wait until overflow:hidden has been removed from the html tag
+			      setTimeout(function() {
+			        $('html').removeClass('modal');
+			      }, 100)
+			    }
+			}
 
 
+	    });
+	});
+
+});
 //************************
 //****** Tilt Cards ******
 //************************

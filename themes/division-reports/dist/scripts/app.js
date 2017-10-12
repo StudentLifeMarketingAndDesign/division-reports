@@ -176,7 +176,10 @@ function sectionList(str) {
 function tagList(str) {
 	var xhttp;
 	var currentUrl = window.location.href;
-	alert(str);
+	if(str == 0){
+		resetList();
+		return;
+	}
 	if (str == "") {
 		document.getElementById("filter-list").innerHTML = "";
 		return;
@@ -254,13 +257,27 @@ $('.backgroundvideo__link').click(function(e){
 });
 
 
-//************************
-//****** FitVids ******
-//************************
+//***********************
+//****** FitVids ********
+//***********************
 $(".content-inner").fitVids();
 
+//***********************
+//*** Image Galleries ***
+//***********************
 
+$(document).ready(function() {
+	$('.galleryblock').each(function() { // the containers for all your galleries
+	    $(this).magnificPopup({
+	        delegate: 'a', // the selector for gallery item
+	        type: 'image',
+	        gallery: {
+	          enabled:true
+	        }
+	    });
+	});
 
+});
 //************************
 //****** Tilt Cards ******
 //************************

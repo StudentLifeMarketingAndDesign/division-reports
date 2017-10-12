@@ -4,7 +4,7 @@
 		<div class="row">
 			<% loop $GalleryImages %>
 				<div class="col-6 col-md-4">
-					<a href="$SetWidth(1200).URL" data-lity>
+					<a href="$SetWidth(1200).URL">
 						<img src="$CroppedFocusedImage(200,200).URL" alt="">
 					</a>
 				</div>

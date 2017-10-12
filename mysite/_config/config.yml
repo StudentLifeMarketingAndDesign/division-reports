@@ -24,3 +24,6 @@ LeftAndMain:
     - themes/division-reports/dist/css/cms.css
 BlogPost:
   default_sort: Sort
+Image:
+  extensions:
+    - GalleryBlockImageExtension
