@@ -95,19 +95,19 @@ class ReportStory extends BlogPost {
 
 	public function RelatedStories(){
 		$holder = Blog::get()->First();
-		$tags = $this->owner->Tags()->limit(12);
+		// $tags = $this->owner->Tags()->limit(12);
 		$entries = new ArrayList();
 
-		foreach($tags as $tag){
-			$taggedEntries = $tag->BlogPosts()->exclude(array('ID'=>$this->owner->ID))->sort('PublishDate', 'ASC')->Limit(6);
-			if($taggedEntries){
-				foreach($taggedEntries as $taggedEntry){
-					if($taggedEntry->ID){
-						$entries->push($taggedEntry);
-					}
-				}
-			}
-		}
+		// foreach($tags as $tag){
+		// 	$taggedEntries = $tag->BlogPosts()->exclude(array('ID'=>$this->owner->ID))->sort('PublishDate', 'ASC')->Limit(6);
+		// 	if($taggedEntries){
+		// 		foreach($taggedEntries as $taggedEntry){
+		// 			if($taggedEntry->ID){
+		// 				$entries->push($taggedEntry);
+		// 			}
+		// 		}
+		// 	}
+		// }
 
 		$sections = $this->Sections();
 		foreach($sections as $section){

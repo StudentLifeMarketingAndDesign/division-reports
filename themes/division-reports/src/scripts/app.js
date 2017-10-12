@@ -176,6 +176,10 @@ function sectionList(str) {
 function tagList(str) {
 	var xhttp;
 	var currentUrl = window.location.href;
+	if(str == 0){
+		resetList();
+		return;
+	}
 	if (str == "") {
 		document.getElementById("filter-list").innerHTML = "";
 		return;
