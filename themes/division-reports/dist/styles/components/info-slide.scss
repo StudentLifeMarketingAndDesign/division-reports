@@ -16,7 +16,7 @@ $border-color: rgba(255,255,255, 0.4);
 	border-color: rgba(255,255,255, 0.4);
 
 	&--with-padding{
-		padding: 5%;
+		padding: 4%;
 	}
 
 	&--padding-right{
@@ -62,7 +62,7 @@ $border-color: rgba(255,255,255, 0.4);
 .stat__label{
 	font-family: $heading-font;
 	color: #fff;
-	font-size: 36px;
+	font-size: 31px;
 }
 
 .stat__caption{
@@ -74,7 +74,7 @@ $border-color: rgba(255,255,255, 0.4);
 .circles-text {
 	font-family: $heading-font;
 	position: absolute;
-	font-size: 75px !important;
+	font-size: 65px !important;
 	top: 50% !important;
 	line-height: 1 !important;
 	margin-top: -30px;
