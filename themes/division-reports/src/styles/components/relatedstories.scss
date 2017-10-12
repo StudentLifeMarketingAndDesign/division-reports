@@ -14,6 +14,19 @@
 	padding: .5em 0;
 	margin: 0;
 }
+.relatedstories__viewall {
+	color: #333;
+	display: block;
+	font-size: 16px;
+	font-weight: normal;
+	margin-top: 5px;
+	text-decoration: underline;
+	@media (min-width: $break-medium) {
+		float: right;
+		line-height: 42px;
+		margin-top: 0;
+	}
+}
 .be {
 	display: block;
 	position: absolute;

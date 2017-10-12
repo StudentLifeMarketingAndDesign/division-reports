@@ -3,7 +3,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<h3 class="relatedstories__heading" id="RelatedStoriesSection">Related Stories</h3>
+					<h3 class="relatedstories__heading" id="RelatedStoriesSection">Related Stories <% if $Sections %><a href="$Sections.First.Link" class="relatedstories__viewall">View all stories from $Sections.First.Title</a><% end_if %></h3>
+
 				</div>
 			</div>
 			<div class="row story-card--3up">
