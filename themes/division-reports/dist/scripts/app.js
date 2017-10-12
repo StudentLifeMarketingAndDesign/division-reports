@@ -176,6 +176,7 @@ function sectionList(str) {
 function tagList(str) {
 	var xhttp;
 	var currentUrl = window.location.href;
+	alert(str);
 	if (str == "") {
 		document.getElementById("filter-list").innerHTML = "";
 		return;
