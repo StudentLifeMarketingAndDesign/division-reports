@@ -273,7 +273,21 @@ $(document).ready(function() {
 	        type: 'image',
 	        gallery: {
 	          enabled:true
-	        }
+	        },
+
+			callbacks: {
+			    open: function() {
+			      $('html').addClass('modal');
+			    },
+			    close: function() {
+			      // Wait until overflow:hidden has been removed from the html tag
+			      setTimeout(function() {
+			        $('html').removeClass('modal');
+			      }, 100)
+			    }
+			}
+
+
 	    });
 	});
 

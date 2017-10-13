@@ -31,15 +31,16 @@
 	<% end_if %>
 
 	<br />
+	$BlockArea(BeforeContent)
  	<div class="container">
  		<% if $Content %>
  			<div class="row">
  				<div class="col-lg-6 offset-lg-3">
- 					$BlockArea(BeforeContent)
+ 					$BlockArea(BeforeContentConstrained)
 					<div class="content-inner">
 						$Content
 					</div>
-					$BlockArea(AfterContent)
+					$BlockArea(AfterContentConstrained)
 				</div>
 			</div>
  		<% end_if %>
@@ -62,5 +63,6 @@
 
 
 	<% end_if %>
+	$BlockArea(AfterContent)
 <% end_with %>
 

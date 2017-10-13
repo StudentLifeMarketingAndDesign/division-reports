@@ -65,6 +65,24 @@ class Report extends Blog {
         return $data;
 
     }
+
+    public function Authors(){
+        $stories = ReportStory::get()->filter(array('ParentID' => $this->ID));
+        $authors = new ArrayList();
+
+        foreach($stories as $story){
+            $storyAuthors = $story->getCredits();
+            foreach($storyAuthors as $storyAuthor){
+                $authors->push($storyAuthor);
+            }
+        }
+
+        $authors->removeDuplicates();
+        $authors = $authors->sort('Surname ASC');
+
+        return $authors;
+
+    }
 }
 
 class Report_Controller extends Blog_Controller {
@@ -143,8 +161,7 @@ class Report_Controller extends Blog_Controller {
     public function section(){
 
         $section = $this->getCurrentSection();
-
-
+        
         if ($section) {
             return $this->renderWith(array('Report_section', 'Page'));
         }
