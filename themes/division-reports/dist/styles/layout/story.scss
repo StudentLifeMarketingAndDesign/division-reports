@@ -183,6 +183,7 @@
 	font-size: 21px;
 	margin: 0;
 	text-align: center;
+	line-height: 1.2;
 }
 /* if multiple authors */
 .multiple-authors .story-meta__section-title {
@@ -281,15 +282,16 @@
 }
 .content-inner blockquote:before,
 .content-inner blockquote:after {
-	content: open-quote;
+	content: "“";
 	font-size: 40px;
 	line-height: 1;
 	top: 10px;
    position: relative;
 }
-.content-inner blockquote.right:after {
-	content: close-quote;
+.content-inner blockquote:after {
+	content: "”";
 }
+
 .content-inner blockquote.right {
 	@media screen and (min-width: $break-large) {
 		width: 300px;

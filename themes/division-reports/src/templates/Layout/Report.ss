@@ -1,4 +1,3 @@
-
 	<% if not $PaginatedList.NotFirstPage %>
 		<article>
 			<div class="container">
@@ -78,102 +77,106 @@
 				</div>
 			</div>
 		</div>
+
 		<% end_with %>
 		<% end_if %>
 
+		$BlockArea(BeforeContent)
 
-			<% if not $CurrentTag %>
-			<div class="explorenav">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-12">
-							<h3 class="text-center">Sections</h3>
-								<div class="row">
-									<% loop $allSections %>
-										<div class="col-sm-6 col-lg-4">
-											<a href="$Link" class="explorenav__link">
-												<div class="imagegradient">
-													<img src="$SectionCover.CroppedFocusedImage(400,140).URL" alt="" class="desaturate">
-												</div>
-												<h3>$Title</h3>
-											</a>
-										</div>
-									<% end_loop %>
-								</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-			<% end_if %>
-
-
-			<% if not $CurrentTag %>
+		<% if not $CurrentTag %>
+		<div class="explorenav">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-12">
-						<br><br>
-						<h3 class="text-center">Filter stories by department, topic, or search</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-4">
-
-						<select name="section-filter" id="section-dropdown" onchange="sectionList(this.value)" placeholder="Department" class="form-control story-filter__input story-filter__dept">
-						<option value="0" hidden>Section</option>
-						<% loop $Sections %>
-							<option value="$ID">$Title</option>
-						<% end_loop %>
-						</select>
-
-					</div>
-					<div class="col-lg-4">
-
-						<select name="topic-filter" id="tag-dropdown" onchange="tagList(this.value)" placeholder="Department" class="form-control story-filter__input story-filter__dept">
-						<option value="0" hidden>Topic</option>
-						<% loop $Tags %>
-							<option value="$ID">$Title</option>
-						<% end_loop %>
-						</select>
-
-					</div>
-					<div class="col-lg-4">
-					<form id="SearchForm_SearchForm" action="{$Link}SearchForm" method="get" enctype="application/x-www-form-urlencoded" class="story-filter__search">
-							<input type="search" name="Search" id="search-input" oninput="searchList(this.value)" placeholder="Search this report" class="story-filter__search-input">
-
-							<span class="story-filter__search-action">
-								<button type="submit" class="story-filter__search-button">
-									<img class="story-filter__search-icon" src="{$ThemeDir}/dist/images/search.svg" alt="Search">
-									<span class="sr-only">Search this report</span>
-								</button>
-							</span>
-						</form>
-					</div>
-				</div>
-
-			</div>
-			<% end_if %>
-			<% end_if %><%--end_if current page == Z1 --%>
-			<br><br />
-			<div class="filtered-story-card container">
-				<div id="filter-list"></div>
-
-				<div id="default-list">
-					<% if $PaginatedList.Exists %>
-						<% loop $PaginatedList %>
-							<% include StoryCardLarge %>
-						<% end_loop %>
-					<% else %>
-						<div class="container">
-							<div class="col-lg-8">
-								<p><%t Blog.NoPosts 'There are no stories in this section' %></p>
+					<div class="col-sm-12">
+						<h3 class="text-center">Sections</h3>
+							<div class="row">
+								<% loop $allSections %>
+									<div class="col-sm-6 col-lg-4">
+										<a href="$Link" class="explorenav__link">
+											<div class="imagegradient">
+												<img src="$SectionCover.CroppedFocusedImage(400,140).URL" alt="" class="desaturate">
+											</div>
+											<h3>$Title</h3>
+										</a>
+									</div>
+								<% end_loop %>
 							</div>
-						</div>
 
-					<% end_if %>
+					</div>
 				</div>
-		 	</div>
+			</div>
 		</div>
+		<% end_if %>
+
+
+		<% if not $CurrentTag %>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<br><br>
+					<h3 class="text-center">Filter stories by department, topic, or search</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">
+
+					<select name="section-filter" id="section-dropdown" onchange="sectionList(this.value)" placeholder="Department" class="form-control story-filter__input story-filter__dept">
+					<option value="0" hidden>Section</option>
+					<% loop $Sections %>
+						<option value="$ID">$Title</option>
+					<% end_loop %>
+					</select>
+
+				</div>
+				<div class="col-lg-4">
+
+					<select name="topic-filter" id="tag-dropdown" onchange="tagList(this.value)" placeholder="Department" class="form-control story-filter__input story-filter__dept">
+					<option value="0" hidden>Topic</option>
+					<% loop $Tags %>
+						<option value="$ID">$Title</option>
+					<% end_loop %>
+					</select>
+
+				</div>
+				<div class="col-lg-4">
+				<form id="SearchForm_SearchForm" action="{$Link}SearchForm" method="get" enctype="application/x-www-form-urlencoded" class="story-filter__search">
+						<input type="search" name="Search" id="search-input" oninput="searchList(this.value)" placeholder="Search this report" class="story-filter__search-input">
+
+						<span class="story-filter__search-action">
+							<button type="submit" class="story-filter__search-button">
+								<img class="story-filter__search-icon" src="{$ThemeDir}/dist/images/search.svg" alt="Search">
+								<span class="sr-only">Search this report</span>
+							</button>
+						</span>
+					</form>
+				</div>
+			</div>
+
+		</div>
+		<% end_if %>
+		<% end_if %><%--end_if current page == Z1 --%>
+		<br><br />
+		<div class="filtered-story-card container">
+			<div id="filter-list"></div>
+
+			<div id="default-list">
+				<% if $PaginatedList.Exists %>
+					<% loop $PaginatedList %>
+						<% include StoryCardLarge %>
+					<% end_loop %>
+				<% else %>
+					<div class="container">
+						<div class="col-lg-8">
+							<p><%t Blog.NoPosts 'There are no stories in this section' %></p>
+						</div>
+					</div>
+
+				<% end_if %>
+			</div>
+	 	</div>
+	</div>
+
+	$BlockArea(AfterContent)
 
 
 $Form
