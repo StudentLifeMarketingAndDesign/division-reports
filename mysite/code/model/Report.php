@@ -161,9 +161,12 @@ class Report_Controller extends Blog_Controller {
     public function section(){
 
         $section = $this->getCurrentSection();
-        
+        $data = new ArrayData(array(
+            'Title' => $section->Title
+        ));
+
         if ($section) {
-            return $this->renderWith(array('Report_section', 'Page'));
+            return $this->customise($data)->renderWith(array('Report_section', 'Page'));
         }
 
         $this->httpError(404, 'Not Found');

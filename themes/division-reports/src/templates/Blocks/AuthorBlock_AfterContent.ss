@@ -1,4 +1,4 @@
-<div class="author__block container container--wide">
+<div class="author__block container">
 	<% with $CurrentPage %>
 		<div class="row">
 		<% loop $Authors %>
