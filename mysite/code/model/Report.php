@@ -189,6 +189,14 @@ class Report_Controller extends Blog_Controller {
         return null;
     }
 
+    public function SectionsWithStories(){
+        return ReportSection::get()->filterByCallback(
+            function($item, $list) {
+                return $item->Stories()->Count() > 0; 
+            }
+        );
+    }
+
     /** 
      * Returns true if the $Rss sub-action for categories/tags has been set to "rss"
      */

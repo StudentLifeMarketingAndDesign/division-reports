@@ -114,21 +114,21 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<br><br>
-					<h3 class="text-center">Filter stories by department, topic, or search</h3>
+					<h3 class="text-center">Filter stories by department or search</h3>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-4">
+				<div class="col-lg-6">
 
 					<select name="section-filter" id="section-dropdown" onchange="sectionList(this.value)" placeholder="Department" class="form-control story-filter__input story-filter__dept">
-					<option value="0" hidden>Section</option>
-					<% loop $Sections %>
+					<option value="0" hidden>Department</option>
+					<% loop $SectionsWithStories %>
 						<option value="$ID">$Title</option>
 					<% end_loop %>
 					</select>
 
 				</div>
-				<div class="col-lg-4">
+<%-- 				<div class="col-lg-4">
 
 					<select name="topic-filter" id="tag-dropdown" onchange="tagList(this.value)" placeholder="Department" class="form-control story-filter__input story-filter__dept">
 					<option value="0" hidden>Topic</option>
@@ -137,8 +137,8 @@
 					<% end_loop %>
 					</select>
 
-				</div>
-				<div class="col-lg-4">
+				</div> --%>
+				<div class="col-lg-6">
 				<form id="SearchForm_SearchForm" action="{$Link}SearchForm" method="get" enctype="application/x-www-form-urlencoded" class="story-filter__search">
 						<input type="search" name="Search" id="search-input" oninput="searchList(this.value)" placeholder="Search this report" class="story-filter__search-input">
 
