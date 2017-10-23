@@ -10,6 +10,13 @@
 	& .row {
 		margin: 0;
 	}
+
+	&__link{
+		color: white;
+		&:hover{
+			color: #ccc;
+		}
+	}
 }
 
 .footer__dsl-logo-stacked {

@@ -481,3 +481,33 @@ img.center,
 	}
 }
 
+/* Tagline
+=========================================================== */
+.tagline {
+	font-size: 29px;
+	text-align: center;
+	padding: 25px 0 50px;
+	&__heading {
+		font-size: 15px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-top: 0;
+	}
+	&__text {
+		font-size: 18px;
+		line-height: 1.7;
+		@media (min-width: $break-medium) {
+			font-size: 23px;
+		}
+	}
+	&__separator {
+		height: 3px;
+		width: 10%;
+		margin: 20px auto 0;
+		background-color: $yellow;
+	}
+	@media (min-width: $break-large) {
+		padding: 25px 0 100px;
+	}
+}

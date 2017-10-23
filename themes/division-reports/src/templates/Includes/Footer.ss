@@ -28,8 +28,8 @@
 		<div class="small-12 columns">
 			<section>
 				<p>
-				&copy; $Now.Year <span>The University of Iowa. All Rights Reserved. Privacy Information </span><span>&#124;</span> <span>Created by </span>
-				<a href="http://md.studentlife.uiowa.edu/" target="_blank"><img src="{$ThemeDir}/src/images/md.png" class="md-bar--logo b-lazy lazy unveil" alt="Marketing and Design Logo" /></a>
+				&copy; $Now.Year <span><a class="footer__link" href="http://www.uiowa.edu/" target="_blank">The University of Iowa</a>. All Rights Reserved. <a class="footer__link" href="http://www.uiowa.edu/homepage/online-privacy-information" target="_blank">Privacy Information</a> </span><span>&#124;</span> <span>Created by </span>
+				<a class="footer__link" href="http://md.studentlife.uiowa.edu/" target="_blank"><img src="{$ThemeDir}/src/images/md.png" class="md-bar--logo b-lazy lazy unveil" alt="Marketing and Design Logo" /></a>
 				</p>
 			</section>
 		</div>
