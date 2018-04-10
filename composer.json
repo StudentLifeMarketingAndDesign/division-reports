@@ -22,7 +22,7 @@
 		"silverstripe-rebelalliance/youtubefield" : "*",
 		"unclecheese/betterbuttons": "1.3.*",
 		"jonom/silverstripe-betternavigator" : "*",
-		"bummzack/sortablefile" : "*"
+		"bummzack/sortablefile" : "1.*"
 
 	},
    "repositories":[  
