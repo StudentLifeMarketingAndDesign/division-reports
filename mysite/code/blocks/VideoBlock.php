@@ -1,6 +1,9 @@
 <?php
 
-class VideoBlock extends Block{
+use DNADesign\Elemental\Models\BaseElement;
+use EdgarIndustries\YouTubeField\YouTubeField;
+
+class VideoBlock extends BaseElement{
 
 	private static $db = array(
 		'YouTubeID' => 'Varchar(11)',
@@ -11,7 +14,7 @@ class VideoBlock extends Block{
 	);
 
 	private static $many_many = array(
-	
+
 	);
 
 	public function getCMSFields() {
@@ -19,5 +22,5 @@ class VideoBlock extends Block{
 		$f->addFieldToTab('Root.Main', new YouTubeField('YouTubeID', 'YouTube Video'));
 		return $f;
 	}
-	
+
 }

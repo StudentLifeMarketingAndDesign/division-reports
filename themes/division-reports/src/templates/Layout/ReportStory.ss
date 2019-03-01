@@ -1,5 +1,5 @@
 <main role="main" class="story-single">
-	$BlockArea(BeforeContent)
+	$BeforeContent
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-9 offset-lg-1">
@@ -70,11 +70,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 offset-lg-3">
-					$BlockArea(BeforeContentConstrained)
+					$BeforeContentConstrained
 					<div class="content-inner <% if $EnableDropCaps %>content-inner--with-dropcaps<% end_if %>">
-						$Content
+						$ElementalArea
 					</div>
-					$BlockArea(AfterContentConstrained)
+					$AfterContentConstrained
 
 				</div>
 			</div>
@@ -134,6 +134,6 @@
 			</div>
 		</div>
 	</div>
-	$BlockArea(AfterContent)
+	$AfterContent
 	<% include RelatedStories %>
 </main>

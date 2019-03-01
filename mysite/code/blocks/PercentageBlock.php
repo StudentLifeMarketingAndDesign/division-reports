@@ -1,6 +1,9 @@
 <?php
 
-class PercentageBlock extends Block{
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\DropdownField;
+use DNADesign\Elemental\Models\BaseElement;
+class PercentageBlock extends BaseElement{
 
 	private static $db = array(
 		"Value" => "Text",

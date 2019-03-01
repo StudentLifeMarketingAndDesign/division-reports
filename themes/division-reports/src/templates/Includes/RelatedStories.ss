@@ -32,9 +32,9 @@
 											<% if $FeaturedVideo %>
 												<img class="tilter__image" src="http://img.youtube.com/vi/$FeaturedVideo/sddefault.jpg" alt="$Title">
 											<% else_if $FeaturedImage %>
-												<img class="tilter__image" src="$FeaturedImage.CroppedFocusedImage(575,365).URL" <% if $FeaturedImageCaption %>alt="$FeaturedImageCaption" <% else %>alt="$Title"<% end_if %> />
+												<img class="tilter__image" src="$FeaturedImage.FocusFill(575,365).URL" <% if $FeaturedImageCaption %>alt="$FeaturedImageCaption" <% else %>alt="$Title"<% end_if %> />
 											<% else %>
-												<img class="tilter__image" src="$Sections.First.SectionCover.CroppedFocusedImage(575,365).URL" alt="$Title">
+												<img class="tilter__image" src="$Sections.First.SectionCover.FocusFill(575,365).URL" alt="$Title">
 											<% end_if %>
 
 											<div class="tilter__deco tilter__deco--shine"><div></div></div>

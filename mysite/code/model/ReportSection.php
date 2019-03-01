@@ -1,5 +1,22 @@
 <?php
 
+use SilverStripe\Assets\Image;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\ReadonlyField;
+use SilverStripe\Control\Controller;
+use SilverStripe\Blog\Model\Blog;
+use SilverStripe\Security\Permission;
+use SilverStripe\ORM\DataObject;
+use SilverStripe\Blog\Model\CategorisationObject;
+use DNADesign\Elemental\Models\ElementalArea;
+use DNADesign\Elemental\Models\BaseElement;
 /**
  * A department for keyword descriptions of a job listing location.
  *
@@ -25,7 +42,12 @@ class ReportSection extends DataObject implements CategorisationObject
 
     private static $has_one = array(
         'Blog' => 'Report',
-        "SectionCover" => "Image",
+        "SectionCover" => Image::class,
+        'SidebarArea' => ElementalArea::class,
+		'AfterContentConstrained' => ElementalArea::class,
+		'BeforeContent' => ElementalArea::class,
+		'BeforeContentConstrained' => ElementalArea::class,
+		'AfterContent' => ElementalArea::class,
     );
 
     private static $many_many = array(
@@ -73,22 +95,22 @@ class ReportSection extends DataObject implements CategorisationObject
             HTMLEditorField::create('Content', 'Content')
         );
 
-        if($this->ID){
-            // Blocks related directly to this Page
-            $gridConfig = GridFieldConfig_BlockManager::create(true, true, true, true)
-                ->addExisting($this->class)
-                //->addBulkEditing()
-                ->addComponent(new GridFieldOrderableRows())
-                ;
-            $gridSource = $this->Blocks();
+        // if($this->ID){
+        //     // Blocks related directly to this Page
+        //     $gridConfig = GridFieldConfig_BlockManager::create(true, true, true, true)
+        //         ->addExisting($this->class)
+        //         //->addBulkEditing()
+        //         ->addComponent(new GridFieldOrderableRows())
+        //         ;
+        //     $gridSource = $this->Blocks();
 
 
-        $fields->push(GridField::create('Blocks', _t('Block.PLURALNAME', 'Blocks'), $gridSource, $gridConfig));
+        // $fields->push(GridField::create('Blocks', _t('Block.PLURALNAME', 'Blocks'), $gridSource, $gridConfig));
 
-        }else{
-            $fields->push(ReadonlyField::create('You must save this section before you can add blocks'));
-        }
-        $areas = $this->blockManager->getAreasForPageType($this->owner->ClassName);
+        // }else{
+        //     $fields->push(ReadonlyField::create('You must save this section before you can add blocks'));
+        // }
+        // $areas = $this->blockManager->getAreasForPageType($this->owner->ClassName);
 
 
         //$this->extend('updateCMSFields', $fields);
@@ -133,7 +155,7 @@ class ReportSection extends DataObject implements CategorisationObject
      *
      * @return bool
      */
-    public function canCreate($member = null)
+    public function canCreate($member = null, $context = array())
     {
         $extended = $this->extendedCan(__FUNCTION__, $member);
 

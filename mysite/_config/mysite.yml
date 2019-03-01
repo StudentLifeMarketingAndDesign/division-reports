@@ -1,0 +1,28 @@
+---
+Name: myproject
+---
+SilverStripe\Core\Manifest\ModuleManifest:
+  project: mysite
+SilverStripe\Security\Member:
+  extensions:
+    - MemberExtension
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - SiteConfigExtension
+Page:
+  extensions:
+    - OpenGraphExtension
+    - DNADesign\Elemental\Extensions\ElementalPageExtension
+ReportSection:
+  extensions:
+    - DNADesign\Elemental\Extensions\ElementalPageExtension
+SilverStripe\Admin\LeftAndMain:
+  extra_requirements_css:
+    - themes/division-reports/dist/css/cms.css
+SilverStripe\Blog\Model\BlogPost:
+  default_sort: Sort
+SilverStripe\Assets\Image:
+  extensions:
+    - GalleryBlockImageExtension
+gorriecoe\Webfonts\View\Webfonts:
+  TypeKitID: ggu1mkb

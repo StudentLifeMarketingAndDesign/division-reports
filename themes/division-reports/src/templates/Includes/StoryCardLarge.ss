@@ -13,11 +13,11 @@
 				</a>
 			<% else_if $FeaturedImage %>
 				<a href="$Link" class="story-card-large__image-link">
-					<img class="story-card-large__image" src="$FeaturedImage.CroppedFocusedImage(506,340).URL" <% if $FeaturedImageCaption %>alt="$FeaturedImageCaption" <% else %>alt="$Title"<% end_if %> />
+					<img class="story-card-large__image" src="$FeaturedImage.FocusFill(506,340).URL" <% if $FeaturedImageCaption %>alt="$FeaturedImageCaption" <% else %>alt="$Title"<% end_if %> />
 				</a>
 			<% else %>
 				<a href="$Link" class="story-card-large__image-link">
-					<img class="story-card-large__image" src="$Sections.First.SectionCover.CroppedFocusedImage(506,340).URL" alt="$Title" />
+					<img class="story-card-large__image" src="$Sections.First.SectionCover.FocusFill(506,340).URL" alt="$Title" />
 				</a>
 			<% end_if %>
 		</div>

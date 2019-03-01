@@ -1,5 +1,18 @@
 <?php
 
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\Security\Member;
+use SilverStripe\Forms\ListboxField;
+use SilverStripe\Security\Permission;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\HeaderField;
+use SilverStripe\Blog\Model\Blog;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\Blog\Model\BlogPost;
+
 class ReportStory extends BlogPost {
 
 	private static $db = array(
@@ -20,7 +33,7 @@ class ReportStory extends BlogPost {
 	private static $plural_name = 'Stories';
 
 	private static $show_in_sitetree = true;
-	
+
 	private static $summary_fields = array('Title', 'ContributingSections');
 
 	public function getCMSFields() {
@@ -44,12 +57,12 @@ class ReportStory extends BlogPost {
 
 
 		$reportSections = $this->Parent()->Sections();
-		$sectionField = ListboxField::create('Sections', 'Departments / Section(s)', $reportSections->map()->toArray())->setMultiple(true);
+		$sectionField = ListboxField::create('Sections', 'Departments / Section(s)', $reportSections->map()->toArray());
 		if (!Permission::checkMember($member, 'ADMIN')) {
 
 			$sectionField->setDisabled(true);
 		}
-		$f->addFieldToTab('blog-admin-sidebar', $sectionField);
+		$f->addFieldToTab('Root.Main', $sectionField);
 		$f->addFieldToTab('Root.Main', TextField::create('FeaturedImageCaption', 'Cover Image Caption'), 'Summary');
 		$f->addFieldToTab('Root.Main', TextField::create('PhotoCredit', 'Photo Credit'), 'Summary');
 		$f->addFieldToTab('Root.Main',CheckboxField::create('IsFeatured', 'Can be featured on report homepage?'), 'Summary');
@@ -57,9 +70,9 @@ class ReportStory extends BlogPost {
 		$f->addFieldToTab('Root.Main', HeaderField::create( '<br><br><h3>Featured Video</h3>', '3', true ) );
 		$f->addFieldToTab('Root.Main', TextField::create('FeaturedVideo','Youtube id'));
 
-		$f->addFieldToTab('blog-admin-sidebar', $authorEmailField);
+		$f->addFieldToTab('Root.Main', $authorEmailField);
 
-		$f->renameField('blog-admin-sidebar', 'Story Options');
+		$f->renameField('Root.Main', 'Story Options');
 
 
 		return $f;
@@ -145,95 +158,81 @@ class ReportStory extends BlogPost {
 
 
 	public function onBeforeWrite() {
-    // check on first write action, aka 'database row creation' (ID-property is not set)
-    if(!$this->isInDb()) {
+	    // check on first write action, aka 'database row creation' (ID-property is not set)
+	    if(!$this->isInDb()) {
 
-    }
+	    }
 
-    // check on every write action:
-    $authorEmails = $this->AuthorEmails;
-    $authorEmailsArray = explode(',', $authorEmails);
-    //print_r($authorEmailsArray);
+	    $authorEmails = $this->StoryByEmail;
+	    $authorEmailsArray = explode(',', $authorEmails);
 
-    $this->Authors()->removeAll();
+	    $this->Authors()->removeAll();
 
-    foreach ($authorEmailsArray as $email){
-    	$email = trim($email);
-    	if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-  			// echo('$email is a valid email address');
-  			if (Member::get()->filter(array('Email' => $email))->First()){
-  				$author = Member::get()->filter(array('Email' => $email))->First();
-  				$this->Authors()->add($author);
-  			}
-  			else{
-  				$userLookup = $this->lookupUser($email);
-				if($userLookup){
-					$m = new Member();
-					$m->FirstName = $userLookup['firstName'];
-					$m->Surname = $userLookup['lastName'];
-					$m->Email = $email;
-					$m->GUID = $userLookup['guid'];
-					$m->write();
-					$this->Authors()->add($m);
-				}
-  			}
-		}
+	    foreach ($authorEmailsArray as $email){
+	    	$email = trim($email);
+	    	if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+	  			// echo('$email is a valid email address');
+	  			if (Member::get()->filter(array('Email' => $email))->First()){
+	  				$author = Member::get()->filter(array('Email' => $email))->First();
+	  				$this->Authors()->add($author);
+	  			}
+	  			else{
+	  				$userLookup = $this->lookupUser($email);
+					if($userLookup){
+						$m = new Member();
+						$m->FirstName = $userLookup['firstName'];
+						$m->Surname = $userLookup['lastName'];
+						$m->Email = $email;
+						$m->GUID = $userLookup['guid'];
+						$m->write();
+						$this->Authors()->add($m);
+					}
+	  			}
+			}
 
-
-
-		// else { echo('$email is not a valid email address'); }
-    }
-    // CAUTION: You are required to call the parent-function, otherwise
-    // SilverStripe will not execute the request.
-    parent::onBeforeWrite();
+	    }
+	    // CAUTION: You are required to call the parent-function, otherwise
+	    // SilverStripe will not execute the request.
+	    parent::onBeforeWrite();
   }
-
-  public function lookupUser($email){
+		private function lookupUser($email){
 			set_time_limit(30);
-
 			$ldapserver = 'iowa.uiowa.edu';
 			$ldapuser      =  AD_SERVICEID_USER;
 			$ldappass     = AD_SERVICEID_PASS;
-			$ldaptree    = 'DC=iowa, DC=uiowa, DC=edu';
+			$ldaptree    = "DC=iowa, DC=uiowa, DC=edu";
 
-			$ldapconn = ldap_connect($ldapserver) or die('Could not connect to LDAP server.');
+			$ldapconn = ldap_connect($ldapserver) or die("Could not connect to LDAP server.");
 
 			if($ldapconn) {
 			    // binding to ldap server
 			    ldap_set_option( $ldapconn, LDAP_OPT_PROTOCOL_VERSION, 3 );
 			    ldap_set_option( $ldapconn, LDAP_OPT_REFERRALS, 0 );
-			    $ldapbind = ldap_bind($ldapconn, $ldapuser, $ldappass) or die ('Error trying to bind: '.ldap_error($ldapconn));
+			    $ldapbind = ldap_bind($ldapconn, $ldapuser, $ldappass) or die ("Error trying to bind: ".ldap_error($ldapconn));
 			    // verify binding
 			    if ($ldapbind) {
-
 			    	//do stuff
-						$result = ldap_search($ldapconn,$ldaptree, 'mail='.$email, array('mail','sn', 'givenName', 'objectGUID', 'memberOf')) or die ('Error in search query: '.ldap_error($ldapconn));
+						$result = ldap_search($ldapconn,$ldaptree, "uiowaADNotificationAddress=".$email, array("uiowaADNotificationAddress=","sn", "givenName", "objectGUID", "memberOf")) or die ("Error in search query: ".ldap_error($ldapconn));
 
 			        	$data = ldap_get_entries($ldapconn, $result);
-			        	//print_r($data[0]);
-			        	if($data['count'] == 1){
-			        		$memberGuid = $this->GUIDtoStr($data[0]['objectguid'][0]);
+			        	if($data["count"] == 1){
+			        		$memberGuid = $this->GUIDtoStr($data[0]["objectguid"][0]);
 			        		$resultArray['guid'] = $memberGuid;
-			        		$resultArray['firstName'] = $data[0]['givenname'][0];
-			        		$resultArray['lastName'] = $data[0]['sn'][0];
-			        		// echo '<p>Found a GUID ('.$memberGuid.') matching the email <strong>'.$member->Email.'</strong>, adding it to the local member's GUID field.</p>';
-			        		//print_r($resultArray);
+			        		$resultArray['firstName'] = $data[0]["givenname"][0];
+			        		$resultArray['lastName'] = $data[0]["sn"][0];
 			        		return $resultArray;
-			        		// echo '<p><strong>Done.</strong></p>';
 			        	}
 
-
 			    } else {
-			        echo 'LDAP bind failed...';
+			        echo "LDAP bind failed...";
 			    }
 			}
 			// all done? clean up
 			ldap_close($ldapconn);
 		}
-
-		public function GUIDtoStr($binary_guid) {
-		  $unpacked = unpack('Va/v2b/n2c/Nd', $binary_guid);
-		  return sprintf('%08X-%04X-%04X-%04X-%04X%08X', $unpacked['a'], $unpacked['b1'], $unpacked['b2'], $unpacked['c1'], $unpacked['c2'], $unpacked['d']);
-		}
+	public function GUIDtoStr($binary_guid) {
+	  $unpacked = unpack('Va/v2b/n2c/Nd', $binary_guid);
+	  return sprintf('%08X-%04X-%04X-%04X-%04X%08X', $unpacked['a'], $unpacked['b1'], $unpacked['b2'], $unpacked['c1'], $unpacked['c2'], $unpacked['d']);
+	}
 
 }

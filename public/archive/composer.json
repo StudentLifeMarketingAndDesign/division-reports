@@ -1,0 +1,27 @@
+{
+	"name": "silverstripe/installer",
+	"description": "The SilverStripe Framework Installer",
+	"minimum-stability": "dev",
+	"require": {
+		"php": ">=5.3.2",
+        	"md/annual-report-project" : "dev-master"
+	},
+	"repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/division-bar"
+
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/annual-report-project"
+
+        },
+    	{
+    		"type":"vcs",
+    		"url" : "https://github.com/StudentLifeMarketingAndDesign/silverstripe-typekit"
+    	}
+    ]
+}
+
+

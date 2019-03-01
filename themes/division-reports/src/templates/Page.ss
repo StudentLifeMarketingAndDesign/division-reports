@@ -11,7 +11,7 @@
     <% else %>
       <title>$Title - $SiteConfig.Title | The University of Iowa</title>
     <% end_if %>
-    $OpenGraph
+    <%-- $OpenGraph --%>
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
@@ -37,7 +37,7 @@
     <meta name="msapplication-config" content="division-project/src/favicons/browserconfig.xml">
     <meta name="theme-color" content="#000000"> -->
 
-    $TypeKit
+    $TypeKitScript
     <script>
         // Picture element HTML5 shiv
         document.createElement( "picture" );

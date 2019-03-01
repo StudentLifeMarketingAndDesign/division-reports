@@ -1,6 +1,11 @@
 <?php
 
-class KeyStatisticsBlock extends Block{
+use SilverStripe\Assets\Image;
+use SilverStripe\Forms\TextField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\HeaderField;
+use DNADesign\Elemental\Models\BaseElement;
+class KeyStatisticsBlock extends BaseElement{
 
 	private static $db = array(
 		"Heading" => "Text",
@@ -13,14 +18,14 @@ class KeyStatisticsBlock extends Block{
 	);
 
 	private static $has_one = array(
-		'Image' => 'Image',
+		'Image' => Image::class,
 	);
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
 		$fields->addFieldToTab("Root.Main", new TextField("Heading", "Heading"));
-		$fields->addFieldToTab("Root.Main", new UploadField("Image", "Background Image (optional)"));
+		$fields->addFieldToTab("Root.Main", new UploadField(Image::class, "Background Image (optional)"));
 		$fields->addFieldToTab("Root.Main", new HeaderField( 'Stat 1', '3', true ));
 		$fields->addFieldToTab("Root.Main", new TextField("Stat1", "Stat 1"));
 		$fields->addFieldToTab("Root.Main", new TextField("StatLabel1", "Stat 1 Label"));

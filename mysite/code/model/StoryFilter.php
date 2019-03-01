@@ -1,5 +1,8 @@
 <?php
 
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Blog\Model\BlogFilter;
+
 /**
  * This class is responsible for filtering the SiteTree when necessary and also overlaps into
  * filtering only published posts.
@@ -48,6 +51,6 @@ class StoryFilter extends BlogFilter
         // $tab = new Tab('ChildPages', $this->getLumberjackTitle(), $gridField);
 
         // $fields->insertBefore($tab, 'Main');
-      
+
     }
 }

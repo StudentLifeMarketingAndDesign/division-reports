@@ -1,0 +1,227 @@
+#annual-report.content {
+	padding: 0;
+	width: 650px;
+	float: left;
+	background: url("../2011 Annual Report - Division of Student Life - The University of Iowa_files/annual_report_background.jpg");
+}
+
+#annual-report-header {
+	padding: 10px;
+	background: url("../2011 Annual Report - Division of Student Life - The University of Iowa_files/annual_report_header_bg.jpg");
+	border-bottom: 2px #ccc solid;
+}
+
+#feed-sidebar.annual-report-feed {
+	float: left;
+	width: 270px;
+	margin: 10px;
+
+}
+
+
+#annual-report-header h1{
+color: white;
+margin-bottom: 0;
+font-size: 48px;
+}
+
+
+#annual-report-header.cover {
+	background: url(./2011 Strategic Priorities - Division of Student Life - The University of Iowa_files/annual_report_header_bg.jpg);
+	border: none;
+}
+#annual-report-content {
+	padding: 20px;
+	border-left: 2px solid #ddd;
+	border-right: 2px solid #ddd;
+}
+
+.annual-report-nav {
+	float: left;
+	margin-top: 20px;
+}
+.annual-report-nav ul{
+	margin: 0;
+	padding: 0;
+}
+
+.annual-report-nav li {
+	list-style-type: none;
+	padding: 0;
+	background: #b3b2b1;
+	border-bottom-right-radius: 10px;
+	border-top-right-radius: 10px;
+	-moz-box-shadow: inset 2px 0px 3px #333;
+	-webkit-box-shadow: inset 2px 0px 3px #333;
+	box-shadow: inner 2px 0px 3px #333;
+	margin: 10px 0;
+	list-style-image: none;
+}
+
+.annual-report-nav li.current {
+	background: #fffdd3;
+	float: none;
+	width: auto;
+	filter: none;
+	-ms-filter: none;
+}
+.annual-report-nav li.link {
+	float: none;
+	background: #e6e5e3;
+	width: auto;
+}
+.annual-report-nav a {
+	padding: 10px;
+	color: #005b82;
+	width: 280px;
+	display: block;
+	font-family: 'Yanone Kaffeesatz', Arial, sans serif;
+	font-size: 28px;
+	text-align: right;
+	font-weight: normal;
+}
+
+.annual-report-nav a span {
+	padding: 16px;
+}
+#annual-report-content h1 {
+	color: white;
+	font-weight: normal;
+	font-size: 52px;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 12px;
+	margin-bottom: 15px;
+
+}
+
+#annual-report-content a {
+	font-weight: bold;
+	color: #008ec6;
+
+}
+
+
+#annual-report-content h2 {
+	font-family: 'Yanone Kaffeesatz', Arial, sans serif;
+	font-size: 38px;
+	font-weight: normal;
+	color: #007daf;
+}
+
+#annual-report-content h3 {
+
+	font-family: 'Yanone Kaffeesatz', Arial, sans serif;
+	font-size: 34px;
+	color: #00648b;
+	margin: 10px 0;
+}
+
+#annual-report-content p, #annual-report-content ul, #annual-report-content ol{
+	font-family: 'Lato', sans-serif;
+
+}
+
+#annual-report-content p {
+	font-size: 17px;
+	color: #3a3c3c;
+}
+
+#annual-report-content ul li ul {
+	background: none;
+	border: none;
+	margin-left: 25px;
+	list-style-type: square;
+}
+
+#annual-report-content ul li ul li {
+	color: #00658d;
+
+}
+
+#annual-report-content ul, #annual-report-content ol {
+	list-style: square;
+	font-size: 17px;
+	list-style-position: inside;
+	background-color: #FFFDD3; /* c'est pa, IE */
+	background-color: rgba(255, 253, 211,0.6);
+	padding: 10px;
+	line-height: 25px;
+	border: 1px solid #ddd;
+
+}
+
+#annual-report-content li {
+	font-size: 17px;
+	color: #00415b;
+	font-weight: 400;
+	padding: 5px 0;
+}
+#annual-report-content .annual-report-toc li {
+
+	color: #008EC6
+
+}
+
+.annual-report-sidebar {
+	width: 290px;
+	float: right;
+	margin-right: 20px;
+
+}
+
+.annual-report-sidebar img {
+	margin: 10px;
+
+}
+
+#annual-report-featurebox.side-feature {
+	width: 260px;
+	float: left;
+	margin: 10px;
+
+}
+
+#annual-report-content blockquote p{
+	color: #5a5a5a;
+
+}
+
+#annual-report-content blockquote {
+	/*font-weight: bold; */
+	margin:0;
+	padding:0 20px;
+	background-image:url('../images/quotemarks.png');
+	background-repeat:no-repeat;
+}
+
+#annual-report-content blockquote img.portrait {
+	float:right;
+	margin:0 0 20px 20px;
+}
+	
+
+#annual-report-content ul, #annual-report-content ol {
+/*	margin-left: 25px; */
+
+}
+
+#annual-report-content img.sig {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+
+}
+
+#annual-report-content img {
+  -moz-box-shadow: 0 3px 5px #222;
+  -webkit-box-shadow: 0 3px 5px #222;
+  box-shadow: 0 3px 5px #222;
+
+}
+
+.annual-report-header-context a{
+	font-family: 'Yanone Kaffeesatz', Arial, sans serif;
+	font-size: 28px;
+	color: #005b7f;
+	display: block;
+}

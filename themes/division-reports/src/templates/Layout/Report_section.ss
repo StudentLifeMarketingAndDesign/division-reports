@@ -5,7 +5,7 @@
 
 			<% loop $InfoSlides %>
 
-				<div class="infoslide" <% if $MediaType == "Image" %>style="background-image: url($BackgroundImage.CroppedFocusedImage(1500,900).URL"<% end_if %>>
+				<div class="infoslide" <% if $MediaType == "Image" %>style="background-image: url($BackgroundImage.FocusFill(1500,900).URL"<% end_if %>>
 
 					<% if $MediaType == "Video" %>
 						<div class="fullwidth-video">
@@ -31,16 +31,16 @@
 	<% end_if %>
 
 	<br />
-	$BlockArea(BeforeContent)
+	$BeforeContent
  	<div class="container">
  		<% if $Content %>
  			<div class="row">
  				<div class="col-lg-6 offset-lg-3">
- 					$BlockArea(BeforeContentConstrained)
+ 					$BeforeContentConstrained
 					<div class="content-inner">
 						$Content
 					</div>
-					$BlockArea(AfterContentConstrained)
+					$AfterContentConstrained
 				</div>
 			</div>
  		<% end_if %>
@@ -63,6 +63,6 @@
 
 
 	<% end_if %>
-	$BlockArea(AfterContent)
+	$AfterContent
 <% end_with %>
 

@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\ORM\DataExtension;
+
 class GalleryBlockImageExtension extends DataExtension
 {
 	private static $db = array(

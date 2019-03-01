@@ -1,5 +1,9 @@
 <?php
 
+use SilverStripe\Forms\TextField;
+use SilverStripe\CMS\Model\RedirectorPage;
+
+
 class ReportRedirector extends RedirectorPage {
 
 	private static $db = array(
@@ -11,7 +15,7 @@ class ReportRedirector extends RedirectorPage {
 	);
     private static $extensions = array(
 
-    );	
+    );
 
 	private static $allowed_children = array();
 
@@ -23,9 +27,3 @@ class ReportRedirector extends RedirectorPage {
 
 }
 
-class ReportRedirector_Controller extends RedirectorPage_Controller {
-
-
-	
-	
-}

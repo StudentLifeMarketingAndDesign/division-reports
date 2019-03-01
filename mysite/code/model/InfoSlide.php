@@ -1,5 +1,14 @@
 <?php
 
+use SilverStripe\Assets\Image;
+use SilverStripe\Assets\File;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\ORM\DataObject;
+use UncleCheese\DisplayLogic\Forms\Wrapper;
+use NathanCox\CodeEditorField\CodeEditorField;
 
 class InfoSlide extends DataObject
 {
@@ -37,8 +46,8 @@ class InfoSlide extends DataObject
     );
 
     private static $has_one = array(
-        'BackgroundImage' => 'Image',
-        'BackgroundVideo' =>  'File'
+        'BackgroundImage' => Image::class,
+        'BackgroundVideo' =>  File::class
     );
 
     private static $layout_types = array(
@@ -74,8 +83,8 @@ class InfoSlide extends DataObject
 
         $f->push($mediaType);
 
-        $f->push(DisplayLogicWrapper::create(UploadField::create('BackgroundVideo', 'Background Video'))->displayIf('MediaType')->isEqualTo('Video')->end());
-        $f->push(DisplayLogicWrapper::create(UploadField::create('BackgroundImage', 'Background Image'))->displayIf('MediaType')->isEqualTo('Image')->end());
+        $f->push(Wrapper::create(UploadField::create('BackgroundVideo', 'Background Video'))->displayIf('MediaType')->isEqualTo('Video')->end());
+        $f->push(Wrapper::create(UploadField::create('BackgroundImage', 'Background Image'))->displayIf('MediaType')->isEqualTo(Image::class)->end());
 
         $f->push(TextField::create('ButtonTitle', 'Button Title'));
         $f->push(TextField::create('ButtonLink', 'Button Link'));
@@ -89,7 +98,7 @@ class InfoSlide extends DataObject
 
         //$f->push($codeField);
 
-        $singleQuoteFields = DisplayLogicWrapper::create(
+        $singleQuoteFields = Wrapper::create(
             TextField::create('Quote'),
             TextField::create('QuoteCaption')
         )->displayIf('LayoutType')->isEqualTo('SingleQuote')->end();
@@ -101,7 +110,7 @@ class InfoSlide extends DataObject
         $codeField->addExtraClass('stacked');
         $codeField->setRows(30);
 
-        $arbitraryHtmlFields = DisplayLogicWrapper::create(
+        $arbitraryHtmlFields = Wrapper::create(
             $codeField
         )->displayIf('LayoutType')->isEqualTo('ArbitraryStatsHTML')->end();
 

@@ -1,42 +1,16 @@
-framework
-lumberjack
-blog
-cms
-assets
-tagfield
-siteconfig
-reports
-# ignore cache folder
 /silverstripe-cache/
-
-# ignore all environment files
-_ss_environment.php
-
-# ignore build tools
-/tools/phing-metadata
-
-# ignore composer vendor folder
+/.env
 /vendor/
-activedirectory/
-multivaluefield/
-queuedjobs/
-.tmp
-silverstripe-typekit/
-node_modules
+/themes/simple/
+/resources/
+/public/resources/
+/public/assets/
+/assets
+/cache
 npm-debug.log
-betterbuttons/
-/blocks/
-gridfieldextensions/
 .DS_Store
-uiowa-bar
+.sass-cache
+node_modules/
+maintenance-mode/
 .phpintel
-codeeditorfield/
-display_logic/
-focuspoint/
-bootstrap-forms/
-youtubefield/
-debugbar
-division-analytics/
-betternavigator/
-archive
-sortablefile/
+

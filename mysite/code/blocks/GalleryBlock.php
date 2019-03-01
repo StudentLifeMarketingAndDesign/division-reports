@@ -1,6 +1,9 @@
 <?php
 
-class GalleryBlock extends Block{
+use SilverStripe\Assets\Image;
+use Bummzack\SortableFile\Forms\SortableUploadField;
+use DNADesign\Elemental\Models\BaseElement;
+class GalleryBlock extends BaseElement{
 
 	private static $db = array(
 
@@ -11,7 +14,7 @@ class GalleryBlock extends Block{
 	);
 
 	private static $many_many = array(
-		'GalleryImages' => 'Image'
+		'GalleryImages' => Image::class
 	);
     private static $many_many_extraFields = array(
         'GalleryImages' => array('SortOrder' => 'Int')

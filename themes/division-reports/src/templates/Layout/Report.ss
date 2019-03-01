@@ -81,7 +81,7 @@
 		<% end_with %>
 		<% end_if %>
 
-		$BlockArea(BeforeContent)
+		$BeforeContent
 
 		<% if not $CurrentTag %>
 		<div class="explorenav">
@@ -94,7 +94,7 @@
 									<div class="col-sm-6 col-lg-4">
 										<a href="$Link" class="explorenav__link">
 											<div class="imagegradient">
-												<img src="$SectionCover.CroppedFocusedImage(400,140).URL" alt="" class="desaturate">
+												<img src="$SectionCover.FocusFill(400,140).URL" alt="" class="desaturate">
 											</div>
 											<h3>$Title</h3>
 										</a>
@@ -176,7 +176,7 @@
 	 	</div>
 	</div>
 
-	$BlockArea(AfterContent)
+	$AfterContent
 
 
 $Form

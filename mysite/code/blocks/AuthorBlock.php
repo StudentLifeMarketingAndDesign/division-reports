@@ -1,17 +1,17 @@
 <?php
-
-class AuthorBlock extends Block{
+use DNADesign\Elemental\Models\BaseElement;
+class AuthorBlock extends BaseElement{
 
 	private static $db = array(
 
 	);
 
 	private static $has_one = array(
-		
+
 	);
 
 	private static $many_many = array(
-	
+
 	);
 
 	public function getCMSFields() {
@@ -21,5 +21,5 @@ class AuthorBlock extends Block{
 
 		return $f;
 	}
-	
+
 }
